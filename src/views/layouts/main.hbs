@@ -1,12 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-</head>
-<body>
-    {{{body}}}
-</body>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <link rel='icon' href='/images/cropped-logo-hh-nen-den-192x192.png' sizes='192x192' />
+        <link rel='apple-touch-icon' href='/images/cropped-logo-hh-nen-den-180x180.png' />
+        <meta name='msapplication-TileImage' content='images/cropped-logo-hh-nen-den-270x270.png' />
+        {{! SEO }}
+        <meta name='description' content='{{meta.desc}}' />
+        <meta name='keywords' content='{{meta.keywords}}' />
+        <meta name='author' content='' />
+        <link rel='canonical' href='{{urlcanonical}}' />
+        <meta name='robots' content='INDEX, FOLLOW' />
+        <meta property='og:site_name' content='http://localhost:81/lavarel%208/shop-vincent/' />
+        <meta property='og:description' content='{{meta.desc}}' />
+        <meta property='og:title' content='{{meta.title}}' />
+        <meta property='og:url' content='{{urlcanonical}}' />
+        <meta property='og:type' content='website' />
+
+        <title>Safebooks Giải pháp thông minh - Phát triển bền vững</title>
+        <link as="style" href="//fonts.googleapis.com/css?family=Roboto%3Aregular%2C700%2Cregular%2C700%7CDancing+Script%3Aregular%2C400&amp;display=swap&amp;ver=3.9" id="flatsome-googlefonts-css" media="all" onload="this.onload=null;this.rel='stylesheet'" rel="stylesheet" type="text/css">
+        <link as="style" crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.10.2/css/v4-shims.css" id="font-awesome-official-v4shim-css" integrity="sha384-updXts+unDswrMsYxLc5R+HfSmF8CuEIOe48Rj3DoVoPUIImOT1fs26H/tr/H9gC" media="all" onload="this.onload=null;this.rel='stylesheet'" rel="stylesheet" type="text/css">
+        {{> style}}
+    </head>
+
+    <body class='{{template}}'>
+        {{> header}}
+        <main class='main' >
+            {{{body}}}
+        </main>
+        
+        {{> footer}}
+        {{> script}}
+    </body>
 </html>
