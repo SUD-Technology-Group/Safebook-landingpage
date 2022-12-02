@@ -15,27 +15,27 @@ const authController = {
 		const { username, password } = req.body;
 		if (!username || !password) {
 			req.flash('error', 'Tên đăng nhập hoặc mật khẩu không hợp lệ!');
-			return res.redirect('admin/auth/login');
+			return res.redirect('/admin/auth/login');
 		}
 		const user = await userService.getOne({ username });
 		if (user && bcrypt.compareSync(password, user.password)) {
-			jwt.sign(
+            jwt.sign(
 				{ username, id: user._id },
 				'sud',
 				{ expiresIn: '2h' },
 				(err, token) => {
 					if (err) {
 						req.flash('error', 'Đăng nhập thất bại');
-						return res.redirect('admin/auth/login');
+						return res.redirect('/admin/auth/login');
 					} else {
 						res.cookie('AuthToken', token);
-						return res.redirect('back');
+						return res.redirect('/admin');
 					}
 				}
 			);
 		} else {
 			req.flash('error', 'Tên đăng nhập hoặc mật khẩu không hợp lệ!');
-			res.redirect('admin/auth/login');
+			res.redirect('/admin/auth/login');
 		}
 	}),
 
@@ -73,7 +73,7 @@ const authController = {
 	// GET admin/auth/logout
 	logout: (req, res) => {
 		res.clearCookie('AuthToken');
-		res.redirect('/auth/login');
+		res.redirect('/admin/auth/login');
 	},
 };
 

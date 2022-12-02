@@ -1,0 +1,200 @@
+<h3 class='mb-3'>Banner</h3>
+<section class='p-4 shadow rounded'>
+    <a 
+        href="#"
+        class='btn btn-success'
+        data-mdb-toggle='modal'
+		data-mdb-target='#createModal'
+    >+ Thêm</a>
+    <hr>
+    <table id='table_id' class='display'>
+        <thead>
+            <tr>
+                <th>Nội dung</th>
+                <th>Hình ảnh</th>
+                <th>Background</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each banners}}
+            <tr>
+                <td>{{content}}</td>
+                <td>{{image}}</td>
+                <td>{{backgroundImage}}</td>
+                <td>
+                    <a 
+                        href="#"
+                        data-mdb-toggle='modal'
+                        data-mdb-target='#createModal'
+                        class='me-2'
+                    ><i class="fa-solid fa-eye"></i></a>
+                    <a 
+                        href="#"
+                        data-mdb-toggle='modal'
+                        data-mdb-target='#updateModal'
+                        onclick="$('update-id').val('{{_id}}')"
+                        class='me-2 text-warning'
+                    ><i class="fa-solid fa-pen"></i></a>
+                    <a 
+                        href="#"
+                        data-mdb-toggle='modal'
+                        data-mdb-target='#deleteModal'
+                        class='me-2 text-danger'
+                        onclick="$('delete-id').val('{{_id}}')"
+                    ><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody
+    </table>
+</section>
+
+<!-- Modal -->
+<div
+	class='modal fade modal-lg'
+	id='createModal'
+	tabindex='-1'
+	aria-labelledby='exampleModalLabel'
+	aria-hidden='true'
+>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<h5 class='modal-title' id='exampleModalLabel'>Thêm banner</h5>
+				<button
+					type='button'
+					class='btn-close'
+					data-mdb-dismiss='modal'
+					aria-label='Close'
+				></button>
+			</div>
+			<form method='post' action='banner/create' class='mb-0'>
+				<div class='modal-body'>
+					<div class='form-outline mb-4'>
+						<input type='text' name='name' class='form-control' />
+						<label class='form-label' for='desc'>Tên<span class='text-danger'> *</span></label>
+					</div>
+					<div class='form-outline mb-4'>
+						<input type='number' min="10" max="12" name='grade' class='form-control' />
+						<label class='form-label' for='answer'>Khối<span class='text-danger'> *</span></label>
+					</div>
+				</div>
+				<div class='modal-footer'>
+					<button
+						type='button'
+						class='btn btn-secondary'
+						data-mdb-dismiss='modal'
+					>Đóng</button>
+					<button type='submit' class='btn btn-primary'>Thêm</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div
+	class='modal fade modal-lg'
+	id='updateModal'
+	tabindex='-1'
+	aria-labelledby='exampleModalLabel'
+	aria-hidden='true'
+>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<h5 class='modal-title' id='exampleModalLabel'>Chỉnh sửa banner</h5>
+				<button
+					type='button'
+					class='btn-close'
+					data-mdb-dismiss='modal'
+					aria-label='Close'
+				></button>
+			</div>
+			<form method='post' action='banner/update' class='mb-0'>
+				<div class='modal-body'>
+                    <input type="hidden" name="_id" id="delete-id">
+					<div class='form-outline mb-4'>
+						<input type='text' name='name' class='form-control' />
+						<label class='form-label' for='desc'>Tên<span class='text-danger'> *</span></label>
+					</div>
+					<div class='form-outline mb-4'>
+						<input type='number' min="10" max="12" name='grade' class='form-control' />
+						<label class='form-label' for='answer'>Khối<span class='text-danger'> *</span></label>
+					</div>
+				</div>
+				<div class='modal-footer'>
+					<button
+						type='button'
+						class='btn btn-secondary'
+						data-mdb-dismiss='modal'
+					>Đóng</button>
+					<button type='submit' class='btn btn-primary'>Cập nhật</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div
+	class='modal fade'
+	id='deleteModal'
+	tabindex='-1'
+	aria-labelledby='exampleModalLabel'
+	aria-hidden='true'
+>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<h5 class='modal-title' id='exampleModalLabel'>Xoá banner</h5>
+				<button
+					type='button'
+					class='btn-close'
+					data-mdb-dismiss='modal'
+					aria-label='Close'
+				></button>
+			</div>
+			<form method='post' action='banner/delete' class='mb-0'>
+				<div class='modal-body'>
+                    <input type="hidden" name="_id" id="delete-id">
+					Bạn có chắc chắn muốn xoá banner này không?
+				</div>
+				<div class='modal-footer'>
+					<button
+						type='button'
+						class='btn btn-secondary'
+						data-mdb-dismiss='modal'
+					>Đóng</button>
+					<button type='submit' class='btn btn-danger'>Xoá</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{{#if message.success}}
+<div class="toast fade mx-auto toast-success toast-fixed show" role="alert" aria-live="assertive" aria-atomic="true" data-mdb-autohide="true" data-mdb-position="top-right" data-mdb-append-to-body="true" data-mdb-stacking="true" data-mdb-width="350px" data-mdb-color="success"
+    style="width: 350px; display: block; top: 10px; right: 10px; bottom: unset; left: unset; transform: unset;"
+    >
+    <div class="toast-header toast-success">
+    <i class="fas fa-check fa-lg me-2"></i>
+    <strong class="me-auto">Thành công</strong>
+    <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">{{message.success}}</div>
+</div>
+{{/if}}
+
+
+{{#if message.error}}
+<div class="toast fade mx-auto toast-danger toast-fixed show" role="alert" aria-live="assertive" aria-atomic="true" data-mdb-autohide="true" data-mdb-position="top-right" data-mdb-append-to-body="true" data-mdb-stacking="true" data-mdb-width="350px" data-mdb-color="success"
+    style="width: 350px; display: block; top: 10px; right: 10px; bottom: unset; left: unset; transform: unset;"
+    >
+    <div class="toast-header toast-danger">
+    <i class="fas fa-exclamation-circle fa-lg me-2"></i>
+    <strong class="me-auto">Thất bại</strong>
+    <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">{{message.error}}</div>
+</div>
+{{/if}}
