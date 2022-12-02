@@ -3,10 +3,7 @@ const router = express.Router();
 
 const { authController } = require('../controllers');
 
-// Current path: /auth
-router.get('/', (req, res) => {
-  return res.render('client/index');
-});
+// Path: [/admin/auth]
 router.get('/login', authController.loginView);
 router.post('/login', authController.login);
 router.post('/change-password', authController.changePassword, authController.logout);
