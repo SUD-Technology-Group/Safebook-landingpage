@@ -4,10 +4,6 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 });
 
 $(document).ready(function () {
-  $('.mobile-nav').on('click', function () {
-    $('.navbar-dark').addClass('flex-column-reverse');
-  });
-
   $('.nav-item-has-children').on('mouseover', function () {
     $('.nav-item-has-children').addClass('current-dropdown');
     $('.nav-dropdown').css('margin-left', '-36.425px');
