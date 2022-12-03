@@ -283,7 +283,8 @@ a:hover {
     transform: translateY(0);
   }
 }
-.swiper-container {
+.swiper-container,
+.swiper-container-banner {
   width: 100%;
   position: static;
   margin-left: auto;
@@ -292,30 +293,14 @@ a:hover {
   z-index: 1;
   cursor: grab;
 }
-/* 
-
-
 .swiper-slide {
-  flex-shrink: 0;
-  position: relative;
-  text-align: center;
-
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
+  width: 100%;
+  background-size: cover;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
   align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
-
-*/
-
 .swiper-wrapper {
   position: relative;
   height: auto;
@@ -444,6 +429,11 @@ a:hover {
   display: block;
   text-align: left;
 }
+.slide-bg-image.swiper-slide-active {
+}
+
+.slide-bg-image {
+}
 
 /* swiper arrows */
 
@@ -535,6 +525,9 @@ a:hover {
   .swiper-banner-button-prev:hover span:after,
   .swiper-banner-button-next:hover span:after {
     display: none;
+  }
+  .hero-slider {
+    display: none !important;
   }
 }
 
