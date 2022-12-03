@@ -42,11 +42,11 @@
   </div>
 </div>
 {{#each sections}}
-  {{#when layout 'eq'  'Heading'}}
+  {{#when layout 'eq'  'Liên kết'}}
     {{> section/headingSection title=title href=link }}
   {{/when}}
 
-  {{#when layout 'eq'  'Contact'}}
+  {{#when layout 'eq'  'Hỗ trợ'}}
      {{> section/contactSection title=title }}
   {{/when}}
 {{/each}}
@@ -55,13 +55,13 @@
   <div class='section-content relative'>
     <div class='gap-element clearfix' style='display:block; height:auto; padding-top:50px'></div>
       {{#each sections}}
-          {{#when layout 'eq' 'Intro'}}
+          {{#when layout 'eq' 'Giới thiệu'}}
              {{> section/introSection title=title description=description }}
           {{/when}}
       {{/each}}
 
       {{#each sections}}
-        {{#when layout 'eq' 'Content'}}
+        {{#when layout 'eq' 'Nội dung'}}
           {{#when @index 'eq' 4}}
               {{> section/contentSection title=title  description="
                 <div class='icon-box featured-box icon-box-left text-left'>
@@ -499,12 +499,12 @@
 {{> section/slideSection customers=customers }}
 
 {{#each sections}}
-  {{#when layout 'eq' 'Staff'}}
+  {{#when layout 'eq' 'Đội ngũ'}}
     {{> section/staffSection title=title description=description  }}
   {{/when}}
 {{/each}}
 {{#each sections}}
-  {{#when layout 'eq' 'Comment'}}
+  {{#when layout 'eq' 'Bình luận'}}
     {{> section/feedbackSection  title=title description=description}}
   {{/when}}
 {{/each}}
