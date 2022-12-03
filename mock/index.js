@@ -23,24 +23,24 @@ const deleteData = async () => {
 };
 
 const resetData = async () => {
-    await deleteData();
-    await importData();
+  await deleteData();
+  await importData();
 };
 
 (async () => {
-    try {
-        await mongoose.connect(
-            'mongodb+srv://safebook:safebook@cluster0.k4clata.mongodb.net/db?retryWrites=true&w=majority',
-            {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-            }
-        );
-        await resetData();
-        console.log('Reset data successfully');
-    } catch (err) {
-        console.error(err);
-    } finally {
-        mongoose.disconnect();
-    }
+  try {
+    await mongoose.connect(
+      'mongodb+srv://safebook:safebook@cluster0.k4clata.mongodb.net/db?retryWrites=true&w=majority',
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
+    await resetData();
+    console.log('Reset data successfully');
+  } catch (err) {
+    console.error(err);
+  } finally {
+    mongoose.disconnect();
+  }
 })();
