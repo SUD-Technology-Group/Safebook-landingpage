@@ -40,7 +40,7 @@ const bannerController = {
         });
     }),
 
-    // POST /admin/banner/sua
+    // POST /admin/banner/:id
     update: catchAsync(async (req, res) => {
         let { image, backgroundImage } = await bannerService.getOne({
             _id: req.params.id,

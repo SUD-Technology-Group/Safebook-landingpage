@@ -19,7 +19,7 @@ const sectionController = {
         });
     }),
 
-    // POST /admin/section/sua
+    // POST /admin/section/:id
     update: catchAsync(async (req, res) => {
         let { image } = await sectionService.getOne({ _id: req.params.id });
 
@@ -36,7 +36,7 @@ const sectionController = {
         await sectionService
             .update({ _id: req.params.id }, { ...req.body, image })
             .catch((err) => {
-                req.flash('error', 'Cập nhật section thất bại' + err);
+                req.flash('error', 'Cập nhật section thất bại');
                 return res.redirect('back');
             });
 

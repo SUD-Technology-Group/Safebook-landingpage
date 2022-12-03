@@ -1,45 +1,65 @@
 <h3 class='mb-3'>{{title}}</h3>
 <section class='p-4 shadow rounded'>
-    <form
-        method='post'
-        class='mb-0'
-        enctype='multipart/form-data'
-    >
+    <form method='post' class='mb-0' enctype='multipart/form-data'>
         <div class='modal-body'>
-            <div class='mb-3'>
-                <label class='form-label bold' for='customFile'>Nội dung</label>
-                <textarea name='content' class='ckeditor'>{{banner.content}}</textarea>
+            <div class='form-outline mb-4'>
+                <input
+                    type='text'
+                    name='name'
+                    value='{{staff.name}}'
+                    class='form-control'
+                    required
+                />
+                <label class='form-label bold' for='desc'>Tên
+                    <span class='text-danger'>*</span></label>
+            </div>
+
+            <div class='form-outline mb-4'>
+                <input
+                    type='text'
+                    name='position'
+                    value='{{staff.position}}'
+                    class='form-control'
+                    required
+                />
+                <label class='form-label bold' for='desc'>Vị trí
+                    <span class='text-danger'>*</span></label>
             </div>
 
             <div class='mb-3'>
-                <label class='form-label bold' for='customFile'>Hình ảnh</label>
+                <label class='form-label bold' for='customFile'>Avatar</label>
                 <input
                     type='file'
                     class='form-control'
                     id='customFile'
                     accept='image/*'
-                    name='banner'
+                    name='staff'
                 />
-                <img src='{{banner.image}}' alt='' id='bannerImg' width='20%' class='mt-2' />
+                <img src='{{staff.avatar}}' alt='' width='20%' class='mt-2' />
             </div>
 
-            <div class='mb-3'>
-                <label class='form-label bold' for='customFile'>Ảnh nền</label>
+            <div class='form-outline mb-4'>
                 <input
-                    type='file'
+                    type='text'
+                    name='phone'
+                    value='{{staff.phone}}'
                     class='form-control'
-                    id='customFile'
-                    accept='image/*'
-                    name='bannerBg'
                 />
-                <img src='{{banner.backgroundImage}}' alt='' id='bannerBg' width='20%' class='mt-2' />
+                <label class='form-label bold' for='desc'>Điện thoại</label>
+            </div>
+
+            <div class='form-outline mb-4'>
+                <input
+                    type='text'
+                    name='facebook'
+                    value='{{staff.facebook}}'
+                    class='form-control'
+                />
+                <label class='form-label bold' for='desc'>Facebook</label>
             </div>
         </div>
         <div class='modal-footer'>
-            <a
-                href='/admin'
-                class='btn btn-secondary me-3'
-            >Đóng</a>
+            <a href='/admin/doi-ngu' class='btn btn-secondary me-3'>Đóng</a>
             <button type='submit' class='btn btn-primary'>Cập nhật</button>
         </div>
     </form>
