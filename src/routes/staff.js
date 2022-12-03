@@ -3,10 +3,13 @@ const router = express.Router();
 
 const { staffController, adminController } = require('../controllers');
 
-// Path: [/admin/staff]
+const upload = require('../middlewares/upload');
+
+// Path: [/admin/doi-ngu]
 router.get('/', adminController.getStaffs);
-router.post('/create', staffController.create);
-router.post('/update', staffController.update);
-router.post('/delete', staffController.delete);
+router.post('/them', upload.single('staff'), staffController.create);
+router.post('/xoa', staffController.delete);
+router.get('/:id', staffController.updateView);
+router.post('/:id', upload.single('staff'), staffController.update);
 
 module.exports = router;

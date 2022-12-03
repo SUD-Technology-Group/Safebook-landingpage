@@ -1,5 +1,5 @@
 const catchAsync = require('../utils/catchAsync');
-const { bannerService } = require('../services');
+const { bannerService, sectionService, staffService, commentService } = require('../services');
 
 const adminController = {
     // GET /admin/
@@ -18,19 +18,49 @@ const adminController = {
     }),
 
     // GET /admin/section
-    getSections: (req, res) => {
-        res.render('admin/section', { title: 'Section', layout: 'admin' });
-    },
+    getSections: catchAsync(async (req, res) => {
+        const message = {
+            error: req.flash('error'),
+            success: req.flash('success'),
+        };
+        const sections = await sectionService.get({});
+        res.render('admin/section', {
+            title: 'Section',
+            layout: 'admin',
+            sections,
+            message,
+        });
+    }),
 
-    // GET /admin/staff
-    getStaffs: (req, res) => {
-        res.render('admin/staff', { title: 'Đội ngũ', layout: 'admin' });
-    },
+    // GET /admin/doi-ngu
+    getStaffs: catchAsync(async (req, res) => {
+        const message = {
+            error: req.flash('error'),
+            success: req.flash('success'),
+        };
+        const staffs = await staffService.get({});
+        res.render('admin/staff', {
+            title: 'Đội ngũ',
+            layout: 'admin',
+            staffs,
+            message,
+        });
+    }),
 
-    // GET /admin/comment
-    getComments: (req, res) => {
-        res.render('admin/comment', { title: 'Bình luận', layout: 'admin' });
-    },
+    // GET /admin/binh-luan
+    getComments: catchAsync(async (req, res) => {
+        const message = {
+            error: req.flash('error'),
+            success: req.flash('success'),
+        };
+        const comments = await commentService.get({});
+        res.render('admin/comment', {
+            title: 'Bình luận',
+            layout: 'admin',
+            comments,
+            message,
+        });
+    }),
 };
 
 module.exports = adminController;

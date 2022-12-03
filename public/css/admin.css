@@ -52,3 +52,6 @@ body {
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
+
+table.fixed { table-layout:fixed; }
+table.fixed td { overflow: hidden; }

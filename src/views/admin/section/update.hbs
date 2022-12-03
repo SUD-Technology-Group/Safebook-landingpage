@@ -1,0 +1,127 @@
+<h3 class='mb-3'>{{title}}</h3>
+<section class='p-4 shadow rounded'>
+    <form method='post' class='mb-0' enctype='multipart/form-data'>
+        <div class='modal-body'>
+            <div class='form-outline mb-4'>
+                <input
+                    type='text'
+                    name='title'
+                    value='{{section.title}}'
+                    class='form-control'
+                    required
+                />
+                <label class='form-label bold' for='desc'>Tiêu đề
+                    <span class='text-danger'>*</span></label>
+            </div>
+            <div class='mb-4'>
+                <label class='form-label bold' for='customFile'>Mô tả</label>
+                <textarea
+                    name='description'
+                    class='ckeditor'
+                >{{section.description}}</textarea>
+            </div>
+
+            <div class='row mb-4'>
+                <div class='col'>
+                    <div class='form-outline'>
+                        <input
+                            type='color'
+                            name="backgroundColor"
+                            class='form-control'
+                            value="{{section.backgroundColor}}"
+                        />
+                        <label class='form-label bold' for='form6Example1'>Màu nền</label>
+                    </div>
+                </div>
+                <div class='col'>
+                    <div class='form-outline'>
+                        <input
+                            type='text'
+                            name="link"
+                            value="{{section.link}}"
+                            class='form-control'
+                        />
+                        <label class='form-label bold' for='form6Example2'>Liên kết</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class='mb-3'>
+                <label class='form-label bold' for='customFile'>Hình ảnh</label>
+                <input
+                    type='file'
+                    class='form-control'
+                    id='customFile'
+                    accept='image/*'
+                    name='section'
+                />
+                <img
+                    src='{{section.image}}'
+                    alt=''
+                    width='20%'
+                    class='mt-2'
+                />
+            </div>
+        </div>
+        <div class='modal-footer'>
+            <a href='/admin/section' class='btn btn-secondary me-3'>Đóng</a>
+            <button type='submit' class='btn btn-primary'>Cập nhật</button>
+        </div>
+    </form>
+</section>
+
+{{#if message.success}}
+    <div
+        class='toast fade mx-auto toast-success toast-fixed show'
+        role='alert'
+        aria-live='assertive'
+        aria-atomic='true'
+        data-mdb-autohide='true'
+        data-mdb-position='top-right'
+        data-mdb-append-to-body='true'
+        data-mdb-stacking='true'
+        data-mdb-width='350px'
+        data-mdb-color='success'
+        style='width: 350px; display: block; top: 10px; right: 10px; bottom: unset; left: unset; transform: unset;'
+    >
+        <div class='toast-header toast-success'>
+            <i class='fas fa-check fa-lg me-2'></i>
+            <strong class='me-auto'>Thành công</strong>
+            <button
+                type='button'
+                class='btn-close'
+                data-mdb-dismiss='toast'
+                aria-label='Close'
+            ></button>
+        </div>
+        <div class='toast-body'>{{message.success}}</div>
+    </div>
+{{/if}}
+
+{{#if message.error}}
+    <div
+        class='toast fade mx-auto toast-danger toast-fixed show'
+        role='alert'
+        aria-live='assertive'
+        aria-atomic='true'
+        data-mdb-autohide='true'
+        data-mdb-position='top-right'
+        data-mdb-append-to-body='true'
+        data-mdb-stacking='true'
+        data-mdb-width='350px'
+        data-mdb-color='success'
+        style='width: 350px; display: block; top: 10px; right: 10px; bottom: unset; left: unset; transform: unset;'
+    >
+        <div class='toast-header toast-danger'>
+            <i class='fas fa-exclamation-circle fa-lg me-2'></i>
+            <strong class='me-auto'>Thất bại</strong>
+            <button
+                type='button'
+                class='btn-close'
+                data-mdb-dismiss='toast'
+                aria-label='Close'
+            ></button>
+        </div>
+        <div class='toast-body'>{{message.error}}</div>
+    </div>
+{{/if}}

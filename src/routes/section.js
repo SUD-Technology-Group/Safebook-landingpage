@@ -3,10 +3,11 @@ const router = express.Router();
 
 const { sectionController, adminController } = require('../controllers');
 
+const upload = require('../middlewares/upload');
+
 // Path: [/admin/section]
 router.get('/', adminController.getSections);
-router.post('/create', sectionController.create);
-router.post('/update', sectionController.update);
-router.post('/delete', sectionController.delete);
+router.get('/:id', sectionController.updateView);
+router.post('/:id', upload.single('section'), sectionController.update);
 
 module.exports = router;
