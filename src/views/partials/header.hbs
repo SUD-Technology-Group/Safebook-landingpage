@@ -1,7 +1,7 @@
 <header class='header has-sticky sticky-jump' id='header' style=''>
   <div class='header-wrapper'>
     <div class='header-top hide-for-sticky nav-dark hide-for-medium' id='top-bar'>
-      <div class='container justify-content-center'>
+      <div class='d-flex h-100 container justify-content-center'>
         <div class='flex-col hide-for-medium flex-left'>
           <ul class='nav nav-left medium-nav-center nav-small nav-divided'>
             <li class='header-contact-wrapper'>
@@ -14,7 +14,7 @@
                     target='_blank'
                     data-bs-toggle='tooltip'
                     data-bs-placement='bottom'
-                    title='Địa chỉ'
+                    title='https://maps.google.com/?q=597M Tên Lửa, phường Bình Trị Đông B, quận Bình Tân, Hồ Chí Minh, Việt Nam'
                   >
                     <i class='icon-map-pin-fill' style='font-size:16px;'>
 
@@ -28,7 +28,7 @@
                     href='mailto:mkt.safebook.vn@gmail.com'
                     data-bs-toggle='tooltip'
                     data-bs-placement='bottom'
-                    title='Email'
+                    title='mkt.safebook.vn@gmail.com'
                   >
                     <i class='icon-envelop' style='font-size:16px;'>
 
@@ -42,7 +42,7 @@
                     href='tel:093 164 06 79'
                     data-bs-toggle='tooltip'
                     data-bs-placement='bottom'
-                    title='phone'
+                    title='093 164 06 79'
                   >
                     <i class='icon-phone' style='font-size:16px;'>
 
@@ -69,7 +69,7 @@
                 <a
                   class='icon plain email tooltip tooltipstered'
                   data-label='E-mail'
-                  href='mailto:hotrominsoftware@gmail.com'
+                  href='mailto:mkt.safebook.vn@gmail.com'
                   rel='nofollow'
                 ><i class='icon-envelop'></i></a>
                 <a
@@ -86,12 +86,14 @@
     </div>
 
     <div class='header-main nav-dark' id='masthead'>
-      <nav class='navbar navbar-expand-sm navbar-light p-0'>
 
-        <div class='header-inner justify-content-center container logo-left medium-logo-center' role='navigation'>
-          <div class='flex-col show-for-medium flex-right position-absolute' style='right:10; top:10'>
+      <div class='header-inner justify-content-center container logo-left medium-logo-center' role='navigation'>
+        {{! <div
+            class='flex-col show-for-medium flex-right position-absolute'
+            style='margin-right: 30px; right: 0; top:10'
+          >
             <ul class='mobile-nav nav nav-right'>
-              <li class='nav-icon navbar-toggler has-icon'>
+              <li class='nav-icon has-icon'>
                 <a
                   aria-controls='main-menu'
                   aria-expanded='false'
@@ -106,7 +108,27 @@
                   <i class='icon-menu'></i>
                 </a></li>
             </ul>
+          </div> }}
+        <nav class='navbar navbar-expand-sm navbar-dark p-0'>
+
+          <div
+            class='flex-col show-for-medium flex-right position-absolute'
+            style='margin-right: 30px; right: 0; top:10'
+          >
+            <button
+              class='navbar-toggler mobile-nav nav nav-right border-0'
+              style='margin-right: 30px; right: 0; top:0'
+              type='button'
+              data-bs-toggle='collapse'
+              data-bs-target='#navbarTogglerDemo03'
+              aria-controls='navbarTogglerDemo03'
+              aria-expanded='false'
+              aria-label='Toggle navigation'
+            >
+              <span class='text-light navbar-toggler-icon'></span>
+            </button>
           </div>
+
           <div class='flex-col logo m-auto' id='logo'>
             <a href='https://phanmemsafebooks.blogspot.com/?m=1' rel='home' title=''><img
                 alt='SAFEBOOKS'
@@ -116,7 +138,8 @@
                 width='200'
               /></a>
           </div>
-          <div class='flex-col hide-for-medium flex-left flex-grow' style='margin-left: 30px;'>
+
+          <div class='flex-col hide-for-medium flex-left flex-grow'>
             <ul class='header-nav header-nav-main nav nav-left nav-line-bottom nav-spacing-medium nav-uppercase'>
               <li class='header-divider'>
               </li>
@@ -130,7 +153,7 @@
               </li>
             </ul>
           </div>
-          <div class='collapse navbar-collapse justify-content-center' id='navbarTogglerDemo03'>
+          <div class='collapse navbar-collapse menu-left justify-content-center' id='navbarTogglerDemo03'>
             <ul class='nav nav-line-bottom toggle-nav justify-content-center'>
               <li class='nav-item active'>
                 <a class='nav-link' target='_blank' href='https://www.safebooks.vn/'>Trang Chủ</a>
@@ -182,15 +205,9 @@
               </li>
             </ul>
           </div>
-          <div class='row'>
+        </nav>
 
-            <div class='flex-col show-for-medium flex-right'>
-              <ul class='mobile-nav nav nav-right'>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
+      </div>
 
       <div class='container'>
         <div class='divider full-width'>

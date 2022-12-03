@@ -74,6 +74,7 @@
 .badge-outline .badge-inner,
 .nav-outline > li.active > a,
 .nav-outline > li.active > a,
+.cart-icon strong,
 [data-color='primary'],
 .is-outline.primary {
   color: #05334a;
@@ -111,6 +112,8 @@ input.button.alt,
 .nav-box > li > a:hover,
 .nav-box > li.active > a,
 .nav-pills > li.active > a,
+.current-dropdown .cart-icon strong,
+.cart-icon:hover strong,
 .nav-line-bottom > li > a:before,
 .nav-line-grow > li > a:before,
 .nav-line > li > a:before,
@@ -139,6 +142,8 @@ input[type='button'].primary,
 .tagcloud a:hover,
 blockquote,
 .has-border,
+.cart-icon strong:after,
+.cart-icon strong,
 .blockUI:before,
 .processing:before,
 .loading-spin,
@@ -150,7 +155,12 @@ blockquote,
 .nav-tabs > li.active > a {
   border-top-color: #05334a;
 }
-
+.widget_shopping_cart_content .blockUI.blockOverlay:before {
+  border-left-color: #05334a;
+}
+.woocommerce-checkout-review-order .blockUI.blockOverlay:before {
+  border-left-color: #05334a;
+}
 .slider .flickity-prev-next-button:hover svg,
 .slider .flickity-prev-next-button:hover .arrow {
   fill: #05334a;
@@ -3982,8 +3992,13 @@ select:hover {
   border-right: 0;
 }
 input.wpcf7-not-valid,
-
-
+.woocommerce-invalid input {
+  border-color: #b20000;
+  color: #b20000;
+}
+.woocommerce-invalid select {
+  border-color: #b20000;
+}
 .select2-container {
   text-align: left;
 }
@@ -4169,7 +4184,7 @@ i[class*=' icon-'] {
 button i,
 .button i {
   vertical-align: middle;
-  top: -1.5px;
+  top: 5.5px;
 }
 .button.open-video i {
   top: -0.027em;
@@ -4518,7 +4533,12 @@ img.back-image,
   padding-bottom: 0;
   padding-left: 0;
 }
-
+.image-tools .cart-icon {
+  position: absolute;
+  left: 10px;
+  margin: 5px;
+  bottom: 100%;
+}
 .image-tools .wishlist-button:hover {
   background-color: #b20000;
   border-color: #b20000;
@@ -4979,7 +4999,9 @@ img.mfp-img {
 .box-image.processing .image-tools {
   opacity: 0 !important;
 }
-
+.woocommerce-checkout.processing:before {
+  position: fixed;
+}
 .processing:before,
 .loading-spin.centered {
   position: absolute;
@@ -6580,7 +6602,14 @@ img.inline {
   background-color: rgba(0, 0, 0, 0.02);
   box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.07), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
-
+.no-overflow {
+  overflow: hidden;
+}
+.no-text-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .strong {
   font-weight: 700;
 }
@@ -6605,6 +6634,13 @@ img.inline {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
+}
+.no-scrollbar {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.no-scrollbar::-webkit-scrollbar {
+  width: 0px !important;
+  height: 0px !important;
 }
 
 @media screen and (max-width: 549px) {
@@ -7907,7 +7943,8 @@ a.hotspot:hover {
   color: #fff;
 }
 .dark .stars a + a,
-.dark .product-section{
+.dark .product-section,
+.dark .product-footer .woocommerce-tabs {
   border-color: rgba(255, 255, 255, 0.2);
 }
 .nav-dark .is-outline,
@@ -9299,7 +9336,9 @@ html {
 .icon-user:before {
   content: '\e901';
 }
-
+.icon-shopping-cart:before {
+  content: '\e908';
+}
 .icon-tumblr:before {
   content: '\e603';
 }
@@ -9530,7 +9569,10 @@ html {
 .button.px500:hover {
   color: #0099e5 !important;
 }
-
+.woocommerce-product-rating {
+  visibility: visible;
+  position: relative;
+}
 .star-rating {
   text-align: left;
   font-size: 16px;
@@ -9548,7 +9590,14 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 .star-rating:before,
-
+.woocommerce-page .star-rating:before {
+  content: '\e006\e006\e006\e006\e006';
+  color: #d26e4b;
+  float: left;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
 .star-rating span {
   overflow: hidden;
   float: left;
@@ -9573,7 +9622,9 @@ html {
   vertical-align: middle;
   height: 18px;
 }
-
+.woocommerce-review-link {
+  font-size: 90%;
+}
 li.wc-layered-nav-rating {
   font-size: 0.8em;
 }
@@ -10371,7 +10422,11 @@ div#pum_popup_title_1118 {
   -o-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
 }
-
+.quick-alo-ph-btn-icon.quick-alo-phone-img-circle {
+  background: url(//1.bp.blogspot.com/-t81ykCiwD34/YJ3MvV-s8pI/AAAAAAAAAUI/vZHvn9vlcCcQEqwKDo5AUEOBDfWLJpEnQCLcBGAsYHQ/s64/quick-call-button-phone.png)
+    no-repeat center center;
+  background-size: 40px 40px;
+}
 .quick-alo-ph-btn-icon {
   width: 50px;
   height: 50px;

@@ -556,3 +556,32 @@ a:hover {
   background-color: transparent;
   border: solid 1px white;
 }
+.collapse.show {
+  background: linear-gradient(to bottom, #05334a, #01273a);
+  width: 100%;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  z-index: 9999;
+  border-radius: 5px;
+  box-shadow: 15px 15px 30px rgb(0 0 0 / 16%);
+  position: absolute;
+  top: 60;
+}
+.collapse.show .nav {
+  flex-direction: column;
+}
+.collapse.show .nav-item {
+  width: 100%;
+}
+.collapse.show .nav-line-bottom > li.active > a:before {
+  display: none;
+}
+.collapse.show .nav .header-divider {
+  display: none;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+}

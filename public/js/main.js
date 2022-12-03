@@ -4,9 +4,9 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 });
 
 $(document).ready(function () {
-  // $('.mobile-nav').on('click', function () {
-  //   $('.navbar-collapse.collapse').toggleClass('show');
-  // });
+  $('.mobile-nav').on('click', function () {
+    $('.navbar-dark').addClass('flex-column-reverse');
+  });
 
   $('.nav-item-has-children').on('mouseover', function () {
     $('.nav-item-has-children').addClass('current-dropdown');
