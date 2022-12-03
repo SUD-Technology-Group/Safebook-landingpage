@@ -1,28 +1,20 @@
 <section class='hero-slider hero-style'>
   <div class='swiper-container-banner'>
     <div class='swiper-wrapper swiper-wrapper-banner'>
-      <div class='swiper-slide'>
-        <div class='slide-inner slide-bg-image' data-background='/uploads/banner/banner-1.jpg'>
-          <div class='container'>
 
+      {{#each banners}}
+        <div class='swiper-slide'>
+          <div class='slide-inner slide-bg-image' data-background='{{backgroundImage}}'>
+            <div class='container'>
+
+            </div>
           </div>
+          <!-- end slide-inner -->
         </div>
-        <!-- end slide-inner -->
-      </div>
+      {{/each}}
+
       <!-- end swiper-slide -->
 
-      <div class='swiper-slide'>
-        <div class='slide-inner slide-bg-image' data-background='/uploads/banner/banner-2.jpg'>
-
-        </div>
-        <!-- end slide-inner -->
-      </div>
-      <div class='swiper-slide'>
-        <div class='slide-inner slide-bg-image' data-background='/uploads/banner/banner-3.jpg'>
-
-        </div>
-        <!-- end slide-inner -->
-      </div>
       <!-- end swiper-slide -->
     </div>
     <!-- end swiper-wrapper -->

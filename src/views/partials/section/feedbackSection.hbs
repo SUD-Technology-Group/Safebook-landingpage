@@ -18,50 +18,29 @@
           <div class='row' id='row-1359683358'>
             <div class='col small-12 large-12'>
               <div class='col-inner'>
-                <div class='icon-box testimonial-box icon-box-left text-left'>
-                  <div class='icon-box-img testimonial-image circle' style='width: 80px'>
-                    <img
-                      alt=''
-                      class='attachment-thumbnail size-thumbnail'
-                      height='150'
-                      loading='lazy'
-                      src='https://minsoftware.vn/wp-content/uploads/2019/09/Khach-hang-aiface-3-300x300-150x150.jpg'
-                      width='150'
-                    /></div>
-                  <div class='icon-box-text p-last-0'>
-                    <div class='star-rating'><span style='width:100%'><strong class='rating'></strong></span></div>
-                    <div class='testimonial-text line-height-small italic test_text first-reset last-reset is-italic'>
-                      <h3 class='thin-font'>Quang Minh</h3>
-                      <h3 class='thin-font'>“Từ ngày sử dụng phần mềm safeboos, mình bớt hẳn quên thiếu hóa đơn cho
-                        doanh nghiệp” –</h3>
+                {{#each comments}}
+                  <div class='icon-box testimonial-box icon-box-left text-left'>
+                    <div class='icon-box-img testimonial-image circle' style='width: 80px'>
+                      <img
+                        alt=''
+                        class='attachment-thumbnail size-thumbnail'
+                        height='150'
+                        loading='lazy'
+                        src='{{avatar}}'
+                        width='150'
+                      /></div>
+                    <div class='icon-box-text p-last-0'>
+                      <div class='star-rating'><span style='width:100%'><strong class='rating'></strong></span></div>
+                      <div class='testimonial-text line-height-small italic test_text first-reset last-reset is-italic'>
+                        <h3 class='thin-font'>{{name}}</h3>
+                        <h3 class='thin-font'>{{content}}</h3>
+                      </div>
+                      <div class='testimonial-meta pt-half'>
+                        <strong class='testimonial-name test_name'></strong>
+                        <span class='testimonial-company test_company'></span></div>
                     </div>
-                    <div class='testimonial-meta pt-half'>
-                      <strong class='testimonial-name test_name'></strong>
-                      <span class='testimonial-company test_company'></span></div>
                   </div>
-                </div>
-                <div class='icon-box testimonial-box icon-box-left text-left'>
-                  <div class='icon-box-img testimonial-image circle' style='width: 80px'>
-                    <img
-                      alt=''
-                      class='attachment-thumbnail size-thumbnail'
-                      height='150'
-                      loading='lazy'
-                      src='https://minsoftware.vn/wp-content/uploads/2019/09/Khach-hang-aiface-1-300x300-150x150.jpg'
-                      width='150'
-                    /></div>
-                  <div class='icon-box-text p-last-0'>
-                    <div class='star-rating'><span style='width:100%'><strong class='rating'></strong></span></div>
-                    <div class='testimonial-text line-height-small italic test_text first-reset last-reset is-italic'>
-                      <h3>Diễm My</h3>
-                      <h3 class='thin-font'>“Phần mềm SAFEBOOKS trợ thủ đắc lực cho những người làm giám đốc bận rộn như
-                        mình. Cảm ơn đội ngũ SAFEBOOKS !”</h3>
-                    </div>
-                    <div class='testimonial-meta pt-half'>
-                      <strong class='testimonial-name test_name'></strong>
-                      <span class='testimonial-company test_company'></span></div>
-                  </div>
-                </div>
+                {{/each}}
               </div>
             </div>
           </div>
