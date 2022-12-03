@@ -1,5 +1,5 @@
 
-{{> banner}}
+{{> section/banner}}
 <div class='row row-dashed show-for-small' id='row-152207476'>
   <div class='col small-12 large-12'>
     <div class='col-inner'>
@@ -41,289 +41,31 @@
     </div>
   </div>
 </div>
-<section class='section' id='section_1965706432'>
-  <div class='bg section-bg fill bg-fill bg-loaded'></div>
-  <div class='section-content relative'>
-    <div class='row align-center' id='row-1178274241'>
-      <div class='col small-12 large-12'>
-        <div class='col-inner text-center'>
-          <h2 class='heading-title' style='font-size: 30px; font-family: Roboto Condensed;'>BẢNG GIÁ – PHẦN MỀM KẾ TOÁN
-          </h2>
-          <div class='heading-decoration'></div>
-          <div class='row' id='row-sp-load'>
-          </div>
-          <a
-            class='button primary is-gloss xemtatcasp'
-            href='/search/label/tải xuống?max-results=100'
-            style='border-radius:10px;'
-            target='_self'
-          >
-            <span>xem tất cả</span>
-          </a>
-          <div class='text-center'>
-            <div class='is-divider divider clearfix' style='max-width:400px;height:1px;'></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <style scope='scope'>
-    #section_1965706432 { padding-top: 30px; padding-bottom: 30px }
-  </style>
-</section>
+{{#each sections}}
+  {{#when layout 'eq'  'heading'}}
+    {{> section/headingSection title=title href=link }}
+  {{/when}}
 
-<section class='section secback dark hide-for-medium' id='section_555626721'>
-  <div class='bg section-bg fill bg-fill bg-loaded'></div>
-  <div class='section-content relative'>
-    <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-    <div class='row' id='row-1699066326'>
-      <div class='col medium-6 small-12 large-6'>
-        <div class='col-inner'>
-          <p><img
-              class='alignnone size-medium'
-              height='800'
-              loading='lazy'
-              src='https://i.imgur.com/mNHzjdr.png'
-              width='800'
-            /></p>
-        </div>
-      </div>
-      <div class='col medium-6 small-12 large-6'>
-        <div class='col-inner'>
-          <div class='row align-center' id='row-240002719'>
-            <div class='col small-12 large-12'>
-              <div class='col-inner text-center dark'>
-                <h2 class='uppercase' style='text-align: center;'><span style='font-size: 110%;'>Bạn cần hỗ trợ VÀ tư
-                    vấn?</span></h2>
-                <p class='uppercase' style='text-align: center;'>Để lại SĐT để được tư vấn miễn phí!</p>
-                <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-                <div class='wpcf7'>
-                  <div class='screen-reader-response'></div>
-                  <form action='' class='wpcf7' id='quickbuy1' method='POST' target='hidden_iframe'>
-                    <div class='xs-inline-forms transparent-style'>
-                      <div class='row no-gutterss'>
-                        <div class='col-lg-12'>
-                          <span class='wpcf7-form-control-wrap your-name lienhe'><span
-                              class='wpcf7-form-control-wrap your-name'
-                            ><input
-                                aria-invalid='false'
-                                aria-required='true'
-                                class='wpcf7-form-control wpcf7-text wpcf7-validates-as-required lienheform-control name'
-                                name='your-name'
-                                placeholder='Họ Và Tên*'
-                                size='40'
-                                type='text'
-                                value=''
-                              /></span></span></div>
-                        <div class='col-lg-12'>
-                          <span class='wpcf7-form-control-wrap your-email lienhe'><span
-                              class='wpcf7-form-control-wrap'
-                            ><input
-                                aria-invalid='false'
-                                aria-required='true'
-                                class='wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel lienheform-control phone'
-                                name='tel-950'
-                                placeholder='SĐT Tư Vấn'
-                                size='40'
-                                type='tel'
-                                value=''
-                              /></span></span></div>
-                      </div>
-                      <input class='ip' type='hidden' value='2402:800:6379:a8e3:5511:2955:aec3:6e49' />
-                      <p><input class='wpcf7-form-control wpcf7-submit guidi' type='submit' value='Gửi đi' /></p>
-                    </div>
-                    <input
-                      class='wpcf7-pum'
-                      type='hidden'
-                      value='{&quot;closepopup&quot;:false,&quot;closedelay&quot;:0,&quot;openpopup&quot;:false,&quot;openpopup_id&quot;:0}'
-                    />
-                    <div class='wpcf7-response-output wpcf7-display-none success1'>Gửi thành công</div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <style scope='scope'>
-    #section_555626721 { padding-top: 0; padding-bottom: 0; background-color: #6219c4 }
-  </style>
-</section>
+  {{#when layout 'eq'  'contact'}}
+     {{> section/contactSection title=title }}
+  {{/when}}
+{{/each}}
 
-<section class='section' id='section_1965706433'>
-  <div class='bg section-bg fill bg-fill bg-loaded'></div>
-  <div class='section-content relative'>
-    <div class='row align-center' id='row-1178274242'>
-      <div class='col small-12 large-12'>
-        <div class='col-inner text-center'>
-          <h2 class='heading-title' style='font-size: 30px; font-family: Roboto Condensed;'>PHẦN MỀM KHÁC</h2>
-          <div class='heading-decoration'></div>
-          <div class='row' id='row-sp-sell'>
-          </div>
-          <a
-            class='button primary is-gloss xemtatcasp'
-            href='/search/label/trả phí?max-results=100'
-            style='border-radius:10px;'
-            target='_self'
-          >
-            <span>xem tất cả</span>
-          </a>
-          <div class='text-center'>
-            <div class='is-divider divider clearfix' style='max-width:400px;height:1px;'></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class='section' id='section_2031079727'>
   <div class='bg section-bg fill bg-fill bg-loaded'></div>
   <div class='section-content relative'>
     <div class='gap-element clearfix' style='display:block; height:auto; padding-top:50px'></div>
-    <div class='row' id='row-548165739'>
-      <div class='col whatwedo medium-4 small-12 large-4'>
-        <div class='col-inner text-center'>
-          <h2 class='elementor-heading-title elementor-size-default header-dividers'>PHẦN MỀM KẾ TOÁN LÀ GÌ?</h2>
-        </div>
-      </div>
-      <div class='col medium-8 small-12 large-8'>
-        <div class='col-inner'>
-          <h4 style='text-align: center;'>Phần mềm kế toán là một ứng dụng hỗ trợ xử lý các công việc của nhân viên kế
-            toán. Nói một cách dễ hiểu thì phần mềm kế toán giống như “người trợ lý” giúp các kế toán viên thực hiện các
-            thao tác nghiệp vụ kế toán thường ngày như nhập liệu, tính toán, tổng hợp, lên báo cáo, xuất dữ liệu… một
-            cách tự động, có hệ thống với độ chính xác cao trong thời gian ngắn dựa trên dữ liệu đầu vào do nhân viên
-            cung cấp. Phần mềm cũng là công cụ đánh giá sức khỏe tài chính của một tổ chức thông qua các tính năng lập
-            báo cáo tài chính, báo cáo kết quả hoạt động kinh doanh, lưu chuyển tiền tệ hay dự báo dòng tiền. Phần mềm
-            kế toán có thể đáp ứng được đầy đủ mọi nghiệp vụ từ cơ bản đến chuyên sâu cũng như phù hợp cho mọi lĩnh vực,
-            ngành nghề, từ quy mô doanh nghiệp vừa và nhỏ.</h4>
-        </div>
-      </div>
-    </div>
-    <div class='row row-small align-right' id='row-403565492' style='max-width:'>
-      <div class='col bakhungdau medium-3 small-12 large-3'>
-        <div class='col-inner text-center dark' style='padding:30px 20px 0px 20px;'>
-          <div class='icon-box featured-box icon-box-center text-center'>
-            <div class='icon-box-img' style='width: 200px'>
-              <div class='icon'>
-                <div class='icon-inner' style='color:rgb(255, 255, 255);'>
-                  <img
-                    alt=''
-                    class='attachment-medium size-medium'
-                    height='200'
-                    loading='lazy'
-                    src='https://1.bp.blogspot.com/-bXjs5ER9pjQ/YLyWMcokGwI/AAAAAAAAAfY/SrvDKJ0ixl4Dd04IUk435fCgrUtdqru1gCLcBGAsYHQ/s200/icondoituong-1-min.png'
-                    width='200'
-                  /></div>
-              </div>
-            </div>
-            <div class='icon-box-text last-reset'>
-              <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-              <div>
-                <div class='kc_wrapper kc-col-inner-container'>
-                  <div
-                    class='kc-elm kc-css-155860 crumina-module crumina-info-box info-box--standard-centered-big kc-pc-loaded'
-                  >
-                    <div class='info-box-content'>
-                      <h5 class='info-box-title'>ĐỐI TƯỢNG</h5>
-                      <div class='info-box-text'> Phần mềm dành cho Giám đốc , kế toán,...</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class='kc-elm kc-css-516403 kc_col-sm-3 kc_column_inner col-md-3 col-sm-6 col-xs-12'>
-                <div class='kc_wrapper kc-col-inner-container'>
-                  <div
-                    class='kc-elm kc-css-571885 crumina-module crumina-info-box info-box--standard-centered-big kc-pc-loaded'
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class='col bakhungdauhai medium-3 small-12 large-3'>
-        <div class='col-inner dark' style='padding:30px 20px 40px 20px;'>
-          <div class='icon-box featured-box icon-box-center text-center'>
-            <div class='icon-box-img' style='width: 200px'>
-              <div class='icon'>
-                <div class='icon-inner' style='color:rgb(255, 255, 255);'>
-                  <img
-                    alt=''
-                    class='attachment-medium size-medium'
-                    height='200'
-                    loading='lazy'
-                    src='https://1.bp.blogspot.com/-G9BmynSsbzI/YLyWUKVzHFI/AAAAAAAAAfc/C2BpihpGTxgxn1M-VpoxUtAp4CVD2AHmACLcBGAsYHQ/s200/chienluoc-1-min.png'
-                    width='200'
-                  /></div>
-              </div>
-            </div>
-            <div class='icon-box-text last-reset'>
-              <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-              <h5 class='info-box-title'>CHIẾN LƯỢC</h5>
-              <div class='info-box-text'>2030 trở thành công ty phần mềm hàng đầu Việt Nam.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class='col bakhungdauba medium-3 small-12 large-3'>
-        <div class='col-inner text-center dark' style='padding:30px 20px 0px 20px;'>
-          <div class='icon-box featured-box icon-box-center text-center'>
-            <div class='icon-box-img' style='width: 200px'>
-              <div class='icon'>
-                <div class='icon-inner' style='color:rgb(255, 255, 255);'>
-                  <img
-                    alt=''
-                    class='attachment-medium size-medium'
-                    height='200'
-                    loading='lazy'
-                    src='https://1.bp.blogspot.com/-IYjV5IwjCcE/YLyWZhtioDI/AAAAAAAAAfg/5BFz9TCLUuQh52RgahzNKJFLfUuBSSs2ACLcBGAsYHQ/s200/51941-Converted-1-min.png'
-                    width='200'
-                  /></div>
-              </div>
-            </div>
-            <div class='icon-box-text last-reset'>
-              <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-              <h5 class='info-box-title'>CÔNG NGHỆ</h5>
-              <div class='info-box-text'>Với đội ngũ dày dặn kinh nghiệm trong lĩnh vực công nghệ thông tin.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class='col bakhungdauhai medium-3 small-12 large-3'>
-        <div class='col-inner dark' style='padding:30px 20px 0px 20px;'>
-          <div class='icon-box featured-box icon-box-center text-center'>
-            <div class='icon-box-img' style='width: 200px'>
-              <div class='icon'>
-                <div class='icon-inner' style='color:rgb(255, 255, 255);'>
-                  <img
-                    alt=''
-                    class='attachment-medium size-medium'
-                    height='200'
-                    loading='lazy'
-                    src='https://1.bp.blogspot.com/-0SVTiLb7sT8/YLyWhsAHO6I/AAAAAAAAAfo/XQZ83KVwVbcdHQWiQDGLBsjHwrddXRBBQCLcBGAsYHQ/s200/iconsumenh-min.png'
-                    width='200'
-                  /></div>
-              </div>
-            </div>
-            <div class='icon-box-text last-reset'>
-              <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-              <h5 class='info-box-title'>SỨ MỆNH</h5>
-              <div class='info-box-text'>Cam kết – Chia sẻ – Tận tâm – Sáng tạo</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-    <div class='gap-element clearfix' style='display:block; height:auto; padding-top:50px'></div>
-    <div class='row' id='row-1030797348'>
-      <div class='col medium-5 small-12 large-5'>
-        <div class='col-inner'>
-          <h2 class='uppercase titlebb'><span style='font-size: 80%;'>GIẢI PHÁP PHẦN MỀM KẾ TOÁN MANG ĐẾN CHO BẠN</span></h2>
-          <div class='icon-box featured-box icon-box-left text-left'>
+      {{#each sections}}
+          {{#when layout 'eq' 'intro'}}
+             {{> section/introSection title=title description=description }}
+          {{/when}}
+      {{/each}}
+
+      {{#each sections}}
+        {{#when layout 'eq' 'content'}}
+          {{#when @index 'eq' 4}}
+              {{> section/contentSection title=title  description="
+                <div class='icon-box featured-box icon-box-left text-left'>
+          
             <div class='icon-box-img' style='width: 40px'>
               <div class='icon'>
                 <div class='icon-inner'>
@@ -340,194 +82,156 @@
             <div class='icon-box-text last-reset'>
               <p>Quản lý khách hàng từ nhiều kênh khác nhau chỉ với thao tác trên phần mềm ;</p>
             </div>
-          </div>
-          <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-          <div class='icon-box featured-box icon-box-left text-left'>
-            <div class='icon-box-img' style='width: 40px'>
-              <div class='icon'>
-                <div class='icon-inner'>
-                  <img
-                    alt=''
-                    class='attachment-medium size-medium'
-                    height='40'
-                    loading='lazy'
-                    src='https://1.bp.blogspot.com/-SAt0_4a8L9U/YLyWwjlACcI/AAAAAAAAAf0/wziZ-ZAEeLcmsLETvTNUaFP3GDcyV0tXwCLcBGAsYHQ/s46/service_icon_v6-min.png'
-                    width='46'
-                  /></div>
+                </div>
+                <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+                <div class='icon-box featured-box icon-box-left text-left'>
+                  <div class='icon-box-img' style='width: 40px'>
+                    <div class='icon'>
+                      <div class='icon-inner'>
+                        <img
+                          alt=''
+                          class='attachment-medium size-medium'
+                          height='40'
+                          loading='lazy'
+                          src='https://1.bp.blogspot.com/-SAt0_4a8L9U/YLyWwjlACcI/AAAAAAAAAf0/wziZ-ZAEeLcmsLETvTNUaFP3GDcyV0tXwCLcBGAsYHQ/s46/service_icon_v6-min.png'
+                          width='46'
+                        /></div>
+                    </div>
+                  </div>
+                  <div class='icon-box-text last-reset'>
+                    <p>Lên kế hoạch thanh toán, nhắc công nợ tiện lợi và nhanh chóng ;</p>
+                  </div>
+                </div>
+                <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+                <div class='icon-box featured-box icon-box-left text-left'>
+                  <div class='icon-box-img' style='width: 40px'>
+                    <div class='icon'>
+                      <div class='icon-inner'>
+                        <img
+                          alt=''
+                          class='attachment-medium size-medium'
+                          height='40'
+                          loading='lazy'
+                          src='https://1.bp.blogspot.com/-1RjSN3BJcUo/YLyW67eSLTI/AAAAAAAAAgA/tax7fDkJXHIjLzuqYZhAabtNeZNvMbi_wCLcBGAsYHQ/s40/service_icon_v7-min.png'
+                          width='37'
+                        /></div>
+                    </div>
+                  </div>
+                  <div class='icon-box-text last-reset'>
+                    <p>Được thiết kế theo tiêu chí dễ dàng sử dụng, giao diện trực quan ;</p>
+                  </div>
+                </div>
+                <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+                <div class='icon-box featured-box icon-box-left text-left'>
+                  <div class='icon-box-img' style='width: 40px'>
+                    <div class='icon'>
+                      <div class='icon-inner'>
+                        <img
+                          alt=''
+                          class='attachment-medium size-medium'
+                          height='40'
+                          loading='lazy'
+                          src='https://1.bp.blogspot.com/-5ndZTVW8ROY/YLyWwqs_zNI/AAAAAAAAAfw/VfwwXvpjdEs7l6ORV-7LhI25n2HyqxL-wCLcBGAsYHQ/s40/service_icon_v8-min.png'
+                          width='31'
+                        /></div>
+                    </div>
+                  </div>
+                  <div class='icon-box-text last-reset'>
+                    <p>Tạo chiến lược kinh doanh chuyên nghiệp hơn với những chức năng của phần mềm.</p>
+                  </div>
+                </div>" image=image }}
+          {{/when}}
+          {{#when @index 'eq' 5}}
+
+            {{> section/contentSection title=title reserved=true description="
+                  <div class='icon-box featured-box icon-box-left text-left'>
+            
+              <div class='icon-box-img' style='width: 40px'>
+                <div class='icon'>
+                  <div class='icon-inner'>
+                    <img
+                      alt=''
+                      class='attachment-medium size-medium'
+                      height='40'
+                      loading='lazy'
+                      src='https://1.bp.blogspot.com/-QgtuQIsxQ9A/YLyWwuHjW0I/AAAAAAAAAf4/tDY6uYwg46AeBRrhKyXcuglRKd8zyiMdQCLcBGAsYHQ/s41/service_icon_v5-min.png'
+                      width='41'
+                    /></div>
+                </div>
               </div>
-            </div>
-            <div class='icon-box-text last-reset'>
-              <p>Lên kế hoạch thanh toán, nhắc công nợ tiện lợi và nhanh chóng ;</p>
-            </div>
-          </div>
-          <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-          <div class='icon-box featured-box icon-box-left text-left'>
-            <div class='icon-box-img' style='width: 40px'>
-              <div class='icon'>
-                <div class='icon-inner'>
-                  <img
-                    alt=''
-                    class='attachment-medium size-medium'
-                    height='40'
-                    loading='lazy'
-                    src='https://1.bp.blogspot.com/-1RjSN3BJcUo/YLyW67eSLTI/AAAAAAAAAgA/tax7fDkJXHIjLzuqYZhAabtNeZNvMbi_wCLcBGAsYHQ/s40/service_icon_v7-min.png'
-                    width='37'
-                  /></div>
+              <div class='icon-box-text last-reset'>
+                <p>Quản lý khách hàng từ nhiều kênh khác nhau chỉ với thao tác trên phần mềm ;</p>
               </div>
-            </div>
-            <div class='icon-box-text last-reset'>
-              <p>Được thiết kế theo tiêu chí dễ dàng sử dụng, giao diện trực quan ;</p>
-            </div>
-          </div>
-          <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-          <div class='icon-box featured-box icon-box-left text-left'>
-            <div class='icon-box-img' style='width: 40px'>
-              <div class='icon'>
-                <div class='icon-inner'>
-                  <img
-                    alt=''
-                    class='attachment-medium size-medium'
-                    height='40'
-                    loading='lazy'
-                    src='https://1.bp.blogspot.com/-5ndZTVW8ROY/YLyWwqs_zNI/AAAAAAAAAfw/VfwwXvpjdEs7l6ORV-7LhI25n2HyqxL-wCLcBGAsYHQ/s40/service_icon_v8-min.png'
-                    width='31'
-                  /></div>
-              </div>
-            </div>
-            <div class='icon-box-text last-reset'>
-              <p>Tạo chiến lược kinh doanh chuyên nghiệp hơn với những chức năng của phần mềm.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class='col medium-7 small-12 large-7'>
-        <div class='col-inner'>
-          <p><img
-              class='aligncenter size-medium'
-              height='449'
-              loading='lazy'
-              src='https://1.bp.blogspot.com/-zmlG8c10sqY/YLyYEab1vOI/AAAAAAAAAg4/4EgXUK2I8tg3uszKfjMBdmWH-RLhquORwCLcBGAsYHQ/s1920/mdgF7MM.png'
-              width='100%'
-            /></p>
-        </div>
-      </div>
-    </div>
-    <div class='text-center'>
-      <div
-        class='is-divider divider clearfix'
-        style='margin-top:0.4em;margin-bottom:0.4em;max-width:450px;height:1px;background-color:rgba(122, 54, 185, 0.54);'
-      ></div>
-    </div>
-    <div class='gap-element clearfix' style='display:block; height:auto; padding-top:40px'></div>
-    <div class='row' id='row-234706327'>
-      <div class='col medium-6 small-12 large-6'>
-        <div class='col-inner'>
-          <p><img
-              class='aligncenter size-medium'
-              height='449'
-              loading='lazy'
-              src='https://1.bp.blogspot.com/-rtTlOKlwQXQ/YLyXvL5ca7I/AAAAAAAAAgw/5dlcM0PWTZwl3QQqXb9G8PWabx9zResCQCLcBGAsYHQ/s1920/B6UiPm9.png'
-              width='100%'
-            /></p>
-        </div>
-      </div>
-      <div class='col medium-5 small-12 large-5'>
-        <div class='col-inner'>
-          <h2 class='uppercase titlebb'><span style='font-size: 80%;'>Lợi ích từ bộ công cụ này mang lại</span></h2>
-          <div class='icon-box featured-box icon-box-left text-left is-large'>
-            <div class='icon-box-img' style='width: 50px'>
-              <div class='icon'>
-                <div class='icon-inner'>
-                  <img
-                    alt=''
-                    class='attachment-medium size-medium'
-                    height='51'
-                    loading='lazy'
-                    src='https://1.bp.blogspot.com/-k7m8WDYd1_0/YLyXMkcGrlI/AAAAAAAAAgc/-dL4bZEj3VcLEhaW_AWO85w49ROk7dHYgCLcBGAsYHQ/s51/2-min-min.png'
-                    width='51'
-                  /></div>
-              </div>
-            </div>
-            <div class='icon-box-text last-reset'>
-              <div class='gap-element clearfix' style='display:block; height:auto; padding-top:10px'></div>
-              <p>Xây dựng nền tảng kinh doanh bền vững.</p>
-            </div>
-          </div>
-          <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-          <div class='icon-box featured-box icon-box-left text-left is-large'>
-            <div class='icon-box-img' style='width: 50px'>
-              <div class='icon'>
-                <div class='icon-inner'>
-                  <img
-                    alt=''
-                    class='attachment-medium size-medium'
-                    height='50'
-                    loading='lazy'
-                    src='https://1.bp.blogspot.com/-0qQuYXocOhI/YLyX2R7suLI/AAAAAAAAAg0/aXXplI5rxnYeEcx88bXyRnbDtglbjiecwCLcBGAsYHQ/s51/3-1-min-min.png'
-                    width='51'
-                  /></div>
-              </div>
-            </div>
-            <div class='icon-box-text last-reset'>
-              <p>Tăng hiệu suất và kết quả kinh doanh</p>
-            </div>
-          </div>
-          <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-          <div class='icon-box featured-box icon-box-left text-left is-large'>
-            <div class='icon-box-img' style='width: 50px'>
-              <div class='icon'>
-                <div class='icon-inner'>
-                  <img
-                    alt=''
-                    class='attachment-medium size-medium'
-                    height='51'
-                    loading='lazy'
-                    src='https://1.bp.blogspot.com/-P2LgWIlGG3Q/YLyXMi54SAI/AAAAAAAAAgY/U3lnmzZlXh0n1fljz7SqWbfv2eLVSaVVACLcBGAsYHQ/s51/3-min-min.png'
-                    width='51'
-                  /></div>
-              </div>
-            </div>
-            <div class='icon-box-text last-reset'>
-              <p>Tiết kiệm nhân sự và thời gian quản lý.</p>
-            </div>
-          </div>
-          <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-          <div class='icon-box featured-box icon-box-left text-left is-large'>
-            <div class='icon-box-img' style='width: 50px'>
-              <div class='icon'>
-                <div class='icon-inner'>
-                  <img
-                    alt=''
-                    class='attachment-medium size-medium'
-                    height='51'
-                    loading='lazy'
-                    src='https://1.bp.blogspot.com/-ycCmCVosRXc/YLyXMZCuXcI/AAAAAAAAAgU/mO5Xb66s-aU3w-HstZHbN0RWep09m-DDwCLcBGAsYHQ/s51/1-min-min.png'
-                    width='51'
-                  /></div>
-              </div>
-            </div>
-            <div class='icon-box-text last-reset'>
-              <p>Dễ dàng quản lý.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-    <div class='text-center'>
-      <div
-        class='is-divider divider clearfix'
-        style='margin-top:0.2em;margin-bottom:0.2em;max-width:500px;height:2px;background-color:rgba(77, 97, 227, 0.32);'
-      ></div>
+                  </div>
+                  <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+                  <div class='icon-box featured-box icon-box-left text-left'>
+                    <div class='icon-box-img' style='width: 40px'>
+                      <div class='icon'>
+                        <div class='icon-inner'>
+                          <img
+                            alt=''
+                            class='attachment-medium size-medium'
+                            height='40'
+                            loading='lazy'
+                            src='https://1.bp.blogspot.com/-SAt0_4a8L9U/YLyWwjlACcI/AAAAAAAAAf0/wziZ-ZAEeLcmsLETvTNUaFP3GDcyV0tXwCLcBGAsYHQ/s46/service_icon_v6-min.png'
+                            width='46'
+                          /></div>
+                      </div>
+                    </div>
+                    <div class='icon-box-text last-reset'>
+                      <p>Lên kế hoạch thanh toán, nhắc công nợ tiện lợi và nhanh chóng ;</p>
+                    </div>
+                  </div>
+                  <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+                  <div class='icon-box featured-box icon-box-left text-left'>
+                    <div class='icon-box-img' style='width: 40px'>
+                      <div class='icon'>
+                        <div class='icon-inner'>
+                          <img
+                            alt=''
+                            class='attachment-medium size-medium'
+                            height='40'
+                            loading='lazy'
+                            src='https://1.bp.blogspot.com/-1RjSN3BJcUo/YLyW67eSLTI/AAAAAAAAAgA/tax7fDkJXHIjLzuqYZhAabtNeZNvMbi_wCLcBGAsYHQ/s40/service_icon_v7-min.png'
+                            width='37'
+                          /></div>
+                      </div>
+                    </div>
+                    <div class='icon-box-text last-reset'>
+                      <p>Được thiết kế theo tiêu chí dễ dàng sử dụng, giao diện trực quan ;</p>
+                    </div>
+                  </div>
+                  <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+                  <div class='icon-box featured-box icon-box-left text-left'>
+                    <div class='icon-box-img' style='width: 40px'>
+                      <div class='icon'>
+                        <div class='icon-inner'>
+                          <img
+                            alt=''
+                            class='attachment-medium size-medium'
+                            height='40'
+                            loading='lazy'
+                            src='https://1.bp.blogspot.com/-5ndZTVW8ROY/YLyWwqs_zNI/AAAAAAAAAfw/VfwwXvpjdEs7l6ORV-7LhI25n2HyqxL-wCLcBGAsYHQ/s40/service_icon_v8-min.png'
+                            width='31'
+                          /></div>
+                      </div>
+                    </div>
+                    <div class='icon-box-text last-reset'>
+                      <p>Tạo chiến lược kinh doanh chuyên nghiệp hơn với những chức năng của phần mềm.</p>
+                    </div>
+                  </div>" image=image }}
+            {{/when}}
+          {{/when}}
+      {{/each}}
     </div>
   </div>
+
   <style scope='scope'>
     #section_2031079727 { padding-top: 30px; padding-bottom: 30px } #section_2031079727 .section-bg.bg-loaded {
     background-image:
     url(https://1.bp.blogspot.com/-4_Hudt-S5Tg/YLyXNGdouHI/AAAAAAAAAgg/T1obahXYHIYrWA32NQkJq-3QOwPKYgDSgCLcBGAsYHQ/s1920/banner-mins2.png)
-    } #section_2031079727 .section-bg { background-position: 20% 100% }
+    } #section_2031079727 .section-bg { background-layout: 20% 100% }
   </style>
-</section>
 
 <section class='section' id='section_978033073'>
   <div class='bg section-bg fill bg-fill bg-loaded'></div>
@@ -792,493 +496,21 @@
     #section_978033073 { padding-top: 30px; padding-bottom: 30px; background-color: rgb(243, 243, 245) }
   </style>
 </section>
+{{> section/slideSection customers=customers }}
 
-<section class='section secback dark' id='section_833569322'>
-  <div class='bg section-bg fill bg-fill bg-loaded'></div>
-  <div class='section-content relative'>
-    <div class='row' id='row-611116913'>
-      <div class='col small-12 large-12'>
-        <div class='col-inner text-center'>
-          <div class='title-text-wrap'>
-            <h2 class='heading-title'>10,000+ khách hàng đã chọn SAFEBOOKS.VN</h2>
-          </div>
-          <div class='h5 heading-text'>Sự hài lòng của khách hàng chính là thành công lớn nhất của chúng tôi</div>
-          <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-          <div class='slider-wrapper relative' id='slider-1127583046'>
-            <div
-              class='slider slider-nav-circle slider-nav-large slider-nav-light slider-style-normal flickity-enabled is-draggable'
-              data-flickity-options='{ &quot;cellAlign&quot;: &quot;center&quot;, &quot;imagesLoaded&quot;: true, &quot;lazyLoad&quot;: 1, &quot;freeScroll&quot;: false, &quot;wrapAround&quot;: true, &quot;autoPlay&quot;: 6000, &quot;pauseAutoPlayOnHover&quot; : true, &quot;prevNextButtons&quot;: true, &quot;contain&quot; : true, &quot;adaptiveHeight&quot; : true, &quot;dragThreshold&quot; : 10, &quot;percentPosition&quot;: true, &quot;pageDots&quot;: true, &quot;rightToLeft&quot;: false, &quot;draggable&quot;: true, &quot;selectedAttraction&quot;: 0.1, &quot;parallax&quot; : 0, &quot;friction&quot;: 0.6        }'
-              tabindex='0'
-            >
+{{#each sections}}
+  {{#when layout 'eq' 'staff'}}
+    {{> section/staffSection title=title description=description  }}
+  {{/when}}
+{{/each}}
+{{#each sections}}
+  {{#when layout 'eq' 'comment'}}
+    {{> section/feedbackSection  title=title description=description}}
+  {{/when}}
+{{/each}}
 
-              <div class='flickity-viewport' style='height: 124.062px; touch-action: pan-y;'><div
-                  class='flickity-slider'
-                  style='left: 0px; transform: translateX(-95.71%);'
-                ><div class='row' id='row-1346347103' aria-selected='false' style='position: absolute; left: 194.29%;'>
-                    <div class='col medium-3 small-6 large-3'>
-                      <div class='col-inner'>
-                        <div class='img has-hover x md-x lg-x y md-y lg-y' id='image_1716710808'>
-                          <div class='img-inner dark'>
-                            <img
-                              alt=''
-                              class='attachment-large size-large'
-                              height='106'
-                              loading='lazy'
-                              src='https://1.bp.blogspot.com/-FCfH6O3qz2Q/YLybqwwTo7I/AAAAAAAAAjM/07AdzLFydJAxXA4dkAgdkGbf4kE3zzEugCLcBGAsYHQ/s262/logo-alphabooks-min.png'
-                              width='262'
-                            /></div>
-                          <style scope='scope'>
-                            #image_1716710808 { width: 100% }
-                          </style>
-                        </div>
-                      </div>
-                    </div>
-                    <div class='col medium-3 small-6 large-3'>
-                      <div class='col-inner'>
-                        <div class='img has-hover x md-x lg-x y md-y lg-y' id='image_392984970'>
-                          <div class='img-inner dark'>
-                            <img
-                              alt=''
-                              class='attachment-large size-large'
-                              height='106'
-                              loading='lazy'
-                              src='https://1.bp.blogspot.com/-4zOs6gE_Ifg/YLybq-Wxl-I/AAAAAAAAAjI/AuIHheesMZwpqQhQ-zFiBshVfCaUixseACLcBGAsYHQ/s262/logo-saothaiduong-min.png'
-                              width='262'
-                            /></div>
-                          <style scope='scope'>
-                            #image_392984970 { width: 100% }
-                          </style>
-                        </div>
-                      </div>
-                    </div>
-                    <div class='col medium-3 small-6 large-3'>
-                      <div class='col-inner'>
-                        <div class='img has-hover x md-x lg-x y md-y lg-y' id='image_1307893951'>
-                          <div class='img-inner dark'>
-                            <img
-                              alt=''
-                              class='attachment-large size-large'
-                              height='106'
-                              loading='lazy'
-                              src='https://1.bp.blogspot.com/-eeSsBmAm9Iw/YLybq8JM9KI/AAAAAAAAAjQ/qlLJnrNg48IpQh8emS1pnSDacr6sNkTrgCLcBGAsYHQ/s262/logo-sonha-min.png'
-                              width='262'
-                            /></div>
-                          <style scope='scope'>
-                            #image_1307893951 { width: 100% }
-                          </style>
-                        </div>
-                      </div>
-                    </div>
-                    <div class='col medium-3 small-6 large-3'>
-                      <div class='col-inner'>
-                        <div class='img has-hover x md-x lg-x y md-y lg-y' id='image_966196973'>
-                          <div class='img-inner dark'>
-                            <img
-                              alt=''
-                              class='attachment-large size-large'
-                              height='106'
-                              loading='lazy'
-                              src='https://1.bp.blogspot.com/-LDEagRWaZbg/YLyb67axJcI/AAAAAAAAAjg/3t-H9zviwCo7_nGhDzDU8qPTxlkxxnrOwCLcBGAsYHQ/s262/logo-evashoes-min.png'
-                              width='262'
-                            /></div>
-                          <style scope='scope'>
-                            #image_966196973 { width: 100% }
-                          </style>
-                        </div>
-                      </div>
-                    </div>
-                  </div><div
-                    class='row is-selected'
-                    id='row-338853865'
-                    aria-selected='true'
-                    style='position: absolute; left: 97.14%;'
-                  >
-                    <div class='col medium-3 small-6 large-3'>
-                      <div class='col-inner'>
-                        <div class='img has-hover x md-x lg-x y md-y lg-y' id='image_1851422455'>
-                          <div class='img-inner dark'>
-                            <img
-                              alt=''
-                              class='attachment-large size-large'
-                              height='106'
-                              loading='lazy'
-                              src='https://1.bp.blogspot.com/-FCfH6O3qz2Q/YLybqwwTo7I/AAAAAAAAAjM/07AdzLFydJAxXA4dkAgdkGbf4kE3zzEugCLcBGAsYHQ/s262/logo-alphabooks-min.png'
-                              width='262'
-                            /></div>
-                          <style scope='scope'>
-                            #image_1851422455 { width: 100% }
-                          </style>
-                        </div>
-                      </div>
-                    </div>
-                    <div class='col medium-3 small-6 large-3'>
-                      <div class='col-inner'>
-                        <div class='img has-hover x md-x lg-x y md-y lg-y' id='image_1155240681'>
-                          <div class='img-inner dark'>
-                            <img
-                              alt=''
-                              class='attachment-large size-large'
-                              height='106'
-                              loading='lazy'
-                              src='https://1.bp.blogspot.com/-4zOs6gE_Ifg/YLybq-Wxl-I/AAAAAAAAAjI/AuIHheesMZwpqQhQ-zFiBshVfCaUixseACLcBGAsYHQ/s262/logo-saothaiduong-min.png'
-                              width='262'
-                            /></div>
-                          <style scope='scope'>
-                            #image_1155240681 { width: 100% }
-                          </style>
-                        </div>
-                      </div>
-                    </div>
-                    <div class='col medium-3 small-6 large-3'>
-                      <div class='col-inner'>
-                        <div class='img has-hover x md-x lg-x y md-y lg-y' id='image_1973203469'>
-                          <div class='img-inner dark'>
-                            <img
-                              alt=''
-                              class='attachment-large size-large'
-                              height='106'
-                              loading='lazy'
-                              src='https://1.bp.blogspot.com/-eeSsBmAm9Iw/YLybq8JM9KI/AAAAAAAAAjQ/qlLJnrNg48IpQh8emS1pnSDacr6sNkTrgCLcBGAsYHQ/s262/logo-sonha-min.png'
-                              width='262'
-                            /></div>
-                          <style scope='scope'>
-                            #image_1973203469 { width: 100% }
-                          </style>
-                        </div>
-                      </div>
-                    </div>
-                    <div class='col medium-3 small-6 large-3'>
-                      <div class='col-inner'>
-                        <div class='img has-hover x md-x lg-x y md-y lg-y' id='image_1134390958'>
-                          <div class='img-inner dark'>
-                            <img
-                              alt=''
-                              class='attachment-large size-large'
-                              height='106'
-                              loading='lazy'
-                              src='https://1.bp.blogspot.com/-LDEagRWaZbg/YLyb67axJcI/AAAAAAAAAjg/3t-H9zviwCo7_nGhDzDU8qPTxlkxxnrOwCLcBGAsYHQ/s262/logo-evashoes-min.png'
-                              width='262'
-                            /></div>
-                          <style scope='scope'>
-                            #image_1134390958 { width: 100% }
-                          </style>
-                        </div>
-                      </div>
-                    </div>
-                  </div></div></div><button
-                class='flickity-button flickity-prev-next-button previous'
-                type='button'
-                aria-label='Previous'
-              ><svg class='flickity-button-icon' viewBox='0 0 100 100'><path
-                    d='M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z'
-                    class='arrow'
-                  ></path></svg></button><button
-                class='flickity-button flickity-prev-next-button next'
-                type='button'
-                aria-label='Next'
-              ><svg class='flickity-button-icon' viewBox='0 0 100 100'><path
-                    d='M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z'
-                    class='arrow'
-                    transform='translate(100, 100) rotate(180) '
-                  ></path></svg></button><ol class='flickity-page-dots'><li class='dot' aria-label='Page dot 1'></li><li
-                  class='dot is-selected'
-                  aria-label='Page dot 2'
-                  aria-current='step'
-                ></li></ol></div>
-            <div class='loading-spin dark large centered' style='display: none;'></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <style scope='scope'>
-    #section_833569322 { padding-top: 30px; padding-bottom: 30px; background-color: #6219c4 }
-  </style>
-</section>
-
-<div class='section'>
-  <div class='row' id='row-512505365'>
-    <div class='col small-12 large-12'>
-      <div class='col-inner text-center'>
-        <h2
-          class='heading-title'
-          style="font-family: 'Roboto Condensed', sans-serif; color: #2f2c2c; text-align: center;"
-        ><span style='font-size: 120%;'>ĐỘI NGŨ SAFEBOOK </span></h2>
-        <div class='heading-decoration'></div>
-        <div class='heading-decoration'></div>
-        <p>"Được thành lập từ 2017 với thương hiệu mới là SAFEBOOKS.VN, là đơn vị hoạt động trong lĩnh vực cung cấp giải
-          pháp phần mềm kế toán. Cùng với đội ngũ giàu kinh nghiệm từ nhóm chuyên gia phát triển phần mềm ERP với 10 năm
-          kinh nghiệm trong lĩnh vực tài chính - kế toán. SAFEBOOKS.VN đang ngày càng khẳng định được thương hiệu của
-          mình trên thị trường bằng uy tín, mang lại nhiều giá trị cho khách hàng và đối tác. "
-        </p>
-        <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-        <div class='row' id='row-837703253'>
-          <div class='col teamwos medium-4 small-12 large-4'>
-            <div class='col-inner'>
-              <div class='box has-hover has-hover box-text-bottom'>
-                <div class='box-image' style='width:50%;'>
-                  <div class='box-image-inner image-cover' style='border-radius:100%;padding-top:100%;'>
-                    <img
-                      alt=''
-                      class='attachment- size-'
-                      height='649'
-                      loading='lazy'
-                      src='https://1.bp.blogspot.com/-28-vy4mqmU0/YLybP7FGhEI/AAAAAAAAAi8/vy_GVqawewgrsL1qo2OMIcm6fyBRMWJygCLcBGAsYHQ/s1656/2.jpg'
-                      width='649'
-                    /></div>
-                </div>
-                <div class='box-text text-center'>
-                  <div class='box-text-inner'>
-                    <h4 class='uppercase'>
-                      <span class='person-name'>Kiều Xuân Tùng</span><br />
-                      <span class='person-title is-small thin-font op-7'> CTO </span></h4>
-                    <div class='social-icons follow-icons'><a
-                        class='icon primary button circle facebook tooltip tooltipstered'
-                        data-label='Facebook'
-                        href='https://www.facebook.com/Safebooks.vn/'
-                        rel='noopener noreferrer nofollow'
-                        target='_blank'
-                      ><i class='icon-facebook'></i></a><a
-                        class='icon primary button circle phone tooltip tooltipstered'
-                        data-label='Phone'
-                        href='tel:093 164 06 79'
-                        rel='noopener noreferrer nofollow'
-                        target='_blank'
-                      ><i class='icon-phone'></i></a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class='col teamwos medium-4 small-12 large-4'>
-            <div class='col-inner'>
-              <div class='box has-hover has-hover box-text-bottom'>
-                <div class='box-image' style='width:50%;'>
-                  <div class='box-image-inner image-cover' style='border-radius:100%;padding-top:100%;'>
-                    <img
-                      alt=''
-                      class='attachment-original size-original'
-                      height='1656'
-                      loading='lazy'
-                      src='https://1.bp.blogspot.com/-HP1jzDw-uXI/YLybP8Vr7wI/AAAAAAAAAi0/LNdxPwysGJAOgwCU9o-x9mHPFvu5mq2gwCLcBGAsYHQ/s649/1.jpg'
-                      width='1656'
-                    /></div>
-                </div>
-                <div class='box-text text-center'>
-                  <div class='box-text-inner'>
-                    <h4 class='uppercase'>
-                      <span class='person-name'>Mr Thế Anh </span><br />
-                      <span class='person-title is-small thin-font op-7'> FOUNDER &amp; CEO </span></h4>
-                    <div class='social-icons follow-icons'><a
-                        class='icon primary button circle facebook tooltip tooltipstered'
-                        data-label='Facebook'
-                        href='https://www.facebook.com/Safebooks.vn/'
-                        rel='noopener noreferrer nofollow'
-                        target='_blank'
-                      ><i class='icon-facebook'></i></a><a
-                        class='icon primary button circle phone tooltip tooltipstered'
-                        data-label='Phone'
-                        href='tel:093 164 06 79'
-                        rel='noopener noreferrer nofollow'
-                        target='_blank'
-                      ><i class='icon-phone'></i></a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class='col teamwos medium-4 small-12 large-4'>
-            <div class='col-inner'>
-              <div class='box has-hover has-hover box-text-bottom'>
-                <div class='box-image' style='width:50%;'>
-                  <div class='box-image-inner image-cover' style='border-radius:100%;padding-top:100%;'>
-                    <img
-                      alt=''
-                      class='attachment-original size-original'
-                      height='960'
-                      loading='lazy'
-                      src='https://1.bp.blogspot.com/-tFAou0jRJ5g/YLybP231xlI/AAAAAAAAAi4/4eZGOOexHbA_JWVCy8HVKpuQQU1ZxNA6wCLcBGAsYHQ/s960/3.jpg'
-                      width='960'
-                    /></div>
-                </div>
-                <div class='box-text text-center'>
-                  <div class='box-text-inner'>
-                    <h4 class='uppercase'>
-                      <span class='person-name'>Nguyễn Trọng Trung</span><br />
-                      <span class='person-title is-small thin-font op-7'> CO-FOUNDER </span></h4>
-                    <div class='social-icons follow-icons'><a
-                        class='icon primary button circle facebook tooltip tooltipstered'
-                        data-label='Facebook'
-                        href='https://www.facebook.com/Safebooks.vn'
-                        rel='noopener noreferrer nofollow'
-                        target='_blank'
-                      ><i class='icon-facebook'></i></a><a
-                        class='icon primary button circle phone tooltip tooltipstered'
-                        data-label='Phone'
-                        href='tel:093 164 06 79'
-                        rel='noopener noreferrer nofollow'
-                        target='_blank'
-                      ><i class='icon-phone'></i></a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<section class='section secback dark' id='section_521543635'>
-  <div class='bg section-bg fill bg-fill bg-loaded'></div>
-  <div class='section-content relative'>
-    <div class='gap-element clearfix' style='display:block; height:auto; padding-top:40px'></div>
-    <div class='row' id='row-1549117855'>
-      <div class='col medium-4 small-12 large-4'>
-        <div class='col-inner'>
-          <h3 class='uppercase thin-font' style='text-align: center;'><strong>KHÁCH HÀNG NÓI GÌ VỀ SAFEBOOKS
-              <span style='color: #ffcc00; text-decoration: underline;'>SAFEBOOKS</span></strong></h3>
-          <div class='text-center'>
-            <div class='is-divider divider clearfix' style='height:2px;background-color:rgb(219, 219, 219);'></div>
-          </div>
-          <p>Với đội ngũ dày dặn kinh nghiệm trong lĩnh vực công nghệ thông tin, chúng tôi luôn cố gắng hết sức để tạo
-            ra những sản phẩm, dịch vụ có chất lượng tối ưu, mang lại sự hài lòng cho khách hàng ở mức độ cao nhất.</p>
-        </div>
-      </div>
-      <div class='col medium-8 small-12 large-8'>
-        <div class='col-inner'>
-          <div class='row' id='row-1359683358'>
-            <div class='col small-12 large-12'>
-              <div class='col-inner'>
-                <div class='icon-box testimonial-box icon-box-left text-left'>
-                  <div class='icon-box-img testimonial-image circle' style='width: 80px'>
-                    <img
-                      alt=''
-                      class='attachment-thumbnail size-thumbnail'
-                      height='150'
-                      loading='lazy'
-                      src='https://minsoftware.vn/wp-content/uploads/2019/09/Khach-hang-aiface-3-300x300-150x150.jpg'
-                      width='150'
-                    /></div>
-                  <div class='icon-box-text p-last-0'>
-                    <div class='star-rating'><span style='width:100%'><strong class='rating'></strong></span></div>
-                    <div class='testimonial-text line-height-small italic test_text first-reset last-reset is-italic'>
-                      <h3 class='thin-font'>Quang Minh</h3>
-                      <h3 class='thin-font'>“Từ ngày sử dụng phần mềm safeboos, mình bớt hẳn quên thiếu hóa đơn cho
-                        doanh nghiệp” –</h3>
-                    </div>
-                    <div class='testimonial-meta pt-half'>
-                      <strong class='testimonial-name test_name'></strong>
-                      <span class='testimonial-company test_company'></span></div>
-                  </div>
-                </div>
-                <div class='icon-box testimonial-box icon-box-left text-left'>
-                  <div class='icon-box-img testimonial-image circle' style='width: 80px'>
-                    <img
-                      alt=''
-                      class='attachment-thumbnail size-thumbnail'
-                      height='150'
-                      loading='lazy'
-                      src='https://minsoftware.vn/wp-content/uploads/2019/09/Khach-hang-aiface-1-300x300-150x150.jpg'
-                      width='150'
-                    /></div>
-                  <div class='icon-box-text p-last-0'>
-                    <div class='star-rating'><span style='width:100%'><strong class='rating'></strong></span></div>
-                    <div class='testimonial-text line-height-small italic test_text first-reset last-reset is-italic'>
-                      <h3>Diễm My</h3>
-                      <h3 class='thin-font'>“Phần mềm SAFEBOOKS trợ thủ đắc lực cho những người làm giám đốc bận rộn như
-                        mình. Cảm ơn đội ngũ SAFEBOOKS !”</h3>
-                    </div>
-                    <div class='testimonial-meta pt-half'>
-                      <strong class='testimonial-name test_name'></strong>
-                      <span class='testimonial-company test_company'></span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <style scope='scope'>
-    #section_521543635 { padding-top: 15px; padding-bottom: 15px; background-color: #6219c4 }
-  </style>
-</section>
-
-<section class='section'>
-  <div class='container'>
-    <div class='row' id='row-1124749063'>
-      <div class='col small-12 large-12'>
-        <div class='col-inner text-center'>
-          <h2
-            class='heading-title'
-            style="font-family: 'Roboto Condensed', sans-serif; color: #2f2c2c; text-align: center;"
-          >SAFEBOOKS</h2>
-          <div class='heading-decoration'></div>
-          <p>Công ty cổ phần giải pháp ARITO là một công ty được xây dựng dựa trên kinh nghiệm, khả năng và sự đam mê.
-            ARITO nỗ lực để đưa đến những giải pháp quản lý doanh nghiệp và tài chính kế toán. Cùng với đội ngũ giàu
-            kinh nghiệm từ nhóm chuyên gia phát triển phần mềm ERP với 10 năm kinh nghiệm trong lĩnh vực tài chính - kế
-            toán. Năm 2017, ARITO cho ra đời sản phẩm phần mềm kế toán SAFEBOOKS.VN. SAFEBOOKS.VN đang ngày càng khẳng
-            định được thương hiệu của mình trên thị trường bằng uy tín, mang lại nhiều giá trị cho khách hàng và đối
-            tác.
-          </p>
-          <div class='row align-middle' id='row-1165623172'>
-            <div class='col medium-7 small-12 large-7'>
-              <div class='col-inner'>
-                <div class='banner has-hover' id='banner-590341970'>
-                  <div class='banner-inner fill'>
-                    <div class='banner-bg fill'>
-                      <div class='bg fill bg-fill bg-loaded'></div>
-                      <div class='overlay'></div>
-                    </div>
-                    <div class='banner-layers container'>
-                      <div class='fill banner-link'></div>
-                      <div
-                        class='text-box banner-layer x50 md-x50 lg-x50 y50 md-y50 lg-y50 res-text'
-                        id='text-box-577581907'
-                      >
-                        <div class='text dark'>
-                          <div class='text-inner text-center'>
-                            <div class='video-button-wrapper' style='font-size:190%'><a
-                                class='button open-video icon circle is-outline is-xlarge'
-                                href='https://www.youtube.com/watch?v=-avIGC9iwwI'
-                              ><i class='icon-play' style='font-size:1.5em;'></i></a></div>
-                          </div>
-                        </div>
-                        <style scope='scope'>
-                          #text-box-577581907 { width: 60% } #text-box-577581907 .text { font-size: 100% }
-                        </style>
-                      </div>
-                    </div>
-                  </div>
-                  <style scope='scope'>
-                    #banner-590341970 { padding-top: 70%; background-color: rgb(255, 255, 255) } #banner-590341970
-                    .bg.bg-loaded { background-image:
-                    url(https://1.bp.blogspot.com/-JX_wdGeSuUY/YLyZ5FF_n_I/AAAAAAAAAiI/bfoEZ_WBK8kvDqHjg1BlpzO54fecBzCIQCLcBGAsYHQ/s500/20683-1-min.png)
-                    } #banner-590341970 .overlay { background-color: rgba(0, 0, 0, .5) } #banner-590341970 .bg {
-                    background-position: 58% 55% }
-                  </style>
-                </div>
-              </div>
-            </div>
-            <div class='col medium-5 small-12 large-5'>
-              <div class='col-inner text-center'>
-                <h2
-                  class='heading-title'
-                  style="font-family: 'Roboto Condensed', sans-serif; color: #2f2c2c; text-align: center;"
-                >VIDEO CỦA CHÚNG TÔI</h2>
-                <div class='heading-decoration'></div>
-                <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
-                <h4 class='thin-font' style='text-align: left;'><span style='font-size: 130%;'>Chúng tôi tin rằng để tạo
-                    ra những sản phẩm hữu ích và chất lượng nhất thì chúng tôi phải thấu hiểu vấn đề của các bạn và
-                    doanh nghiệp bạn đang cần.</span></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+{{#each sections}}
+  {{#when layout 'eq' 'video'}}
+    {{> section/videoSection title=title description=description href=link}}
+  {{/when}}
+{{/each}}
