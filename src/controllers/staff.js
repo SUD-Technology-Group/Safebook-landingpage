@@ -1,18 +1,19 @@
 const catchAsync = require('../utils/catchAsync');
+const fs = require('fs');
 
 const { staffService } = require('../services');
 
 const staffController = {
     // POST /admin/doi-ngu/them
     create: catchAsync(async (req, res) => {
-        const image = req.file ? '/uploads/staff/' + req.file.filename : '';
+        const avatar = req.file ? '/uploads/staff/' + req.file.filename : '';
 
-        await staffService.create({ ...req.body, image }).catch((err) => {
-            req.flash('error', 'Thêm staff thất bại');
+        await staffService.create({ ...req.body, avatar }).catch((err) => {
+            req.flash('error', 'Thêm nhân viên thất bại');
             return res.redirect('back');
         });
 
-        req.flash('success', 'Thêm staff thành công');
+        req.flash('success', 'Thêm nhân viên thành công');
         res.redirect('back');
     }),
 
@@ -31,40 +32,49 @@ const staffController = {
         });
     }),
 
-    // POST /admin/doi-ngu/sua
+    // POST /admin/doi-ngu/:id
     update: catchAsync(async (req, res) => {
-        const staff = await staffService.getOne({ _id: req.body._id });
-        let image = '';
+        let { avatar } = await staffService.getOne({ _id: req.params.id });
 
         if (req.file) {
-            fs.unlink(`public/${staff.image}`, (err) => {
+            fs.unlink(`public/${avatar}`, (err) => {
                 if (err) {
-                    req.flash('error', 'Cập nhật staff thất bại');
+                    req.flash('error', 'Cập nhật nhân viên thất bại');
                     return res.redirect('back');
                 }
             });
-            image = '/uploads/staff/' + req.file.filename;
+            avatar = '/uploads/staff/' + req.file.filename;
         }
 
         await staffService
-            .update({ _id: req.body._id }, { ...req.body, image })
+            .update({ _id: req.params.id }, { ...req.body, avatar })
             .catch((err) => {
-                req.flash('error', 'Cập nhật staff thất bại');
+                req.flash('error', 'Cập nhật nhân viên thất bại');
                 return res.redirect('back');
             });
 
-        req.flash('success', 'Cập nhật staff thành công');
-        res.redirect('back');
+        req.flash('success', 'Cập nhật nhân viên thành công');
+        res.redirect('/admin/doi-ngu');
     }),
 
     // POST /admin/doi-ngu/xoa
     delete: catchAsync(async (req, res) => {
+        const { avatar } = await staffService.getOne({ _id: req.body._id });
+
+        if (avatar) {
+            fs.unlink(`public/${avatar}`, (err) => {
+                if (err) {
+                    req.flash('error', 'Xoá nhân viên thất bại');
+                    return res.redirect('back');
+                }
+            });
+        }
         await staffService.delete({ _id: req.body._id }).catch((err) => {
-            req.flash('error', 'Xoá staff thất bại');
+            req.flash('error', 'Xoá nhân viên thất bại');
             return res.redirect('back');
         });
 
-        req.flash('success', 'Xoá staff thành công');
+        req.flash('success', 'Xoá nhân viên thành công');
         res.redirect('back');
     }),
 };
