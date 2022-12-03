@@ -42,11 +42,11 @@
   </div>
 </div>
 {{#each sections}}
-  {{#when layout 'eq'  'heading'}}
+  {{#when layout 'eq'  'Heading'}}
     {{> section/headingSection title=title href=link }}
   {{/when}}
 
-  {{#when layout 'eq'  'contact'}}
+  {{#when layout 'eq'  'Contact'}}
      {{> section/contactSection title=title }}
   {{/when}}
 {{/each}}
@@ -55,13 +55,13 @@
   <div class='section-content relative'>
     <div class='gap-element clearfix' style='display:block; height:auto; padding-top:50px'></div>
       {{#each sections}}
-          {{#when layout 'eq' 'intro'}}
+          {{#when layout 'eq' 'Intro'}}
              {{> section/introSection title=title description=description }}
           {{/when}}
       {{/each}}
 
       {{#each sections}}
-        {{#when layout 'eq' 'content'}}
+        {{#when layout 'eq' 'Content'}}
           {{#when @index 'eq' 4}}
               {{> section/contentSection title=title  description="
                 <div class='icon-box featured-box icon-box-left text-left'>
@@ -499,18 +499,18 @@
 {{> section/slideSection customers=customers }}
 
 {{#each sections}}
-  {{#when layout 'eq' 'staff'}}
+  {{#when layout 'eq' 'Staff'}}
     {{> section/staffSection title=title description=description  }}
   {{/when}}
 {{/each}}
 {{#each sections}}
-  {{#when layout 'eq' 'comment'}}
+  {{#when layout 'eq' 'Comment'}}
     {{> section/feedbackSection  title=title description=description}}
   {{/when}}
 {{/each}}
 
 {{#each sections}}
-  {{#when layout 'eq' 'video'}}
+  {{#when layout 'eq' 'Video'}}
     {{> section/videoSection title=title description=description href=link}}
   {{/when}}
 {{/each}}
