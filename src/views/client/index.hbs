@@ -43,7 +43,13 @@
 
 {{#each sections}}
   {{#when layout 'eq'  'Liên kết'}}
+      {{#when @index 'eq' 1}}
+        {{> section/contentSection title=title  description=description link=link image=image }}
+      {{/when}}
     {{> section/headingSection title=title href=link }}
+      {{#when @index 'eq' 3}}
+        {{> section/contentSection title=title  description=description link=link }}
+      {{/when}}
   {{/when}}
 
   {{#when layout 'eq'  'Hỗ trợ'}}

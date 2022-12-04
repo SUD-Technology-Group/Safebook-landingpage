@@ -10,7 +10,7 @@
           <div class='heading-decoration'></div>
           <div class='row' id='row-sp-load'>
           </div>
-          <a class='button primary is-gloss xemtatcasp' href='{{href}}' style='border-radius:10px;' target='_self'>
+          <a class='button primary is-gloss xemtatcasp' href='{{link}}' style='border-radius:10px;' target='_self'>
             <span>xem tất cả</span>
           </a>
           <div class='text-center'>
@@ -18,6 +18,11 @@
           </div>
         </div>
       </div>
+      {{#when image 'noteq' ''}}
+        <div class='col small-12 large-12'>
+          <img src='{{image}}' alt='bang gia' />
+        </div>
+      {{/when}}
     </div>
   </div>
   <style scope='scope'>
