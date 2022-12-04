@@ -27,15 +27,30 @@
             </div>
 
             <div class='row mb-4'>
-                <div class='col'>
-                    <div class='form-outline'>
-                        <input
-                            type='color'
-                            name="backgroundColor"
-                            class='form-control'
-                            value="{{section.backgroundColor}}"
-                        />
-                        <label class='form-label bold' for='form6Example1'>Màu nền</label>
+                <div class="col">
+                    <div class="row">
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input
+                                    type='color'
+                                    name="color1"
+                                    class='form-control'
+                                    value="{{section.backgroundColor.start}}"
+                                />
+                                <label class='form-label bold' for='form6Example1'>Màu nền 1</label>
+                            </div>
+                        </div>
+                        <div class='col'>
+                            <div class='form-outline'>
+                                <input
+                                    type='color'
+                                    name="color2"
+                                    class='form-control'
+                                    value="{{section.backgroundColor.end}}"
+                                />
+                                <label class='form-label bold' for='form6Example1'>Màu nền 2</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class='col'>

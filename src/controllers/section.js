@@ -44,8 +44,16 @@ const sectionController = {
             image = '';
         }
 
+        const backgroundColor = {
+            start: req.body.color1,
+            end: req.body.color2,
+        };
+
         await sectionService
-            .update({ _id: req.params.id }, { ...req.body, image })
+            .update(
+                { _id: req.params.id },
+                { ...req.body, image, backgroundColor }
+            )
             .catch((err) => {
                 req.flash('error', 'Cập nhật section thất bại');
                 return res.redirect('back');
