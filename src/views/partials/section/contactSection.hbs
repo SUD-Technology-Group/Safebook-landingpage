@@ -58,8 +58,53 @@
                         <button class='wpcf7-form-control wpcf7-submit guidi' type='submit'>Gửi đi</button>
                       </p>
                     </div>
-                    <div class='wpcf7-response-output wpcf7-display-none success1'>Gửi thành công</div>
                   </form>
+
+                  {{#if message.success}}
+                    <div
+                      class='toast fade mx-auto toast-success toast-fixed show'
+                      role='alert'
+                      aria-live='assertive'
+                      aria-atomic='true'
+                      data-mdb-autohide='true'
+                      data-mdb-position='bottom-right'
+                      data-mdb-append-to-body='true'
+                      data-mdb-stacking='true'
+                      data-mdb-width='350px'
+                      data-mdb-color='success'
+                      style='width: 350px; display: block; bottom: 75px; right: 10px; top: unset; left: unset; transform: unset;'
+                    >
+                      <div class='toast-header toast-success'>
+                        <i class='fas fa-check fa-lg me-2'></i>
+                        <strong class='me-auto'>Thành công</strong>
+                        <button type='button' class='btn-close' data-mdb-dismiss='toast' aria-label='Close'></button>
+                      </div>
+                      <div class='toast-body'>{{message.success}}</div>
+                    </div>
+                  {{/if}}
+
+                  {{#if message.error}}
+                    <div
+                      class='toast fade mx-auto toast-danger toast-fixed show'
+                      role='alert'
+                      aria-live='assertive'
+                      aria-atomic='true'
+                      data-mdb-autohide='true'
+                      data-mdb-position='bottom-right'
+                      data-mdb-append-to-body='true'
+                      data-mdb-stacking='true'
+                      data-mdb-width='350px'
+                      data-mdb-color='success'
+                      style='width: 350px; display: block; bottom: 75px; right: 10px; top: unset; left: unset; transform: unset;'
+                    >
+                      <div class='toast-header toast-danger'>
+                        <i class='fas fa-exclamation-circle fa-lg me-2'></i>
+                        <strong class='me-auto'>Thất bại</strong>
+                        <button type='button' class='btn-close' data-mdb-dismiss='toast' aria-label='Close'></button>
+                      </div>
+                      <div class='toast-body'>{{message.error}}</div>
+                    </div>
+                  {{/if}}
                 </div>
               </div>
             </div>

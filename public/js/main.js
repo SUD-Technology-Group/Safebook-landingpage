@@ -12,6 +12,9 @@ $(document).ready(function () {
   $('.nav-item-has-children').on('mouseleave', function () {
     $('.nav-item-has-children').removeClass('current-dropdown');
   });
+  setTimeout(function () {
+    $('.toast').hide();
+  }, 4000);
 
   var mySwiper2 = new Swiper('.swiper-container', {
     slidesPerView: 4,
@@ -42,23 +45,6 @@ $(document).ready(function () {
     speed: 800,
     autoplayDisableOnInteraction: false,
   });
-  // var banner = new Swiper('.swiper-container-banner', {
-
-  //   loopFillGroupWithBlank: true,
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //     clickable: true,
-  //   },
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-
-  //   autoplay: 5000,
-  //   speed: 800,
-  //   autoplayDisableOnInteraction: false,
-  // });
-
   var swiperOptions = {
     loop: true,
     speed: 1000,
