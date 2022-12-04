@@ -1,4 +1,9 @@
-<h3 class='mb-3'>{{title}}</h3>
+<nav aria-label='breadcrumb'>
+    <ol class='breadcrumb'>
+        <li class='breadcrumb-item'><a href='/admin/section'>Section</a></li>
+        <li class='breadcrumb-item active' aria-current='page'>{{title}}</li>
+    </ol>
+</nav>
 <section class='p-4 shadow rounded'>
     <form method='post' class='mb-0' enctype='multipart/form-data'>
         <div class='modal-body'>
@@ -54,11 +59,13 @@
                     id='customFile'
                     accept='image/*'
                     name='section'
+                    onchange="preview(this, 'previewImg')"
                 />
                 <img
+                    id='previewImg'
                     src='{{section.image}}'
                     alt=''
-                    width='20%'
+                    width='40%'
                     class='mt-2'
                 />
             </div>
@@ -69,59 +76,3 @@
         </div>
     </form>
 </section>
-
-{{#if message.success}}
-    <div
-        class='toast fade mx-auto toast-success toast-fixed show'
-        role='alert'
-        aria-live='assertive'
-        aria-atomic='true'
-        data-mdb-autohide='true'
-        data-mdb-position='top-right'
-        data-mdb-append-to-body='true'
-        data-mdb-stacking='true'
-        data-mdb-width='350px'
-        data-mdb-color='success'
-        style='width: 350px; display: block; top: 10px; right: 10px; bottom: unset; left: unset; transform: unset;'
-    >
-        <div class='toast-header toast-success'>
-            <i class='fas fa-check fa-lg me-2'></i>
-            <strong class='me-auto'>Thành công</strong>
-            <button
-                type='button'
-                class='btn-close'
-                data-mdb-dismiss='toast'
-                aria-label='Close'
-            ></button>
-        </div>
-        <div class='toast-body'>{{message.success}}</div>
-    </div>
-{{/if}}
-
-{{#if message.error}}
-    <div
-        class='toast fade mx-auto toast-danger toast-fixed show'
-        role='alert'
-        aria-live='assertive'
-        aria-atomic='true'
-        data-mdb-autohide='true'
-        data-mdb-position='top-right'
-        data-mdb-append-to-body='true'
-        data-mdb-stacking='true'
-        data-mdb-width='350px'
-        data-mdb-color='success'
-        style='width: 350px; display: block; top: 10px; right: 10px; bottom: unset; left: unset; transform: unset;'
-    >
-        <div class='toast-header toast-danger'>
-            <i class='fas fa-exclamation-circle fa-lg me-2'></i>
-            <strong class='me-auto'>Thất bại</strong>
-            <button
-                type='button'
-                class='btn-close'
-                data-mdb-dismiss='toast'
-                aria-label='Close'
-            ></button>
-        </div>
-        <div class='toast-body'>{{message.error}}</div>
-    </div>
-{{/if}}
