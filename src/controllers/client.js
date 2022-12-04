@@ -2,47 +2,42 @@ const catchAsync = require('../utils/catchAsync');
 const customers = require('../../mock/customer');
 const mailer = require('../utils/mailer');
 
-const {
-    sectionService,
-    bannerService,
-    commentService,
-    staffService,
-} = require('../services');
+const { sectionService, bannerService, commentService, staffService } = require('../services');
 
 const clientController = {
-    // GET /
-    index: catchAsync(async (req, res) => {
-        const sections = await sectionService.get({});
-        const banners = await bannerService.get({});
-        const comments = await commentService.get({});
-        const staffs = await staffService.get({});
+  // GET /
+  index: catchAsync(async (req, res) => {
+    const sections = await sectionService.get({});
+    const banners = await bannerService.get({});
+    const comments = await commentService.get({});
+    const staffs = await staffService.get({});
 
-        const message = {
-            error: req.flash('error'),
-            success: req.flash('success'),
-        };
+    const message = {
+      error: req.flash('error'),
+      success: req.flash('success'),
+    };
 
-        res.render('client', {
-            title: 'Trang chủ',
-            sections,
-            customers,
-            comments,
-            banners,
-            staffs,
-            message,
-        });
-    }),
+    res.render('client', {
+      title: 'Trang chủ',
+      sections,
+      customers,
+      comments,
+      banners,
+      staffs,
+      message,
+    });
+  }),
 
-    // POST /lien-he
-    contact: catchAsync(async (req, res) => {
-        const { name, phone } = req.body;
+  // POST /lien-he
+  contact: catchAsync(async (req, res) => {
+    const { name, phone } = req.body;
 
-        const mainOptions = {
-            // thiết lập đối tượng, nội dung gửi mail
-            from: 'sudtechnology.group@gmail.com',
-            to: 'tanphat200265@gmail.com',
-            subject: 'Thông tin khách hàng cần tư vấn',
-            html: `<style>
+    const mainOptions = {
+      // thiết lập đối tượng, nội dung gửi mail
+      from: 'sudtechnology.group@gmail.com',
+      to: 'tanphat200265@gmail.com',
+      subject: 'Thông tin khách hàng cần tư vấn',
+      html: `<style>
                         a:hover {text-decoration: underline !important;}
                     </style>
                     
@@ -156,19 +151,16 @@ const clientController = {
                             </tr>
                         </table>
                     </div>`,
-        };
-        mailer.sendMail(mainOptions, function (err) {
-            if (err) {
-                req.flash('error', 'Có lỗi đã xảy ra. Vui lòng thử lại!');
-                return res.redirect('back');
-            }
-            req.flash(
-                'success',
-                'Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!'
-            );
-            res.redirect('back');
-        });
-    }),
+    };
+    mailer.sendMail(mainOptions, function (err) {
+      if (err) {
+        req.flash('error', 'Có lỗi đã xảy ra. Vui lòng thử lại!');
+        return res.redirect('back');
+      }
+      req.flash('success', 'Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!');
+      res.redirect('back');
+    });
+  }),
 };
 
 module.exports = clientController;
