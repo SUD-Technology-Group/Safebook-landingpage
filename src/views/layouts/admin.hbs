@@ -167,7 +167,9 @@
                 $('#binh-luan').addClass('active'); 
             else $('#banner').addClass('active'); 
 
-            $('#table_id').DataTable(); 
+            $('#table_id').DataTable({
+                "ordering": false,
+            }); 
 
             setTimeout(function() { $('.toast').hide(); }, 4000);
 
