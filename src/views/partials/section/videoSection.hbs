@@ -15,9 +15,16 @@
               <div class='col-inner'>
                 <div class='banner has-hover' id='banner-590341970'>
                   <div class='banner-inner fill'>
-                    <div class='banner-bg fill'>
-                      <div class='bg fill bg-fill bg-loaded' style='z-index:1'></div>
-                      <div class='overlay'></div>
+                    <div class='banner-bg fill' style='z-index:5 ;'>
+                      <iframe
+                        width='560'
+                        height='315'
+                        src='{{link}}'
+                        title='YouTube video player'
+                        frameborder='0'
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        allowfullscreen
+                      ></iframe>
                     </div>
                     <div class='banner-layers container'>
                       <div class='fill banner-link'></div>
@@ -26,14 +33,6 @@
                         style='z-index:2'
                         id='text-box-577581907'
                       >
-                        <div class='text dark'>
-                          <div class='text-inner text-center'>
-                            <div class='video-button-wrapper' style='font-size:190%'><a
-                                class='button open-video icon circle is-outline is-xlarge'
-                                href='{{href}}'
-                              ><i class='icon-play' style='font-size:2.5em;'></i></a></div>
-                          </div>
-                        </div>
                         <style scope='scope'>
                           #text-box-577581907 { width: 60% } #text-box-577581907 .text { font-size: 100% }
                         </style>
@@ -42,8 +41,8 @@
                   </div>
                   <style scope='scope'>
                     #banner-590341970 { padding-top: 70%; background-color: rgb(255, 255, 255) } #banner-590341970
-                    .bg.bg-loaded { background-image: url(/images/20683-1-min.png) } #banner-590341970 .overlay {
-                    background-color: rgba(0, 0, 0, .5) } #banner-590341970 .bg { background-layout: 58% 55% }
+                    .bg.bg-loaded { background-image: url({{image}}) } #banner-590341970 .overlay { background-color:
+                    rgba(0, 0, 0, .5) } #banner-590341970 .bg { background-layout: 58% 55% }
                   </style>
                 </div>
               </div>
