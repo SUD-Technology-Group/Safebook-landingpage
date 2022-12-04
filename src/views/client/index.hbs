@@ -47,7 +47,7 @@
   {{/when}}
 
   {{#when layout 'eq'  'Hỗ trợ'}}
-     {{> section/contactSection title=title contact=section message=../message }}
+     {{> section/contactSection backgroundColor=backgroundColor title=title contact=section message=../message }}
   {{/when}}
 {{/each}}
 
@@ -75,7 +75,7 @@
   </div>
 
 {{> section/otherSection }}
-{{> section/slideSection customers=customers }}
+{{> section/slideSection backgroundColor=backgroundColor customers=customers }}
 
 {{#each sections}}
   {{#when layout 'eq' 'Đội ngũ'}}
@@ -85,7 +85,7 @@
 
 {{#each sections}}
   {{#when layout 'eq' 'Bình luận'}}
-    {{> section/feedbackSection  title=title description=description comments=../comments}}
+    {{> section/feedbackSection backgroundColor=backgroundColor  title=title description=description comments=../comments}}
   {{/when}}
 {{/each}}
 

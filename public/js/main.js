@@ -17,7 +17,7 @@ $(document).ready(function () {
   }, 4000);
 
   var mySwiper2 = new Swiper('.swiper-container', {
-    slidesPerView: 4,
+    slidesPerView: 8,
     spaceBetween: 30,
     slidesPerGroup: 2,
     loop: true,
@@ -37,7 +37,7 @@ $(document).ready(function () {
         spaceBetween: 20,
       },
       767: {
-        slidesPerView: 4,
+        slidesPerView: 6,
         spaceBetween: 10,
       },
     },
