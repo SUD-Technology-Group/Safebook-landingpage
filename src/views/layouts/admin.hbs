@@ -83,7 +83,7 @@
           </a>
 
           <!-- Right links -->
-          <a style='width:150px' href='/' class='list-group-item py-2 ripple'><i
+          <a style='width:150px' href='/' target='_blank' class='list-group-item py-2 ripple'><i
               class='fa-solid fa-house me-2'
             ></i><span>Trang chủ</span></a>
         </div>
@@ -146,35 +146,14 @@
     {{/if}}
 
     <script>
-        function preview(imgInp, id) { 
-            const [file] = imgInp.files;
-            if (file) $(`#${id}`).attr('src', URL.createObjectURL(file));
-            else $(`#${id}`).attr('src', '');
-        }
-
-        function removeUploadImg(file, preview, hidden) { 
-            $(`#${file}`).val('');
-            $(`#${preview}`).attr('src', '');
-            $(`#${hidden}`).val('');
-        }
-
-        $(document).ready( function () {
-            if (window.location.pathname.includes('section')) 
-                $('#section').addClass('active'); 
-            else if (window.location.pathname.includes('doi-ngu')) 
-                $('#doi-ngu').addClass('active'); 
-            else if (window.location.pathname.includes('binh-luan')) 
-                $('#binh-luan').addClass('active'); 
-            else $('#banner').addClass('active'); 
-
-            $('#table_id').DataTable({
-                "ordering": false,
-            }); 
-
-            setTimeout(function() { $('.toast').hide(); }, 4000);
-
-            CKEDITOR.replace('ckeditor');
-        });
+      function preview(imgInp, id) { const [file] = imgInp.files; if (file) $(`#${id}`).attr('src',
+      URL.createObjectURL(file)); else $(`#${id}`).attr('src', ''); } function removeUploadImg(file, preview, hidden) {
+      $(`#${file}`).val(''); $(`#${preview}`).attr('src', ''); $(`#${hidden}`).val(''); } $(document).ready( function ()
+      { if (window.location.pathname.includes('section')) $('#section').addClass('active'); else if
+      (window.location.pathname.includes('doi-ngu')) $('#doi-ngu').addClass('active'); else if
+      (window.location.pathname.includes('binh-luan')) $('#binh-luan').addClass('active'); else
+      $('#banner').addClass('active'); $('#table_id').DataTable({ "ordering": false, }); setTimeout(function() {
+      $('.toast').hide(); }, 4000); CKEDITOR.replace('ckeditor'); });
     </script>
     <script type='text/javascript' src='https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js'></script>
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js'></script>
