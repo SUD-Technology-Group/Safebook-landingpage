@@ -620,6 +620,7 @@ a:hover {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-size: 1rem;
   width: 1.6rem;
 }
 
@@ -780,4 +781,8 @@ a:hover {
     line-height: 1.6rem;
     width: 1.6rem;
   }
+}
+.navbar-dark .navbar-toggler-icon,
+.navbar-light .navbar-toggler-icon {
+  background-image: black !important;
 }
