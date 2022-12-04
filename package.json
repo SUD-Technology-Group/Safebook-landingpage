@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon -e hbs,js ./bin/www",
+    "start": "node -e hbs,js ./bin/www",
     "mock": "node ./mock/index.js"
   },
   "dependencies": {
