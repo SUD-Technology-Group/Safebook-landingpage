@@ -164,6 +164,18 @@
     {{/if}}
     
     <script>
+        function preview(imgInp, id) { 
+            const [file] = imgInp.files;
+            if (file) $(`#${id}`).attr('src', URL.createObjectURL(file));
+            else $(`#${id}`).attr('src', '');
+        }
+
+        function removeUploadImg(file, preview, hidden) { 
+            $(`#${file}`).val('');
+            $(`#${preview}`).attr('src', '');
+            $(`#${hidden}`).val('');
+        }
+
         $(document).ready( function () {
             if (window.location.pathname.includes('section')) 
                 $('#section').addClass('active'); 
@@ -179,12 +191,6 @@
 
             CKEDITOR.replace('ckeditor');
         });
-
-        function preview(imgInp, id){ 
-            const [file] = imgInp.files;
-            if (file) $(`#${id}`).attr('src', URL.createObjectURL(file));
-            else $(`#${id}`).attr('src', '');
-        }
     </script>
     <script
         type='text/javascript'

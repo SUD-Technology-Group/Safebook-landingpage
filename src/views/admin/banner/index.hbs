@@ -24,12 +24,6 @@
                 <td><img src="{{backgroundImage}}" width="50%" alt=""></td>
                 <td>
                     <a 
-                        href="#"
-                        data-mdb-toggle='modal'
-                        data-mdb-target='#'
-                        class='me-2'
-                    ><i class="fa-solid fa-eye"></i></a>
-                    <a 
                         href="/admin/banner/{{_id}}"
                         class='me-2 text-warning'
                     ><i class="fa-solid fa-pen"></i></a>
@@ -75,26 +69,28 @@
 
                     <div class='mb-3'>
                         <label class="form-label" for="customFile">Hình ảnh</label>
-                        <input type="file" onchange="preview(this, 'bannerImg')" class="form-control" id="customFile" accept="image/*" name="banner"/>
+                        <input type="file" onchange="preview(this, 'bannerImg')" class="form-control" id="bannerInp" accept="image/*" name="banner"/>
                         <img
                             src='#'
                             alt=''
                             id='bannerImg'
-                            width='40%'
+                            width='30%'
                             class='mt-2'
                         />
+                        <span style='cursor:pointer' onclick="removeUploadImg('bannerInp', 'bannerImg')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl"></i></span>
                     </div>
 
                     <div class='mb-3'>
                         <label class="form-label" for="customFile">Ảnh nền</label>
-                        <input type="file" onchange="preview(this, 'bannerBgImg')" class="form-control" id="customFile" accept="image/*" name="bannerBg"/>
+                        <input type="file" onchange="preview(this, 'bannerBgImg')" class="form-control" id="bannerBgInp" accept="image/*" name="bannerBg"/>
                         <img
                             src='#'
                             alt=''
                             id='bannerBgImg'
-                            width='40%'
+                            width='30%'
                             class='mt-2'
                         />
+                        <span style='cursor:pointer' onclick="removeUploadImg('bannerBgInp', 'bannerBgImg')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl"></i></span>
                     </div>
 				</div>
 				<div class='modal-footer'>

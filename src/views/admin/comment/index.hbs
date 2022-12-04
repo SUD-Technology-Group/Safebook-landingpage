@@ -24,12 +24,6 @@
                 <td>{{content}}</td>
                 <td>
                     <a 
-                        href="#"
-                        data-mdb-toggle='modal'
-                        data-mdb-target='#'
-                        class='me-2'
-                    ><i class="fa-solid fa-eye"></i></a>
-                    <a 
                         href="/admin/binh-luan/{{_id}}"
                         class='me-2 text-warning'
                     ><i class="fa-solid fa-pen"></i></a>
@@ -94,18 +88,13 @@
                         <input
                             type='file'
                             class='form-control'
-                            id='customFile'
+                            id='avatarInp'
                             accept='image/*'
                             name='comment'
                             onchange="preview(this, 'avatarImg')"
                         />
-                        <img
-                            src=''
-                            alt=''
-                            id='avatarImg'
-                            width='40%'
-                            class='mt-2'
-                        />
+                        <img src='' alt='' id='avatarImg' width='30%' class='mt-2' />
+                        <span style='cursor:pointer' onclick="removeUploadImg('avatarInp', 'avatarImg')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl"></i></span>
                     </div>
 				</div>
 				<div class='modal-footer'>

@@ -34,16 +34,27 @@ const commentController = {
 
     // POST /admin/binh-luan/:id
     update: catchAsync(async (req, res) => {
+        const { avatarInp } = req.body;
         let { avatar } = await commentService.getOne({ _id: req.params.id });
 
         if (req.file) {
+            if (avatar) {
+                fs.unlink(`public/${avatar}`, (err) => {
+                    if (err) {
+                        req.flash('error', 'Cập nhật bình luận thất bại');
+                        return res.redirect('back');
+                    }
+                });
+            }
+            avatar = '/uploads/comment/' + req.file.filename;
+        } else if (!avatarInp && avatar) {
             fs.unlink(`public/${avatar}`, (err) => {
                 if (err) {
                     req.flash('error', 'Cập nhật bình luận thất bại');
                     return res.redirect('back');
                 }
             });
-            avatar = '/uploads/comment/' + req.file.filename;
+            avatar = '';
         }
 
         await commentService
@@ -69,7 +80,7 @@ const commentController = {
                 }
             });
         }
-        
+
         await commentService.delete({ _id: req.body._id }).catch((err) => {
             req.flash('error', 'Xoá bình luận thất bại');
             return res.redirect('back');

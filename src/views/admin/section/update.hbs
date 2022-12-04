@@ -53,10 +53,11 @@
 
             <div class='mb-3'>
                 <label class='form-label bold' for='customFile'>Hình ảnh</label>
+                <input type="hidden" name="imageInp" id="imageHd" value="{{section.image}}">
                 <input
                     type='file'
                     class='form-control'
-                    id='customFile'
+                    id='imageInp'
                     accept='image/*'
                     name='section'
                     onchange="preview(this, 'previewImg')"
@@ -65,9 +66,10 @@
                     id='previewImg'
                     src='{{section.image}}'
                     alt=''
-                    width='40%'
+                    width='30%'
                     class='mt-2'
                 />
+                <span style='cursor:pointer' onclick="removeUploadImg('imageInp', 'previewImg', 'imageHd')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl"></i></span>
             </div>
         </div>
         <div class='modal-footer'>

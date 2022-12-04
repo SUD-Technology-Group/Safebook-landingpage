@@ -34,16 +34,27 @@ const staffController = {
 
     // POST /admin/doi-ngu/:id
     update: catchAsync(async (req, res) => {
+        const { avatarInp } = req.body;
         let { avatar } = await staffService.getOne({ _id: req.params.id });
 
         if (req.file) {
+            if (avatar) {
+                fs.unlink(`public/${avatar}`, (err) => {
+                    if (err) {
+                        req.flash('error', 'Cập nhật nhân viên thất bại');
+                        return res.redirect('back');
+                    }
+                });
+            }
+            avatar = '/uploads/staff/' + req.file.filename;
+        } else if (!avatarInp && avatar) {
             fs.unlink(`public/${avatar}`, (err) => {
                 if (err) {
                     req.flash('error', 'Cập nhật nhân viên thất bại');
                     return res.redirect('back');
                 }
             });
-            avatar = '/uploads/staff/' + req.file.filename;
+            avatar = '';
         }
 
         await staffService

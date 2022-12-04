@@ -31,15 +31,17 @@
 
             <div class='mb-3'>
                 <label class='form-label bold' for='customFile'>Avatar</label>
+                <input type="hidden" name="avatarInp" id="avatarHd" value="{{comment.avatar}}">
                 <input
                     type='file'
                     class='form-control'
-                    id='customFile'
+                    id='avatarInp'
                     accept='image/*'
                     name='comment'
                     onchange="preview(this, 'avatarImg')"
                 />
-                <img id='avatarImg' src='{{comment.avatar}}' alt='' width='40%' class='mt-2' />
+                <img id='avatarImg' src='{{comment.avatar}}' alt='' width='30%' class='mt-2' />
+                <span style='cursor:pointer' onclick="removeUploadImg('avatarInp', 'avatarImg', 'avatarHd')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl"></i></span>
             </div>
         </div>
         <div class='modal-footer'>

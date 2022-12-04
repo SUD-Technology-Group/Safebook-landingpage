@@ -42,29 +42,50 @@ const bannerController = {
 
     // POST /admin/banner/:id
     update: catchAsync(async (req, res) => {
+        const { bannerInp, bannerBgInp } = req.body;
         let { image, backgroundImage } = await bannerService.getOne({
             _id: req.params.id,
         });
 
         if (req.files.banner) {
+            if (image) {
+                fs.unlink(`public/${image}`, (err) => {
+                    if (err) {
+                        req.flash('error', 'Cập nhật banner thất bại');
+                        return res.redirect('back');
+                    }
+                });
+            }
+            image = '/uploads/banner/' + req.files.banner[0].filename;
+        } else if (!bannerInp && image) {
             fs.unlink(`public/${image}`, (err) => {
                 if (err) {
                     req.flash('error', 'Cập nhật banner thất bại');
                     return res.redirect('back');
                 }
             });
-            image = '/uploads/banner/' + req.files.banner[0].filename;
+            image = '';
         }
 
         if (req.files.bannerBg) {
+            if (backgroundImage) {
+                fs.unlink(`public/${backgroundImage}`, (err) => {
+                    if (err) {
+                        req.flash('error', 'Cập nhật banner thất bại');
+                        return res.redirect('back');
+                    }
+                });
+            }
+            backgroundImage =
+                '/uploads/bannerBg/' + req.files.bannerBg[0].filename;
+        } else if (!bannerBgInp && backgroundImage) {
             fs.unlink(`public/${backgroundImage}`, (err) => {
                 if (err) {
                     req.flash('error', 'Cập nhật banner thất bại');
                     return res.redirect('back');
                 }
             });
-            backgroundImage =
-                '/uploads/bannerBg/' + req.files.bannerBg[0].filename;
+            backgroundImage = '';
         }
 
         await bannerService
@@ -73,6 +94,7 @@ const bannerController = {
                 { content: req.body.content, image, backgroundImage }
             )
             .catch((err) => {
+                console.log(err);
                 req.flash('error', 'Cập nhật banner thất bại');
                 return res.redirect('back');
             });
