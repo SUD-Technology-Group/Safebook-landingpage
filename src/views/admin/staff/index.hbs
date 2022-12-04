@@ -102,7 +102,9 @@
                             id='customFile'
                             accept='image/*'
                             name='staff'
+                            onchange="preview(this, 'avatarImg')"
                         />
+                        <img src='' alt='' id='avatarImg' width='40%' class='mt-2' />
                     </div>
 
                     <div class='form-outline mb-4'>
@@ -171,30 +173,3 @@
 		</div>
 	</div>
 </div>
-
-{{#if message.success}}
-<div class="toast fade mx-auto toast-success toast-fixed show" role="alert" aria-live="assertive" aria-atomic="true" data-mdb-autohide="true" data-mdb-position="top-right" data-mdb-append-to-body="true" data-mdb-stacking="true" data-mdb-width="350px" data-mdb-color="success"
-    style="width: 350px; display: block; top: 10px; right: 10px; bottom: unset; left: unset; transform: unset;"
-    >
-    <div class="toast-header toast-success">
-    <i class="fas fa-check fa-lg me-2"></i>
-    <strong class="me-auto">Thành công</strong>
-    <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">{{message.success}}</div>
-</div>
-{{/if}}
-
-
-{{#if message.error}}
-<div class="toast fade mx-auto toast-danger toast-fixed show" role="alert" aria-live="assertive" aria-atomic="true" data-mdb-autohide="true" data-mdb-position="top-right" data-mdb-append-to-body="true" data-mdb-stacking="true" data-mdb-width="350px" data-mdb-color="success"
-    style="width: 350px; display: block; top: 10px; right: 10px; bottom: unset; left: unset; transform: unset;"
-    >
-    <div class="toast-header toast-danger">
-    <i class="fas fa-exclamation-circle fa-lg me-2"></i>
-    <strong class="me-auto">Thất bại</strong>
-    <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">{{message.error}}</div>
-</div>
-{{/if}}
