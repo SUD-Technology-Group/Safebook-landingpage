@@ -10,7 +10,7 @@ const sectionController = {
             error: req.flash('error'),
             success: req.flash('success'),
         };
-        const section = await sectionService.getOne({ _id: req.params.id });
+        const section = await sectionService.getOne({ _id: req.params.id }, '-_id -__v');
         res.render('admin/section/update', {
             title: 'Chỉnh sửa section',
             layout: 'admin',
@@ -22,7 +22,7 @@ const sectionController = {
     // POST /admin/section/:id
     update: catchAsync(async (req, res) => {
         const { imageInp } = req.body;
-        let { image } = await sectionService.getOne({ _id: req.params.id });
+        let { image } = await sectionService.getOne({ _id: req.params.id }, 'image');
 
         if (req.file) {
             if (image) {

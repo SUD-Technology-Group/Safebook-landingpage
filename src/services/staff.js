@@ -1,11 +1,11 @@
 const { staffModel } = require('../models');
 
 const staffService = {
-    getOne: async (payloads, field) => {
+    getOne: async (payloads, field='-__v') => {
         return await staffModel.findOne(payloads, field).lean();
     },
 
-    get: async (payloads, field) => {
+    get: async (payloads, field='-__v') => {
         return await staffModel.find(payloads, field).lean();
     },
 

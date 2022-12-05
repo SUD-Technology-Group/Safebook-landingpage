@@ -1,5 +1,11 @@
 const catchAsync = require('../utils/catchAsync');
-const { bannerService, sectionService, staffService, commentService, featureService } = require('../services');
+const {
+    bannerService,
+    sectionService,
+    staffService,
+    commentService,
+    featureService,
+} = require('../services');
 
 const adminController = {
     // GET /admin/
@@ -23,7 +29,7 @@ const adminController = {
             error: req.flash('error'),
             success: req.flash('success'),
         };
-        const sections = await sectionService.get({});
+        const sections = await sectionService.get({}, '-description');
         res.render('admin/section', {
             title: 'Section',
             layout: 'admin',

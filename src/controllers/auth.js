@@ -41,33 +41,33 @@ const authController = {
 
 	// POST admin/auth/change-password
     changePassword: catchAsync(async (req, res, next) => {
-		const { currentPassword, newPassword, passwordConfirm } = req.body;
+		// const { currentPassword, newPassword, passwordConfirm } = req.body;
 
-		if (!currentPassword || !newPassword || !passwordConfirm) {
-			req.flash('error', 'Đổi mật khẩu thất bại');
-			return res.redirect('admin/auth/change-password');
-		}
+		// if (!currentPassword || !newPassword || !passwordConfirm) {
+		// 	req.flash('error', 'Đổi mật khẩu thất bại');
+		// 	return res.redirect('admin/auth/change-password');
+		// }
 
-		if (!(await bcrypt.compare(currentPassword, req.user.password))) {
-			req.flash('error', 'Sai mật khẩu');
-			return res.redirect('/auth/change-password');
-		}
+		// if (!(await bcrypt.compare(currentPassword, req.user.password))) {
+		// 	req.flash('error', 'Sai mật khẩu');
+		// 	return res.redirect('/auth/change-password');
+		// }
 
-		if (passwordConfirm !== newPassword) {
-			req.flash('error', 'Mật khẩu không trùng khớp');
-			return res.redirect('/auth/change-password');
-		}
+		// if (passwordConfirm !== newPassword) {
+		// 	req.flash('error', 'Mật khẩu không trùng khớp');
+		// 	return res.redirect('/auth/change-password');
+		// }
 
-		await userService.update(
-			{
-				_id: req.user._id,
-			},
-			{
-				password: await bcrypt.hash(newPassword, 12),
-			}
-		);
+		// await userService.update(
+		// 	{
+		// 		_id: req.user._id,
+		// 	},
+		// 	{
+		// 		password: await bcrypt.hash(newPassword, 12),
+		// 	}
+		// );
 
-		next();
+		// next();
 	}),
 
 	// GET admin/auth/logout

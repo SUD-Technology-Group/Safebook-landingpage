@@ -1,11 +1,11 @@
 const { sectionModel } = require('../models');
 
 const sectionService = {
-    getOne: async (payloads, field) => {
+    getOne: async (payloads, field='-__v') => {
         return await sectionModel.findOne(payloads, field).lean();
     },
 
-    get: async (payloads, field) => {
+    get: async (payloads, field='-__v') => {
         return await sectionModel.find(payloads, field).lean();
     },
 

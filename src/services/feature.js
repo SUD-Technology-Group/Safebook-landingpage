@@ -1,11 +1,11 @@
 const { featureModel } = require('../models');
 
 const featureService = {
-    getOne: async (payloads, field) => {
+    getOne: async (payloads, field='-__v') => {
         return await featureModel.findOne(payloads, field).lean();
     },
 
-    get: async (payloads, field) => {
+    get: async (payloads, field='-__v') => {
         return await featureModel.find(payloads, field).lean();
     },
 

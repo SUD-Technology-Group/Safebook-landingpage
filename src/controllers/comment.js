@@ -23,7 +23,7 @@ const commentController = {
             error: req.flash('error'),
             success: req.flash('success'),
         };
-        const comment = await commentService.getOne({ _id: req.params.id });
+        const comment = await commentService.getOne({ _id: req.params.id }, '-_id -__v');
         res.render('admin/comment/update', {
             title: 'Chỉnh sửa bình luận',
             layout: 'admin',
@@ -35,7 +35,7 @@ const commentController = {
     // POST /admin/binh-luan/:id
     update: catchAsync(async (req, res) => {
         const { avatarInp } = req.body;
-        let { avatar } = await commentService.getOne({ _id: req.params.id });
+        let { avatar } = await commentService.getOne({ _id: req.params.id }, 'avatar');
 
         if (req.file) {
             if (avatar) {
@@ -70,7 +70,7 @@ const commentController = {
 
     // POST /admin/binh-luan/xoa
     delete: catchAsync(async (req, res) => {
-        const { avatar } = await commentService.getOne({ _id: req.body._id });
+        const { avatar } = await commentService.getOne({ _id: req.body._id }, 'avatar');
 
         if (avatar) {
             fs.unlink(`public/${avatar}`, (err) => {

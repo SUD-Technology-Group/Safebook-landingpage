@@ -31,7 +31,10 @@ const bannerController = {
             error: req.flash('error'),
             success: req.flash('success'),
         };
-        const banner = await bannerService.getOne({ _id: req.params.id });
+        const banner = await bannerService.getOne(
+            { _id: req.params.id },
+            '-_id -__v'
+        );
         res.render('admin/banner/update', {
             title: 'Chỉnh sửa banner',
             layout: 'admin',
@@ -43,9 +46,12 @@ const bannerController = {
     // POST /admin/banner/:id
     update: catchAsync(async (req, res) => {
         const { bannerInp, bannerBgInp } = req.body;
-        let { image, backgroundImage } = await bannerService.getOne({
-            _id: req.params.id,
-        });
+        let { image, backgroundImage } = await bannerService.getOne(
+            {
+                _id: req.params.id,
+            },
+            'image backgroundImage'
+        );
 
         if (req.files.banner) {
             if (image) {
@@ -91,7 +97,7 @@ const bannerController = {
         await bannerService
             .update(
                 { _id: req.params.id },
-                { content: req.body.content, image, backgroundImage }
+                { ...req.body, image, backgroundImage }
             )
             .catch((err) => {
                 console.log(err);
@@ -105,9 +111,12 @@ const bannerController = {
 
     // POST /admin/banner/xoa
     delete: catchAsync(async (req, res) => {
-        const { image, backgroundImage } = await bannerService.getOne({
-            _id: req.body._id,
-        });
+        const { image, backgroundImage } = await bannerService.getOne(
+            {
+                _id: req.body._id,
+            },
+            'image backgroundImage'
+        );
 
         if (image) {
             fs.unlink(`public/${image}`, (err) => {

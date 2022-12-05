@@ -7,15 +7,17 @@ const {
     bannerService,
     commentService,
     staffService,
+    featureService,
 } = require('../services');
 
 const clientController = {
     // GET /
     index: catchAsync(async (req, res) => {
-        const sections = await sectionService.get({});
-        const banners = await bannerService.get({});
-        const comments = await commentService.get({});
-        const staffs = await staffService.get({});
+        const sections = await sectionService.get({}, '-_id -__v');
+        const banners = await bannerService.get({}, '-_id -__v');
+        const comments = await commentService.get({}, '-_id -__v');
+        const staffs = await staffService.get({}, '-_id -__v');
+        const features = await featureService.get({}, '-_id -__v');
 
         const message = {
             error: req.flash('error'),
@@ -28,6 +30,7 @@ const clientController = {
             customers,
             comments,
             banners,
+            features,
             staffs,
             message,
         });

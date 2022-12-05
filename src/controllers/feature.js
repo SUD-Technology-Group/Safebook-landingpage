@@ -23,7 +23,7 @@ const featureController = {
             error: req.flash('error'),
             success: req.flash('success'),
         };
-        const feature = await featureService.getOne({ _id: req.params.id });
+        const feature = await featureService.getOne({ _id: req.params.id }, '-_id -__v');
         res.render('admin/feature/update', {
             title: 'Chỉnh sửa tính năng',
             layout: 'admin',
@@ -35,7 +35,7 @@ const featureController = {
     // POST /admin/tinh-nang/:id
     update: catchAsync(async (req, res) => {
         const { imageInp } = req.body;
-        let { image } = await featureService.getOne({ _id: req.params.id });
+        let { image } = await featureService.getOne({ _id: req.params.id }, 'image');
 
         if (req.file) {
             if (image) {
@@ -70,7 +70,7 @@ const featureController = {
 
     // POST /admin/tinh-nang/xoa
     delete: catchAsync(async (req, res) => {
-        const { image } = await featureService.getOne({ _id: req.body._id });
+        const { image } = await featureService.getOne({ _id: req.body._id }, 'image');
 
         if (image) {
             fs.unlink(`public/${image}`, (err) => {

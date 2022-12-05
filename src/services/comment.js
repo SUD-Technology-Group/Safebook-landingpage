@@ -1,11 +1,11 @@
 const { commentModel } = require('../models');
 
 const commentService = {
-    getOne: async (payloads, field) => {
+    getOne: async (payloads, field='-__v') => {
         return await commentModel.findOne(payloads, field).lean();
     },
 
-    get: async (payloads, field) => {
+    get: async (payloads, field='-__v') => {
         return await commentModel.find(payloads, field).lean();
     },
 

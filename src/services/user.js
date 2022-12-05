@@ -1,11 +1,11 @@
 const { userModel } = require('../models');
 
 const userService = {
-    getOne: async (payloads, field) => {
+    getOne: async (payloads, field='-__v') => {
         return await userModel.findOne(payloads, field).lean();
     },
 
-    get: async (payloads, field) => {
+    get: async (payloads, field='-__v') => {
         return await userModel.find(payloads, field).lean();
     },
 

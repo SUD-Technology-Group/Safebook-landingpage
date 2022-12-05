@@ -23,7 +23,7 @@ const staffController = {
             error: req.flash('error'),
             success: req.flash('success'),
         };
-        const staff = await staffService.getOne({ _id: req.params.id });
+        const staff = await staffService.getOne({ _id: req.params.id }, '-_id -__v');
         res.render('admin/staff/update', {
             title: 'Chỉnh sửa nhân viên',
             layout: 'admin',
@@ -35,7 +35,7 @@ const staffController = {
     // POST /admin/doi-ngu/:id
     update: catchAsync(async (req, res) => {
         const { avatarInp } = req.body;
-        let { avatar } = await staffService.getOne({ _id: req.params.id });
+        let { avatar } = await staffService.getOne({ _id: req.params.id }, 'avatar');
 
         if (req.file) {
             if (avatar) {
@@ -70,7 +70,7 @@ const staffController = {
 
     // POST /admin/doi-ngu/xoa
     delete: catchAsync(async (req, res) => {
-        const { avatar } = await staffService.getOne({ _id: req.body._id });
+        const { avatar } = await staffService.getOne({ _id: req.body._id }, 'avatar');
 
         if (avatar) {
             fs.unlink(`public/${avatar}`, (err) => {
