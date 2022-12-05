@@ -1447,6 +1447,7 @@ object {
   margin: 0;
   padding: 0 15px 30px;
   width: 100%;
+  overflow: hidden;
 }
 .col-fit {
   -ms-flex: 1;
@@ -9948,6 +9949,10 @@ input.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
   padding: 36.3px 60px;
 }
 .col.Proven.medium-6.small-12.large-6 .col-inner {
+  box-shadow: 0 15px 25px 0 rgba(248, 72, 170, 0.2);
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+}
+.col.Proven1.medium-6.small-12.large-6 .col-inner {
   box-shadow: 0 15px 25px 0 rgba(248, 72, 139, 0.2);
   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
 }

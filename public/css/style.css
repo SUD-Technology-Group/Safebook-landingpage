@@ -783,3 +783,151 @@ a:hover {
 .navbar-light .navbar-toggler-icon {
   background-image: black !important;
 }
+/* price-table */
+.price-sec {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 50px 0px;
+}
+.price-sec .ptables-head {
+  font-family: 'Domine', serif;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.3);
+  padding: 30px 0;
+  margin: 0px 0px 100px 0px;
+  border-radius: 3px;
+  background: linear-gradient(25deg, #feae3f 15%, transparent 0%), linear-gradient(-25deg, #f321d7 15%, transparent 0%),
+    linear-gradient(-150deg, #64b5f6 15%, transparent 0%), linear-gradient(150deg, #f47 15%, transparent 0%);
+}
+@media all and (max-width: 600px) {
+  .ptables-head h1 {
+    font-size: 30px;
+  }
+}
+
+.price-sec .price-table {
+  margin: 5px 0px;
+}
+.price-sec .price-table .card {
+  position: relative;
+  height: auto;
+  background: linear-gradient(-45deg, #fe0847, #feae3f);
+  border-radius: 15px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+  overflow: hidden;
+}
+.price-sec .price-table .card:hover {
+  transform: scale(1.1);
+}
+
+.price-table:nth-child(1) .card,
+.price-table:nth-child(1) .card .title i {
+  background: white;
+}
+.price-table:nth-child(3) .card,
+.price-table:nth-child(3) .card .title i {
+  background: white;
+}
+
+.price-table:nth-child(2) .card,
+.price-table:nth-child(2) .card .title i {
+  background: linear-gradient(86.66deg, #1fa07f 9.35%, #228bb7 100%);
+  color: white;
+}
+.price-table:nth-child(2) h2,
+.price-table:nth-child(2) h4,
+.price-table:nth-child(2) p,
+.price-table:nth-child(2) li {
+  color: white !important;
+}
+
+.price-table:nth-child(2) .card a {
+  background: #edda3c;
+  border-color: #edda3c;
+  color: #fff;
+}
+
+.price-table:nth-child(2) .option ul li::after {
+  background: url(../images/checklist-icon-white.svg) no-repeat;
+}
+
+.price-table .title i {
+  color: black;
+  font-size: 60px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+.price-table .title h2 {
+  position: relative;
+  margin: 20px 0 0;
+  padding: 0;
+  color: black;
+  font-size: 24px;
+  z-index: 2;
+  font-weight: bold;
+}
+.price-table .price {
+  position: relative;
+  z-index: 2;
+}
+.price-table .price h4 {
+  margin: 0;
+  padding: 10px 0;
+  color: black;
+  font-size: 32px;
+  font-weight: normal;
+}
+.option {
+  position: relative;
+  z-index: 2;
+}
+.option ul {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+.option ul li {
+  position: relative;
+  margin: 0 0 10px;
+  padding: 0px 30px;
+  list-style: none;
+  color: black;
+  font-size: 16px;
+}
+.option ul li::after {
+  content: '';
+  position: absolute;
+  background: url(../images/checklist-icon.svg) no-repeat;
+  width: 21px;
+  height: 16px;
+  left: 0;
+  top: 6px;
+}
+.card a {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #00a765;
+  border: 1px solid #00a765;
+  padding: 10px 22px;
+  border-radius: 50px;
+  position: relative;
+  z-index: 2;
+  width: 150px;
+  height: 40px;
+  display: block;
+  text-align: center;
+  margin: 20px auto 0;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.card a:hover {
+  text-decoration: none;
+}

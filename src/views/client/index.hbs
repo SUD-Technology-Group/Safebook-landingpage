@@ -2,12 +2,11 @@
 
 {{#each sections}}
   {{#when layout 'eq' 'Liên kết'}}
-    {{#when @index 'eq' 1}}
-      {{> section/contentSection title=title  description=description link=link image=image }}
+    {{#when @index 'eq' 0}}
+      {{> section/headingSection title=title href=link price=true }}
     {{/when}}
-    {{> section/headingSection title=title href=link }}
-    {{#when @index 'eq' 3}}
-      {{> section/contentSection title=title  description=description link=link }}
+    {{#when @index 'eq' 2}}
+      {{> section/headingSection title=title href=link }}
     {{/when}}
   {{/when}}
 
@@ -16,7 +15,6 @@
   {{/when}}
 {{/each}}
 
-<div class='bg section-bg fill bg-fill bg-loaded'></div>
 <div class='section-content relative'>
   <div class='gap-element clearfix' style='display:block; height:auto; padding-top:50px'></div>
   {{#each sections}}
@@ -37,8 +35,17 @@
     {{/when}}
   {{/each}}
 </div>
+{{#each sections}}
+  {{#when layout 'eq' 'Tính năng'}}
+    {{> section/featureSection title=title  description=description image=image features=../features}}
+  {{/when}}
+{{/each}}
 
-{{> section/otherSection }}
+{{#each sections}}
+  {{#when layout 'eq' 'Thành tựu'}}
+    {{> section/archiveSection title=title  description=description image=image }}
+  {{/when}}
+{{/each}}
 {{> section/slideSection backgroundColor=backgroundColor customers=customers }}
 
 {{#each sections}}
