@@ -4,28 +4,20 @@ const fs = require('fs');
 const { featureService } = require('../services');
 
 const featureController = {
-    // POST /admin/banner/them
+    // POST /admin/tinh-nang/them
     create: catchAsync(async (req, res) => {
-        let image = '';
-        let backgroundImage = '';
-        if (req.files.banner)
-            image = '/uploads/banner/' + req.files.banner[0].filename;
-        if (req.files.bannerBg)
-            backgroundImage =
-                '/uploads/bannerBg/' + req.files.bannerBg[0].filename;
+        const image = req.file ? '/uploads/feature/' + req.file.filename : '';
 
-        await featureService
-            .create({ content: req.body.content, image, backgroundImage })
-            .catch((err) => {
-                req.flash('error', 'Thêm banner thất bại');
-                return res.redirect('back');
-            });
+        await featureService.create({ ...req.body, image }).catch((err) => {
+            req.flash('error', 'Thêm tính năng thất bại');
+            return res.redirect('back');
+        });
 
-        req.flash('success', 'Thêm banner thành công');
+        req.flash('success', 'Thêm tính năng thành công');
         res.redirect('back');
     }),
 
-    // GET /admin/banner/:id
+    // GET /admin/tinh-nang/:id
     updateView: catchAsync(async (req, res) => {
         const message = {
             error: req.flash('error'),
@@ -40,99 +32,61 @@ const featureController = {
         });
     }),
 
-    // POST /admin/banner/:id
+    // POST /admin/tinh-nang/:id
     update: catchAsync(async (req, res) => {
-        const { bannerInp, bannerBgInp } = req.body;
-        let { image, backgroundImage } = await featureService.getOne({
-            _id: req.params.id,
-        });
+        const { imageInp } = req.body;
+        let { image } = await featureService.getOne({ _id: req.params.id });
 
-        if (req.files.banner) {
+        if (req.file) {
             if (image) {
                 fs.unlink(`public/${image}`, (err) => {
                     if (err) {
-                        req.flash('error', 'Cập nhật banner thất bại');
+                        req.flash('error', 'Cập nhật tính năng thất bại');
                         return res.redirect('back');
                     }
                 });
             }
-            image = '/uploads/banner/' + req.files.banner[0].filename;
-        } else if (!bannerInp && image) {
+            image = '/uploads/feature/' + req.file.filename;
+        } else if (!imageInp && image) {
             fs.unlink(`public/${image}`, (err) => {
                 if (err) {
-                    req.flash('error', 'Cập nhật banner thất bại');
+                    req.flash('error', 'Cập nhật tính năng thất bại');
                     return res.redirect('back');
                 }
             });
             image = '';
         }
 
-        if (req.files.bannerBg) {
-            if (backgroundImage) {
-                fs.unlink(`public/${backgroundImage}`, (err) => {
-                    if (err) {
-                        req.flash('error', 'Cập nhật banner thất bại');
-                        return res.redirect('back');
-                    }
-                });
-            }
-            backgroundImage =
-                '/uploads/bannerBg/' + req.files.bannerBg[0].filename;
-        } else if (!bannerBgInp && backgroundImage) {
-            fs.unlink(`public/${backgroundImage}`, (err) => {
-                if (err) {
-                    req.flash('error', 'Cập nhật banner thất bại');
-                    return res.redirect('back');
-                }
-            });
-            backgroundImage = '';
-        }
-
         await featureService
-            .update(
-                { _id: req.params.id },
-                { content: req.body.content, image, backgroundImage }
-            )
+            .update({ _id: req.params.id }, { ...req.body, image })
             .catch((err) => {
-                console.log(err);
-                req.flash('error', 'Cập nhật banner thất bại');
+                req.flash('error', 'Cập nhật tính năng thất bại');
                 return res.redirect('back');
             });
 
-        req.flash('success', 'Cập nhật banner thành công');
-        res.redirect('/admin');
+        req.flash('success', 'Cập nhật tính năng thành công');
+        res.redirect('/admin/tinh-nang');
     }),
 
-    // POST /admin/banner/xoa
+    // POST /admin/tinh-nang/xoa
     delete: catchAsync(async (req, res) => {
-        const { image, backgroundImage } = await featureService.getOne({
-            _id: req.body._id,
-        });
+        const { image } = await featureService.getOne({ _id: req.body._id });
 
         if (image) {
             fs.unlink(`public/${image}`, (err) => {
                 if (err) {
-                    req.flash('error', 'Xoá banner thất bại');
-                    return res.redirect('back');
-                }
-            });
-        }
-
-        if (backgroundImage) {
-            fs.unlink(`public/${backgroundImage}`, (err) => {
-                if (err) {
-                    req.flash('error', 'Xoá banner thất bại');
+                    req.flash('error', 'Xoá tính năng thất bại');
                     return res.redirect('back');
                 }
             });
         }
 
         await featureService.delete({ _id: req.body._id }).catch((err) => {
-            req.flash('error', 'Xoá banner thất bại');
+            req.flash('error', 'Xoá tính năng thất bại');
             return res.redirect('back');
         });
 
-        req.flash('success', 'Xoá banner thành công');
+        req.flash('success', 'Xoá tính năng thành công');
         res.redirect('back');
     }),
 };

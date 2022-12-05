@@ -22,7 +22,7 @@ const Section = new Schema({
             'Bình luận',
             'Video',
         ],
-        require: true,
+        required: true,
     },
 });
 

@@ -7,58 +7,42 @@
 <section class='p-4 shadow rounded'>
     <form method='post' class='mb-0' enctype='multipart/form-data'>
         <div class='modal-body'>
-            {{!-- <div class='mb-3'>
-                <label class='form-label bold' for='customFile'>Nội dung</label>
+            <div class='form-outline mb-4'>
+                <input
+                    type='text'
+                    name='title'
+                    value='{{feature.title}}'
+                    class='form-control border'
+                    required
+                />
+                <label class='form-label bold' for='desc'>Tiêu đề
+                    <span class='text-danger'>*</span></label>
+            </div>
+
+            <div class='mb-4'>
+                <label class='form-label bold' for='customFile'>Mô tả</label>
                 <textarea
-                    name='content'
-                    class='ckeditor'
-                >{{banner.content}}</textarea>
+                    name='description'
+                    class='form-control'
+                >{{feature.description}}</textarea>
             </div>
 
             <div class='mb-3'>
-                <label class='form-label bold' for='customFile'>Hình ảnh</label>
-                <input type="hidden" name="bannerInp" id="bannerhd" value="{{banner.image}}">
-                <input
-                    type='file'
-                    class='form-control'
-                    id='bannerInp'
-                    accept='image/*'
-                    name='banner'
-                    onchange="preview(this, 'bannerImg')"
-                />
+                <label class="form-label" for="customFile">Hình ảnh</label>
+                <input type="hidden" name="imageInp" id="previewHd" value="{{feature.image}}">
+                <input type="file" onchange="preview(this, 'previewImg')" class="form-control" id="previewInp" accept="image/*" name="feature"/>
                 <img
-                    src='{{banner.image}}'
+                    src='{{feature.image}}'
                     alt=''
-                    id='bannerImg'
+                    id='previewImg'
                     width='30%'
                     class='mt-2'
                 />
-                <span style='cursor:pointer' onclick="removeUploadImg('bannerInp', 'bannerImg', 'bannerhd')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl"></i></span>
-            </div> --}}
-
-            <div class='mb-3'>
-                <label class='form-label bold' for='customFile'>Ảnh nền</label>
-                <input type="hidden" name="bannerBgInp" id="bannerBghd" value="{{banner.backgroundImage}}">
-                <input
-                    type='file'
-                    class='form-control'
-                    id='bannerBgInp'
-                    accept='image/*'
-                    name='bannerBg'
-                    onchange="preview(this, 'bannerBg')"
-                />
-                <img
-                    src='{{banner.backgroundImage}}'
-                    alt=''
-                    id='bannerBg'
-                    width='30%'
-                    class='mt-2'
-                />
-                <span style='cursor:pointer' onclick="removeUploadImg('bannerBgInp', 'bannerBg', 'bannerBghd')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl"></i></span>
-            </div>
+                <span style='cursor:pointer' onclick="removeUploadImg('previewInp', 'previewImg', 'previewHd')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl"></i></span>
+            </div> 
         </div>
         <div class='modal-footer'>
-            <a href='/admin' class='btn btn-secondary me-3'>Đóng</a>
+            <a href='/admin/tinh-nang' class='btn btn-secondary me-3'>Đóng</a>
             <button type='submit' class='btn btn-primary'>Cập nhật</button>
         </div>
     </form>

@@ -17,7 +17,7 @@ const commentController = {
         res.redirect('back');
     }),
 
-    // GET /admin/banner/:id
+    // GET /admin/binh-luan/:id
     updateView: catchAsync(async (req, res) => {
         const message = {
             error: req.flash('error'),

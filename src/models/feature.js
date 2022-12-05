@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const Feature = new Schema({
-    title: String,
+    title: { type: String, required: true },
     image: String,
     description: String,
 });
