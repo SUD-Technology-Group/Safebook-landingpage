@@ -1,19 +1,13 @@
 const mongoose = require('mongoose');
-const { bannerModel, commentModel, staffModel } = require('../src/models');
-const banner = require('./banner');
-const staff = require('./staff');
-const comment = require('./comment');
+const { sectionModel } = require('../src/models');
+const section = require('./section');
 
 const importData = async () => {
-    await staffModel.create(staff);
-    await commentModel.create(comment);
-    await bannerModel.create(banner);
+    // await sectionModel.create(section);
 };
 
 const deleteData = async () => {
-    await mongoose.connection.collections.banners.drop();
-    await mongoose.connection.collections.comments.drop();
-    await mongoose.connection.collections.staffs.drop();
+    // await mongoose.connection.collections.sections.drop();
 };
 
 const resetData = async () => {

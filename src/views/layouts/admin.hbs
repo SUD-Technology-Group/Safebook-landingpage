@@ -38,7 +38,7 @@
   <body>
     <header>
       <!-- Sidebar -->
-      <nav id='sidebarMenu' class='collapse d-lg-block sidebar collapse bg-white'>
+      <nav id='sidebarMenu' class='collapse d-lg-block sidebar bg-white'>
         <div class='position-sticky'>
           <div class='list-group list-group-flush mx-3 mt-4 h-100'>
             <a href='/admin' id='banner' class='list-group-item list-group-item-action py-2 ripple'><i
@@ -47,6 +47,9 @@
             <a href='/admin/section' id='section' class='list-group-item list-group-item-action py-2 ripple'><i
                 class='fa-solid fa-section me-3'
               ></i><span>Section</span></a>
+            <a href='/admin/tinh-nang' id='tinh-nang' class='list-group-item list-group-item-action py-2 ripple'><i
+                class='fa-solid fa-layer-group me-3'
+              ></i><span>Tính năng</span></a>
             <a href='/admin/doi-ngu' id='doi-ngu' class='list-group-item list-group-item-action py-2 ripple'><i
                 class='fa-solid fa-users me-3'
               ></i><span>Đội ngũ</span></a>
@@ -64,28 +67,33 @@
       <nav id='main-navbar' class='navbar navbar-expand-lg navbar-light bg-white fixed-top px-2'>
         <!-- Container wrapper -->
         <div class='container-fluid'>
+            <!-- Brand -->
+            <a class='nav-brand p-0' href='/admin'>
+                <img src='/images/logo.png' width='120px' alt='' loading='lazy' />
+            </a>
+
           <!-- Toggle button -->
           <button
             class='navbar-toggler'
             type='button'
             data-mdb-toggle='collapse'
             data-mdb-target='#sidebarMenu'
-            aria-controls='sidebarMenu'
-            aria-expanded='false'
+            aria-controls='#sidebarMenu'
+            aria-haspopup="true"
+            aria-expanded='true'
             aria-label='Toggle navigation'
           >
             <i class='fas fa-bars'></i>
           </button>
 
-          <!-- Brand -->
-          <a class='navbar-brand p-0 me-auto' href='/admin'>
-            <img src='/images/logo.png' width='12%' alt='' loading='lazy' />
-          </a>
-
           <!-- Right links -->
-          <a style='width:150px' href='/' target='_blank' class='list-group-item py-2 ripple'><i
-              class='fa-solid fa-house me-2'
-            ></i><span>Trang chủ</span></a>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href='/' target='_blank' class='nav-link'><i
+                        class='fa-solid fa-house me-2'
+                        ></i><span>Trang chủ</span></a>
+                </li>
+            </ul>
         </div>
         <!-- Container wrapper -->
       </nav>
@@ -151,8 +159,9 @@
       $(`#${file}`).val(''); $(`#${preview}`).attr('src', ''); $(`#${hidden}`).val(''); } $(document).ready( function ()
       { if (window.location.pathname.includes('section')) $('#section').addClass('active'); else if
       (window.location.pathname.includes('doi-ngu')) $('#doi-ngu').addClass('active'); else if
-      (window.location.pathname.includes('binh-luan')) $('#binh-luan').addClass('active'); else
-      $('#banner').addClass('active'); $('#table_id').DataTable({ "ordering": false, }); setTimeout(function() {
+      (window.location.pathname.includes('binh-luan')) $('#binh-luan').addClass('active'); else if
+      (window.location.pathname.includes('tinh-nang')) $('#tinh-nang').addClass('active'); else
+      $('#banner').addClass('active'); $('#table_id').DataTable({ "ordering": false, "paging": false, }); setTimeout(function() {
       $('.toast').hide(); }, 4000); CKEDITOR.replace('ckeditor'); });
     </script>
     <script type='text/javascript' src='https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js'></script>

@@ -4,4 +4,5 @@ module.exports = {
     sectionModel: require('./section'),
     commentModel: require('./comment'),
     staffModel: require('./staff'),
+    featureModel: require('./feature'),
 };

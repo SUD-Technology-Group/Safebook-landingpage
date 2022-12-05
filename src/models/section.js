@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const Section = new Schema({
-    title: { type: String, require: true },
+    title: String,
     description: String,
     image: String,
     link: String,
@@ -16,6 +16,8 @@ const Section = new Schema({
             'Giới thiệu',
             'Hỗ trợ',
             'Nội dung',
+            'Thành tựu',
+            'Tính năng',
             'Đội ngũ',
             'Bình luận',
             'Video',

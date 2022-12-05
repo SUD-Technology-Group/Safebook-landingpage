@@ -6,4 +6,5 @@ module.exports = {
     bannerController: require('./banner'),
     staffController: require('./staff'),
     commentController: require('./comment'),
+    featureController: require('./feature'),
 };

@@ -8,8 +8,7 @@ const bannerRouter = require('./banner');
 const sectionRouter = require('./section');
 const staffRouter = require('./staff');
 const commentRouter = require('./comment');
-
-const { adminController } = require('../controllers');
+const featureRouter = require('./feature');
 
 // Path: [/admin]
 router.use(classifyUser);
@@ -17,6 +16,7 @@ router.use('/', bannerRouter);
 router.use('/section', sectionRouter);
 router.use('/doi-ngu', staffRouter);
 router.use('/binh-luan', commentRouter);
+router.use('/tinh-nang', featureRouter);
 router.use('/auth', authRouter);
 
 module.exports = router;

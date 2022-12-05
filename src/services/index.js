@@ -4,4 +4,5 @@ module.exports = {
     sectionService: require('./section'),
     commentService: require('./comment'),
     staffService: require('./staff'),
+    featureService: require('./feature'),
 };

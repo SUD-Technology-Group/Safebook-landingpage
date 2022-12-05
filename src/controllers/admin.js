@@ -1,5 +1,5 @@
 const catchAsync = require('../utils/catchAsync');
-const { bannerService, sectionService, staffService, commentService } = require('../services');
+const { bannerService, sectionService, staffService, commentService, featureService } = require('../services');
 
 const adminController = {
     // GET /admin/
@@ -58,6 +58,21 @@ const adminController = {
             title: 'Bình luận',
             layout: 'admin',
             comments,
+            message,
+        });
+    }),
+
+    // GET /admin/tinh-nang
+    getFeatures: catchAsync(async (req, res) => {
+        const message = {
+            error: req.flash('error'),
+            success: req.flash('success'),
+        };
+        const features = await featureService.get({});
+        res.render('admin/feature', {
+            title: 'Tính năng',
+            layout: 'admin',
+            features,
             message,
         });
     }),
