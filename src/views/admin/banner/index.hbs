@@ -1,143 +1,94 @@
 <h3 class='mb-3'>{{title}}</h3>
+
 <section class='p-4 shadow rounded'>
-    <a 
-        href="#"
-        class='btn btn-success'
-        data-mdb-toggle='modal'
-		data-mdb-target='#createModal'
-    >+ Thêm</a>
-    <hr>
-    <table id='table_id' class='display fixed'>
-        <thead>
-            <tr>
-                {{!-- <th>Nội dung</th>
-                <th>Hình ảnh</th> --}}
-                <th>Ảnh nền</th>
-                <th>Thao tác</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each banners}}
-            <tr>
-                {{!-- <td>{{{content}}}</td>
-                <td><img src="{{image}}" alt="" width="50%"></td> --}}
-                <td><img src="{{backgroundImage}}" width="50%" alt=""></td>
-                <td>
-                    <a 
-                        href="/admin/banner/{{_id}}"
-                        class='me-2 text-warning'
-                    ><i class="fa-solid fa-pen"></i></a>
-                    <a 
-                        href="#"
-                        data-mdb-toggle='modal'
-                        data-mdb-target='#deleteModal'
-                        class='me-2 text-danger'
-                        onclick="$('#delete-id').val('{{_id}}')"
-                    ><i class="fa-solid fa-trash"></i></a>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody
-    </table>
+    <form method='post' class='mb-0' action="/admin/banner/{{banner._id}}" enctype='multipart/form-data'>
+        <div class='modal-body'>
+            <div class='mb-3'>
+                <label class='form-label bold' for='customFile'>Ảnh nền</label>
+                <br />
+                <div class='form-check form-check-inline my-3'>
+                    <input
+                        class='form-check-input'
+                        {{#if banner.images}}checked{{/if}}
+                        type='radio'
+                        name='radio'
+                        id='inlineRadio1'
+                        value='image'
+                    />
+                    <label
+                        class='form-check-label'
+                        for='inlineRadio1'
+                    >Ảnh</label>
+                </div>
+
+                <div class='form-check form-check-inline'>
+                    <input
+                        class='form-check-input'
+                        type='radio'
+                        name='radio'
+                        id='inlineRadio2'
+                        value='video'
+                        {{#if banner.video}}checked{{/if}}
+                    />
+                    <label
+                        class='form-check-label'
+                        for='inlineRadio2'
+                    >Video</label>
+                </div>
+                <div id='video-group' class='{{#if banner.images}}d-none{{/if}}'>
+                    <div class='form-outline mb-3'>
+                        <input
+                            type='text'
+                            name='video'
+                            value='https://www.youtube.com/watch?v={{banner.video}}'
+                            class='form-control'
+                        />
+                        <label class='form-label bold' for='desc'>Liên kết
+                            <span class='text-danger'>*</span></label>
+                    </div>
+                    <p><strong>Cấu trúc: </strong>https://www.youtube.com/watch?v=q4JIFj64XRw</p>
+                </div>
+
+                <div id='img-group' class="{{#if banner.video}}d-none{{/if}}">
+                    <input
+                        type='hidden'
+                        name='bannerInp'
+                        id='bannerHd'
+                        value='{{banner.images}}'
+                    />
+                    <input
+                        type='file'
+                        class='form-control'
+                        id='bannerInp'
+                        accept='image/*'
+                        name='banner'
+                        onchange="preview(this)"
+                        multiple
+                    />
+                    <div id='imageCon' class='mt-2'>
+                        {{#if banner.images}}
+                            {{#each banner.images}}
+                                <img src='{{@this}}' alt='' width='30%' class='mb-2 me-2'/>
+                            {{/each}}
+                        {{/if}}
+                    </div>
+                    <span
+                        style='cursor:pointer'
+                        onclick="removeUploadImg('bannerInp', 'bannerHd')"
+                        class='text-danger'
+                    ><i class='fa-solid fa-circle-xmark fa-xl mt-2'></i></span>
+                </div>
+            </div>
+        </div>
+        <div class='modal-footer'>
+            <button type='submit' class='btn btn-primary'>Cập nhật</button>
+        </div>
+    </form>
 </section>
 
-<!-- Modal -->
-<div
-	class='modal fade modal-lg'
-	id='createModal'
-	tabindex='-1'
-	aria-labelledby='exampleModalLabel'
-	aria-hidden='true'
->
-	<div class='modal-dialog'>
-		<div class='modal-content'>
-			<div class='modal-header'>
-				<h5 class='modal-title' id='exampleModalLabel'>Thêm banner</h5>
-				<button
-					type='button'
-					class='btn-close'
-					data-mdb-dismiss='modal'
-					aria-label='Close'
-				></button>
-			</div>
-			<form method='post' action='/admin/banner/them' class='mb-0' enctype="multipart/form-data">
-				<div class='modal-body'>
-					{{!-- <div class='mb-3'>
-                        <label class="form-label" for="customFile">Nội dung</label>
-                        <textarea name="content" class="ckeditor" id="ckeditor1"></textarea>
-                    </div>
-
-                    <div class='mb-3'>
-                        <label class="form-label" for="customFile">Hình ảnh</label>
-                        <input type="file" onchange="preview(this, 'bannerImg')" class="form-control" id="bannerInp" accept="image/*" name="banner"/>
-                        <img
-                            src='#'
-                            alt=''
-                            id='bannerImg'
-                            width='30%'
-                            class='mt-2'
-                        />
-                        <span style='cursor:pointer' onclick="removeUploadImg('bannerInp', 'bannerImg')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl"></i></span>
-                    </div> --}}
-
-                    <div class='mb-3'>
-                        <label class="form-label" for="customFile">Ảnh nền</label>
-                        <input type="file" onchange="preview(this, 'bannerBgImg')" class="form-control" id="bannerBgInp" accept="image/*" name="bannerBg"/>
-                        <img
-                            src='#'
-                            alt=''
-                            id='bannerBgImg'
-                            width='30%'
-                            class='mt-2'
-                        />
-                        <span style='cursor:pointer' onclick="removeUploadImg('bannerBgInp', 'bannerBgImg')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl"></i></span>
-                    </div>
-				</div>
-				<div class='modal-footer'>
-					<button
-						type='button'
-						class='btn btn-secondary'
-						data-mdb-dismiss='modal'
-					>Đóng</button>
-					<button type='submit' class='btn btn-primary'>Thêm</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-
-<div
-	class='modal fade'
-	id='deleteModal'
-	tabindex='-1'
-	aria-labelledby='exampleModalLabel'
-	aria-hidden='true'
->
-	<div class='modal-dialog'>
-		<div class='modal-content'>
-			<div class='modal-header'>
-				<h5 class='modal-title' id='exampleModalLabel'>Xoá banner</h5>
-				<button
-					type='button'
-					class='btn-close'
-					data-mdb-dismiss='modal'
-					aria-label='Close'
-				></button>
-			</div>
-			<form method='post' action='/admin/banner/xoa' class='mb-0'>
-				<div class='modal-body'>
-                    <input type="hidden" name="_id" id="delete-id">
-					Bạn có chắc chắn muốn xoá banner này không?
-				</div>
-				<div class='modal-footer'>
-					<button
-						type='button'
-						class='btn btn-secondary'
-						data-mdb-dismiss='modal'
-					>Đóng</button>
-					<button type='submit' class='btn btn-danger'>Xoá</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
+<script>
+    $('.form-check-input').change(function() { if ($(this).val() == 'video') {
+    $('#img-group').addClass('d-none'); $('#video-group').removeClass('d-none');
+    } else { $('#video-group').addClass('d-none');
+    $('#img-group').removeClass('d-none'); } })
+</script>

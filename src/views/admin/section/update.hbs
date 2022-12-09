@@ -75,16 +75,14 @@
                     id='imageInp'
                     accept='image/*'
                     name='section'
-                    onchange="preview(this, 'previewImg')"
+                    onchange="preview(this)"
                 />
-                <img
-                    id='previewImg'
-                    src='{{section.image}}'
-                    alt=''
-                    width='30%'
-                    class='mt-2'
-                />
-                <span style='cursor:pointer' onclick="removeUploadImg('imageInp', 'previewImg', 'imageHd')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl"></i></span>
+                <div id='imageCon' class='mt-2 img-group'>
+                    {{#if section.image}}
+                        <img src='{{section.image}}' alt='' width='30%' />
+                    {{/if}}
+                </div>
+                <span style='cursor:pointer' onclick="removeUploadImg('imageInp', 'imageHd')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl mt-2"></i></span>
             </div>
         </div>
         <div class='modal-footer'>

@@ -6,35 +6,10 @@ const { bannerController, adminController } = require('../controllers');
 const upload = require('../middlewares/upload');
 
 // Path: [/admin]
-router.get('/', adminController.getBanners);
-router.post(
-    '/banner/them',
-    upload.fields([
-        {
-            name: 'banner',
-            maxCount: 1,
-        },
-        {
-            name: 'bannerBg',
-            maxCount: 1,
-        },
-    ]),
-    bannerController.create
-);
-router.post('/banner/xoa', bannerController.delete);
-router.get('/banner/:id', bannerController.updateView);
+router.get('/', adminController.getBanner);
 router.post(
     '/banner/:id',
-    upload.fields([
-        {
-            name: 'banner',
-            maxCount: 1,
-        },
-        {
-            name: 'bannerBg',
-            maxCount: 1,
-        },
-    ]),
+    upload.array('banner', 12),
     bannerController.update
 );
 

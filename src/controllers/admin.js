@@ -9,16 +9,17 @@ const {
 
 const adminController = {
     // GET /admin/
-    getBanners: catchAsync(async (req, res) => {
+    getBanner: catchAsync(async (req, res) => {
         const message = {
             error: req.flash('error'),
             success: req.flash('success'),
         };
-        const banners = await bannerService.get({});
+        const banner = (await bannerService.get({}))[0];
+        console.log(banner);
         res.render('admin/banner', {
             title: 'Banner',
             layout: 'admin',
-            banners,
+            banner,
             message,
         });
     }),

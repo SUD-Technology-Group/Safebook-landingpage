@@ -1,9 +1,8 @@
 const { Schema, model } = require('mongoose');
 
 const Banner = new Schema({
-    content: String,
-    image: String,
-    backgroundImage: String,
+    images: [String],
+    video: String,
 });
 
 module.exports = model('Banner', Banner);

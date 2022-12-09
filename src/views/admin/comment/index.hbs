@@ -91,10 +91,10 @@
                             id='avatarInp'
                             accept='image/*'
                             name='comment'
-                            onchange="preview(this, 'avatarImg')"
+                            onchange="preview(this)"
                         />
-                        <img src='' alt='' id='avatarImg' width='30%' class='mt-2' />
-                        <span style='cursor:pointer' onclick="removeUploadImg('avatarInp', 'avatarImg')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl"></i></span>
+                        <div id='imageCon' class='mt-2 img-group'></div>
+                        <span style='cursor:pointer' onclick="removeUploadImg('avatarInp')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl mt-2"></i></span>
                     </div>
 				</div>
 				<div class='modal-footer'>
