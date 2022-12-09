@@ -2,9 +2,6 @@
 
 {{#each sections}}
   {{#when layout 'eq' 'Liên kết'}}
-    {{#when @index 'eq' 0}}
-      {{> section/headingSection title=title href=link price=true }}
-    {{/when}}
     {{#when @index 'eq' 2}}
       {{> section/headingSection title=title href=link }}
     {{/when}}
@@ -38,6 +35,15 @@
 {{#each sections}}
   {{#when layout 'eq' 'Tính năng'}}
     {{> section/featureSection title=title  description=description image=image features=../features}}
+  {{/when}}
+{{/each}}
+
+{{#each sections}}
+  {{#when layout 'eq' 'Liên kết'}}
+    {{#when @index 'eq' 0}}
+      {{> section/headingSection title=title href=link price=true }}
+      {{> section/priceTableSection }}
+    {{/when}}
   {{/when}}
 {{/each}}
 
