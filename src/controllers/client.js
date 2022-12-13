@@ -2,50 +2,46 @@ const catchAsync = require('../utils/catchAsync');
 const customers = require('../../mock/customer');
 const mailer = require('../utils/mailer');
 
-const {
-    sectionService,
-    bannerService,
-    commentService,
-    staffService,
-    featureService,
-} = require('../services');
+const { sectionService, bannerService, commentService, staffService, featureService } = require('../services');
 
 const clientController = {
-    // GET /
-    index: catchAsync(async (req, res) => {
-        const sections = await sectionService.get({}, '-_id -__v');
-        const banners = await bannerService.get({}, '-_id -__v');
-        const comments = await commentService.get({}, '-_id -__v');
-        const staffs = await staffService.get({}, '-_id -__v');
-        const features = await featureService.get({}, '-_id -__v');
+  // GET /
+  index: catchAsync(async (req, res) => {
+    const sections = await sectionService.get({}, '-_id -__v');
+    const banners = await bannerService.get({}, '-_id -__v');
+    const comments = await commentService.get({}, '-_id -__v');
+    const staffs = await staffService.get({}, '-_id -__v');
+    const features = await featureService.get({}, '-_id -__v');
 
-        const message = {
-            error: req.flash('error'),
-            success: req.flash('success'),
-        };
+    const message = {
+      error: req.flash('error'),
+      success: req.flash('success'),
+    };
 
-        res.render('client', {
-            title: 'Trang chủ',
-            sections,
-            customers,
-            comments,
-            banners,
-            features,
-            staffs,
-            message,
-        });
-    }),
+    console.log(banners);
 
-    // POST /lien-he
-    contact: catchAsync(async (req, res) => {
-        const { name, phone } = req.body;
+    res.render('client', {
+      title: 'Trang chủ',
+      sections,
+      customers,
+      comments,
+      banners,
+      features,
+      staffs,
+      message,
+    });
+  }),
 
-        const mainOptions = {
-            // thiết lập đối tượng, nội dung gửi mail
-            from: 'sudtechnology.group@gmail.com',
-            to: 'mkt.safebook.vn@gmail.com',
-            subject: 'Thông tin khách hàng cần tư vấn',
-            html: `<style>
+  // POST /lien-he
+  contact: catchAsync(async (req, res) => {
+    const { name, phone } = req.body;
+
+    const mainOptions = {
+      // thiết lập đối tượng, nội dung gửi mail
+      from: 'sudtechnology.group@gmail.com',
+      to: 'mkt.safebook.vn@gmail.com',
+      subject: 'Thông tin khách hàng cần tư vấn',
+      html: `<style>
                         a:hover {text-decoration: underline !important;}
                     </style>
                     
@@ -109,9 +105,7 @@ const clientController = {
                                                         <td
                                                             style='padding:15px; text-align:right; color:#5e5e5e'
                                                         >
-                                                            <em>${new Date().toLocaleString(
-                                                                'vi-VN'
-                                                            )}</em>
+                                                            <em>${new Date().toLocaleString('vi-VN')}</em>
                                                         </td>
                                                     </tr>
                                                     <!-- Details Table -->
@@ -161,19 +155,16 @@ const clientController = {
                             </tr>
                         </table>
                     </div>`,
-        };
-        mailer.sendMail(mainOptions, function (err) {
-            if (err) {
-                req.flash('error', 'Có lỗi đã xảy ra. Vui lòng thử lại!');
-                return res.redirect('back');
-            }
-            req.flash(
-                'success',
-                'Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!'
-            );
-            res.redirect('back');
-        });
-    }),
+    };
+    mailer.sendMail(mainOptions, function (err) {
+      if (err) {
+        req.flash('error', 'Có lỗi đã xảy ra. Vui lòng thử lại!');
+        return res.redirect('back');
+      }
+      req.flash('success', 'Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!');
+      res.redirect('back');
+    });
+  }),
 };
 
 module.exports = clientController;
