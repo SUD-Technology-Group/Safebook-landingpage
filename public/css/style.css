@@ -1,3 +1,7 @@
+:root {
+  --glowing-1: #1f9d86;
+  --glowing-2: #01283b;
+}
 .nav-line-bottom > li:before,
 .nav-line-bottom > li:after {
   display: none;
@@ -284,7 +288,9 @@ a:hover {
   }
 }
 .swiper-container,
-.swiper-container-banner {
+.swiper-container-banner,
+.swiper-container-comment,
+.swiper-container-article {
   width: 100%;
   position: static;
   margin-left: auto;
@@ -930,4 +936,89 @@ a:hover {
 }
 .card a:hover {
   text-decoration: none;
+}
+@-webkit-keyframes glowing {
+  0% {
+    background-color: var(--glowing-1);
+    -webkit-box-shadow: 0 0 3px var(--glowing-1);
+  }
+  50% {
+    background-color: var(--glowing-2);
+    -webkit-box-shadow: 0 0 10px var(--glowing-2);
+  }
+  100% {
+    background-color: var(--glowing-1);
+    -webkit-box-shadow: 0 0 3px var(--glowing-1);
+  }
+}
+
+@-moz-keyframes glowing {
+  0% {
+    background-color: var(--glowing-1);
+    -moz-box-shadow: 0 0 3px var(--glowing-1);
+  }
+  50% {
+    background-color: var(--glowing-2);
+    -moz-box-shadow: 0 0 10px var(--glowing-2);
+  }
+  100% {
+    background-color: var(--glowing-1);
+    -moz-box-shadow: 0 0 3px var(--glowing-1);
+  }
+}
+
+@-o-keyframes glowing {
+  0% {
+    background-color: var(--glowing-1);
+    box-shadow: 0 0 3px var(--glowing-1);
+  }
+  50% {
+    background-color: var(--glowing-2);
+    box-shadow: 0 0 10px var(--glowing-2);
+  }
+  100% {
+    background-color: var(--glowing-1);
+    box-shadow: 0 0 3px var(--glowing-1);
+  }
+}
+
+@keyframes glowing {
+  0% {
+    background-color: var(--glowing-1);
+    box-shadow: 0 0 3px var(--glowing-1);
+  }
+  50% {
+    background-color: var(--glowing-2);
+    box-shadow: 0 0 10px var(--glowing-2);
+  }
+  100% {
+    background-color: var(--glowing-1);
+    box-shadow: 0 0 3px var(--glowing-1);
+  }
+}
+
+.header-button > a {
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+.client-testi {
+  cursor: e-resize;
+}
+.client-testi .client-image {
+  margin-right: 16px;
+}
+.client-testi .content:before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 0;
+  margin-left: 13px;
+  box-sizing: border-box;
+  border: 8px solid #3c4858;
+  border-color: transparent #fff #fff transparent;
+  transform-origin: 0 0;
+  transform: rotate(135deg);
+  box-shadow: 2px 2px 2px -1px rgba(60, 72, 88, 0.15);
 }

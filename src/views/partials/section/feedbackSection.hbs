@@ -7,22 +7,26 @@
   <div class='section-content relative'>
     <div class='gap-element clearfix' style='display:block; height:auto; padding-top:40px'></div>
     <div class='row' id='row-1549117855'>
-      <div class='col medium-4 small-12 large-4'>
-        <div class='col-inner'>
-          <h3 class='uppercase thin-font' style='text-align: center;'><strong>{{title}}
-              <span style='color: #ffcc00; text-decoration: underline;'>SAFEBOOKS</span></strong></h3>
-          <div class='text-center'>
-            <div class='is-divider divider clearfix' style='height:2px;background-color:rgb(219, 219, 219);'></div>
-          </div>
-          <p>{{{description}}}</p>
+      <div class='col-md-12'>
+        <h3 class='uppercase thin-font' style='text-align: center;'><strong>{{title}}
+            <span style='color: #ffcc00; text-decoration: underline;'>SAFEBOOKS</span></strong></h3>
+        <div class='text-center'>
+          <div class='is-divider divider clearfix' style='height:2px;background-color:rgb(219, 219, 219);'></div>
         </div>
+        <p class='text-center'>{{{description}}}</p>
       </div>
-      <div class='col medium-8 small-12 large-8'>
-        <div class='col-inner'>
-          <div class='row' id='row-1359683358'>
-            <div class='col small-12 large-12'>
-              <div class='col-inner'>
-                {{#each comments}}
+      <div class='row' id='row-1359683358'>
+        <div class='slider-wrapper relative' id='slider-1127583046'>
+          <div
+            class='image-carousel-wrapper swiper-container-comment swiper-container-initialized swiper-container-horizontal'
+          >
+            <div
+              class='image-carousel swiper-wrapper swiper-image-stretch'
+              style='transition-duration: 0ms; transform: translate3d(-2810.25px, 0px, 0px);'
+            >
+              {{#each comments}}
+
+                <div class='swiper-slide img has-hover x md-x lg-x y md-y lg-y'>
                   <div class='icon-box testimonial-box icon-box-left text-left'>
                     <div class='icon-box-img testimonial-image circle' style='width: 80px'>
                       <img
@@ -45,8 +49,8 @@
                         <span class='testimonial-company test_company'></span></div>
                     </div>
                   </div>
-                {{/each}}
-              </div>
+                </div>
+              {{/each}}
             </div>
           </div>
         </div>

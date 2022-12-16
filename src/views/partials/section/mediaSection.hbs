@@ -1,0 +1,57 @@
+<div class='section'>
+  <div class='row' id='row-512505365'>
+    <div class='col-inner text-center'>
+      <h2
+        class='heading-title'
+        style="font-family: 'Roboto Condensed', sans-serif; color: #2f2c2c; text-align: center;"
+      ><span style='font-size: 120%; ' class='text-uppercase'>{{title}}</span></h2>
+      <div class='heading-decoration'></div>
+      <div class='heading-decoration'></div>
+
+      <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+      <div class='row' id='row-837703253'>
+        <div class='slider-wrapper relative' id='slider-1127583046'>
+          <div
+            class='image-carousel-wrapper swiper-container-article swiper-container-initialized swiper-container-horizontal'
+          >
+            <div
+              class='image-carousel swiper-wrapper swiper-image-stretch'
+              style='transition-duration: 0ms; transform: translate3d(-2810.25px, 0px, 0px);'
+            >
+              {{#each media}}
+                <div class='swiper-slide img has-hover x md-x lg-x y md-y lg-y'>
+                  <a href='' target='_blank'>
+                    <div class='img-inner dark' style='height:100px'>
+                      <img
+                        alt='{{title}}'
+                        class='attachment-large size-large'
+                        style='height: 50px;'
+                        loading='lazy'
+                        src='{{this.img}}'
+                        width='262'
+                      />
+                    </div>
+                  </a>
+                </div>
+              {{/each}}
+            </div>
+
+            <!-- Nếu cần navigation -->
+            <div class='swiper-button swiper-button-prev' tabindex='0' role='button' aria-label='Previous slide'>
+              <i class='fa fa-chevron-left'>
+
+              </i>
+              <span class='screen-only'>Previous</span>
+            </div>
+            <div class='swiper-button swiper-button-next' tabindex='0' role='button' aria-label='Next slide'>
+              <i class='fa fa-chevron-right'>
+
+              </i>
+              <span class='screen-only'>Next</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

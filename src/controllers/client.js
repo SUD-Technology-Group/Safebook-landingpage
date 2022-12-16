@@ -19,6 +19,17 @@ const clientController = {
     };
 
     console.log(banners);
+    var media = [
+      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/vnexpress-logo-2.png' },
+      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/cafef-logo-2.png' },
+      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/vtv-media-logo-1.png' },
+      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/vneconomy-logo-1.png' },
+      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/vietnamnet-logo.png' },
+      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/cafebiz-logo.png' },
+      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/Dan-Tri-Logo.png' },
+      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/Brands-Vietnam-Logo.png' },
+      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/VITV-Logo.png' },
+    ];
 
     res.render('client', {
       title: 'Trang chủ',
@@ -28,6 +39,7 @@ const clientController = {
       banners,
       features,
       staffs,
+      media,
       message,
     });
   }),

@@ -23,11 +23,21 @@
   {{#each sections}}
     {{#when layout 'eq' 'Nội dung'}}
       {{#when @index 'eq' 4}}
+        <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+        <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+
         {{> section/contentSection title=title  description=description image=image }}
+        <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+        <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+
       {{/when}}
       {{#when @index 'eq' 5}}
-
+        <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+        <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
         {{> section/contentSection title=title reserved=true description=description image=image }}
+        <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+        <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+
       {{/when}}
     {{/when}}
   {{/each}}
@@ -52,7 +62,16 @@
     {{> section/archiveSection title=title  description=description image=image }}
   {{/when}}
 {{/each}}
+
 {{> section/slideSection backgroundColor=backgroundColor customers=customers }}
+
+{{#each sections}}
+  {{#when layout 'eq' 'Báo chí'}}
+    <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+    <div class='gap-element clearfix' style='display:block; height:auto; padding-top:30px'></div>
+    {{> section/mediaSection title=title  description=description backgroundColor=backgroundColor media=../media }}
+  {{/when}}
+{{/each}}
 
 {{#each sections}}
   {{#when layout 'eq' 'Đội ngũ'}}

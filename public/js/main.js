@@ -63,8 +63,49 @@ $(document).ready(function () {
       prevEl: '.swiper-banner-button-prev',
     },
   };
-
+  var swiperOptionsArticle = {
+    slidesPerView: 8,
+    spaceBetween: 15,
+    slidesPerGroup: 1,
+    loop: true,
+    speed: 1000,
+    draggable: true,
+    autoplay: {
+      delay: 6500,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      767: {
+        slidesPerView: 8,
+        spaceBetween: 10,
+      },
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  };
+  var swiperOptionsComment = {
+    slidesPerView: 3,
+    spaceBetween: 15,
+    slidesPerGroup: 1,
+    loop: true,
+    speed: 1000,
+    draggable: true,
+    autoplay: {
+      delay: 6500,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  };
   var swiper = new Swiper('.swiper-container-banner', swiperOptions);
+  var swiper2 = new Swiper('.swiper-container-article', swiperOptionsArticle);
+  var swiper3 = new Swiper('.swiper-container-comment', swiperOptionsComment);
 
   // DATA BACKGROUND IMAGE
   var sliderBgSetting = $('.slide-bg-image');
