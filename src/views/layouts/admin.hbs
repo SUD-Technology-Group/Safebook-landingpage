@@ -86,6 +86,11 @@
                             class='list-group-item list-group-item-action py-2 ripple'
                         ><i class='fa-solid fa-comment me-3'></i><span>Bình luận</span></a>
                         <a
+                            href='/admin/bao-chi'
+                            id='bao-chi'
+                            class='list-group-item list-group-item-action py-2 ripple'
+                        ><i class='fa-solid fa-camera me-3'></i><span>Báo chí</span></a>
+                        <a
                             href='/admin/auth/logout'
                             class='list-group-item list-group-item-action py-2 ripple mt-auto mb-5'
                         ><i class='fa-solid fa-right-to-bracket me-3'></i><span
@@ -216,7 +221,9 @@
             (window.location.pathname.includes('binh-luan'))
             $('#binh-luan').addClass('active'); else if
             (window.location.pathname.includes('tinh-nang'))
-            $('#tinh-nang').addClass('active'); else
+            $('#tinh-nang').addClass('active'); else if
+            (window.location.pathname.includes('bao-chi'))
+            $('#bao-chi').addClass('active'); else
             $('#banner').addClass('active'); $('#table_id').DataTable({
             "ordering": false, "paging": false, }); setTimeout(function() {
             $('.toast').hide(); }, 4000); CKEDITOR.replace('ckeditor'); });

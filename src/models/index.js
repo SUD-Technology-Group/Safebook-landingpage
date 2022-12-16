@@ -5,4 +5,5 @@ module.exports = {
     commentModel: require('./comment'),
     staffModel: require('./staff'),
     featureModel: require('./feature'),
+    mediaModel: require('./media'),
 };

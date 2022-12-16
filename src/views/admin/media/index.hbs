@@ -1,0 +1,128 @@
+<h3 class='mb-3'>{{title}}</h3>
+<section class='p-4 shadow rounded'>
+    <a 
+        href="#"
+        class='btn btn-success'
+        data-mdb-toggle='modal'
+		data-mdb-target='#createModal'
+    >+ Thêm</a>
+    <hr>
+    <table id='table_id' class='display fixed'>
+        <thead>
+            <tr>
+                <th>Hình ảnh</th>
+                <th>Liên kết</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each media}}
+            <tr>
+                <td><img src="{{image}}" width="40%" alt=""></td>
+                <td>{{link}}</td>
+                <td>
+                    <a 
+                        href="/admin/bao-chi/{{_id}}"
+                        class='me-2 text-warning'
+                    ><i class="fa-solid fa-pen"></i></a>
+                    <a 
+                        href="#"
+                        data-mdb-toggle='modal'
+                        data-mdb-target='#deleteModal'
+                        class='me-2 text-danger'
+                        onclick="$('#delete-id').val('{{_id}}')"
+                    ><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody
+    </table>
+</section>
+
+<!-- Modal -->
+<div
+	class='modal fade modal-lg'
+	id='createModal'
+	tabindex='-1'
+	aria-labelledby='exampleModalLabel'
+	aria-hidden='true'
+>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<h5 class='modal-title' id='exampleModalLabel'>Thêm báo chí</h5>
+				<button
+					type='button'
+					class='btn-close'
+					data-mdb-dismiss='modal'
+					aria-label='Close'
+				></button>
+			</div>
+			<form method='post' action='/admin/bao-chi/them' class='mb-0' enctype="multipart/form-data">
+				<div class='modal-body'>
+					<div class='form-outline mb-4'>
+                        <input
+                            type='text'
+                            name='link'
+                            class='form-control border'
+                            required
+                        />
+                        <label class='form-label bold' for='desc'>Liên kết
+                            <span class='text-danger'>*</span></label>
+                    </div>
+
+                    <div class='mb-3'>
+                        <label class="form-label" for="customFile">Hình ảnh</label>
+                        <input type="file" onchange="preview(this)" class="form-control" id="previewInp" accept="image/*" name="media"/>
+                        <div id='imageCon' class='mt-2 img-group'></div>
+                        <span style='cursor:pointer' onclick="removeUploadImg('previewInp')" class='text-danger'><i class="fa-solid fa-circle-xmark fa-xl mt-2"></i></span>
+                    </div> 
+				</div>
+				<div class='modal-footer'>
+					<button
+						type='button'
+						class='btn btn-secondary'
+						data-mdb-dismiss='modal'
+					>Đóng</button>
+					<button type='submit' class='btn btn-primary'>Thêm</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div
+	class='modal fade'
+	id='deleteModal'
+	tabindex='-1'
+	aria-labelledby='exampleModalLabel'
+	aria-hidden='true'
+>
+	<div class='modal-dialog'>
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<h5 class='modal-title' id='exampleModalLabel'>Xoá báo chí</h5>
+				<button
+					type='button'
+					class='btn-close'
+					data-mdb-dismiss='modal'
+					aria-label='Close'
+				></button>
+			</div>
+			<form method='post' action='/admin/bao-chi/xoa' class='mb-0'>
+				<div class='modal-body'>
+                    <input type="hidden" name="_id" id="delete-id">
+					Bạn có chắc chắn muốn xoá báo chí này không?
+				</div>
+				<div class='modal-footer'>
+					<button
+						type='button'
+						class='btn btn-secondary'
+						data-mdb-dismiss='modal'
+					>Đóng</button>
+					<button type='submit' class='btn btn-danger'>Xoá</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

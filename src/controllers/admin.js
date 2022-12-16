@@ -5,6 +5,7 @@ const {
     staffService,
     commentService,
     featureService,
+    mediaService,
 } = require('../services');
 
 const adminController = {
@@ -80,6 +81,21 @@ const adminController = {
             title: 'Tính năng',
             layout: 'admin',
             features,
+            message,
+        });
+    }),
+
+    // GET /admin/bao-chi
+    getMedia: catchAsync(async (req, res) => {
+        const message = {
+            error: req.flash('error'),
+            success: req.flash('success'),
+        };
+        const media = await mediaService.get({});
+        res.render('admin/media', {
+            title: 'Báo chí',
+            layout: 'admin',
+            media,
             message,
         });
     }),

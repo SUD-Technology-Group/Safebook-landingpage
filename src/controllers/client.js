@@ -2,58 +2,110 @@ const catchAsync = require('../utils/catchAsync');
 const customers = require('../../mock/customer');
 const mailer = require('../utils/mailer');
 
-const { sectionService, bannerService, commentService, staffService, featureService } = require('../services');
+const {
+    sectionService,
+    bannerService,
+    commentService,
+    staffService,
+    featureService,
+} = require('../services');
 
 const clientController = {
-  // GET /
-  index: catchAsync(async (req, res) => {
-    const sections = await sectionService.get({}, '-_id -__v');
-    const banners = await bannerService.get({}, '-_id -__v');
-    const comments = await commentService.get({}, '-_id -__v');
-    const staffs = await staffService.get({}, '-_id -__v');
-    const features = await featureService.get({}, '-_id -__v');
+    // GET /
+    index: catchAsync(async (req, res) => {
+        const sections = await sectionService.get({}, '-_id -__v');
+        const banners = await bannerService.get({}, '-_id -__v');
+        const comments = await commentService.get({}, '-_id -__v');
+        const staffs = await staffService.get({}, '-_id -__v');
+        const features = await featureService.get({}, '-_id -__v');
 
-    const message = {
-      error: req.flash('error'),
-      success: req.flash('success'),
-    };
+        const message = {
+            error: req.flash('error'),
+            success: req.flash('success'),
+        };
 
-    console.log(banners);
-    var media = [
-      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/vnexpress-logo-2.png' },
-      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/cafef-logo-2.png' },
-      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/vtv-media-logo-1.png' },
-      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/vneconomy-logo-1.png' },
-      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/vietnamnet-logo.png' },
-      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/cafebiz-logo.png' },
-      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/Dan-Tri-Logo.png' },
-      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/Brands-Vietnam-Logo.png' },
-      { title: '', link: '', img: 'https://www.saokim.com.vn/storage/2022/08/VITV-Logo.png' },
-    ];
+        var media = [
+            {
+                title: '',
+                link: '',
+                img: 'https://www.saokim.com.vn/storage/2022/08/vnexpress-logo-2.png',
+            },
+            {
+                title: '',
+                link: '',
+                img: 'https://www.saokim.com.vn/storage/2022/08/cafef-logo-2.png',
+            },
+            {
+                title: '',
+                link: '',
+                img: 'https://www.saokim.com.vn/storage/2022/08/vtv-media-logo-1.png',
+            },
+            {
+                title: '',
+                link: '',
+                img: 'https://www.saokim.com.vn/storage/2022/08/vneconomy-logo-1.png',
+            },
+            {
+                title: '',
+                link: '',
+                img: 'https://www.saokim.com.vn/storage/2022/08/vietnamnet-logo.png',
+            },
+            {
+                title: '',
+                link: '',
+                img: 'https://www.saokim.com.vn/storage/2022/08/cafebiz-logo.png',
+            },
+            {
+                title: '',
+                link: '',
+                img: 'https://www.saokim.com.vn/storage/2022/08/Dan-Tri-Logo.png',
+            },
+            {
+                title: '',
+                link: '',
+                img: 'https://www.saokim.com.vn/storage/2022/08/Brands-Vietnam-Logo.png',
+            },
+            {
+                title: '',
+                link: '',
+                img: 'https://www.saokim.com.vn/storage/2022/08/VITV-Logo.png',
+            },
+        ];
 
-    res.render('client', {
-      title: 'Trang chủ',
-      sections,
-      customers,
-      comments,
-      banners,
-      features,
-      staffs,
-      media,
-      message,
-    });
-  }),
+        res.render('client', {
+            title: 'Trang chủ',
+            sections,
+            customers,
+            comments,
+            banners,
+            features,
+            staffs,
+            media,
+            message,
+        });
+    }),
 
-  // POST /lien-he
-  contact: catchAsync(async (req, res) => {
-    const { name, phone } = req.body;
+    // GET /dang-ky-dung-thu
+    getTrialForm: (req, res) => {
+        res.render('client/trialForm', {
+            title: 'Đăng ký dùng thử',
+            layout: '',
+        });
+    },
 
-    const mainOptions = {
-      // thiết lập đối tượng, nội dung gửi mail
-      from: 'sudtechnology.group@gmail.com',
-      to: 'mkt.safebook.vn@gmail.com',
-      subject: 'Thông tin khách hàng cần tư vấn',
-      html: `<style>
+    // POST /dang-ky-dung-thu
+    postTrialForm: catchAsync(async (req, res) => {}),
+
+    // POST /lien-he
+    contact: catchAsync(async (req, res) => {
+        const { name, phone } = req.body;
+
+        const mainOptions = {
+            // thiết lập đối tượng, nội dung gửi mail
+            from: 'sudtechnology.group@gmail.com',
+            to: 'mkt.safebook.vn@gmail.com',
+            subject: 'Thông tin khách hàng cần tư vấn',
+            html: `<style>
                         a:hover {text-decoration: underline !important;}
                     </style>
                     
@@ -117,7 +169,9 @@ const clientController = {
                                                         <td
                                                             style='padding:15px; text-align:right; color:#5e5e5e'
                                                         >
-                                                            <em>${new Date().toLocaleString('vi-VN')}</em>
+                                                            <em>${new Date().toLocaleString(
+                                                                'vi-VN'
+                                                            )}</em>
                                                         </td>
                                                     </tr>
                                                     <!-- Details Table -->
@@ -167,16 +221,19 @@ const clientController = {
                             </tr>
                         </table>
                     </div>`,
-    };
-    mailer.sendMail(mainOptions, function (err) {
-      if (err) {
-        req.flash('error', 'Có lỗi đã xảy ra. Vui lòng thử lại!');
-        return res.redirect('back');
-      }
-      req.flash('success', 'Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!');
-      res.redirect('back');
-    });
-  }),
+        };
+        mailer.sendMail(mainOptions, function (err) {
+            if (err) {
+                req.flash('error', 'Có lỗi đã xảy ra. Vui lòng thử lại!');
+                return res.redirect('back');
+            }
+            req.flash(
+                'success',
+                'Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!'
+            );
+            res.redirect('back');
+        });
+    }),
 };
 
 module.exports = clientController;

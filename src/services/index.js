@@ -5,4 +5,5 @@ module.exports = {
     commentService: require('./comment'),
     staffService: require('./staff'),
     featureService: require('./feature'),
+    mediaService: require('./media'),
 };

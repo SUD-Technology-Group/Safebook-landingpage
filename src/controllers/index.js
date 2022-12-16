@@ -7,4 +7,5 @@ module.exports = {
     staffController: require('./staff'),
     commentController: require('./comment'),
     featureController: require('./feature'),
+    mediaController: require('./media'),
 };
