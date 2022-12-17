@@ -20,14 +20,14 @@
             >
               {{#each media}}
                 <div class='swiper-slide img has-hover x md-x lg-x y md-y lg-y'>
-                  <a href='' target='_blank'>
+                  <a href='{{link}}' target='_blank'>
                     <div class='img-inner dark' style='height:100px'>
                       <img
-                        alt='{{title}}'
+                        alt='{{link}}'
                         class='attachment-large size-large'
                         style='height: 50px;'
                         loading='lazy'
-                        src='{{this.img}}'
+                        src='{{this.image}}'
                         width='262'
                       />
                     </div>
