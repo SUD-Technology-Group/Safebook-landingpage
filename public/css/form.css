@@ -209,7 +209,6 @@ button {
   width: 100%;
 }
 .apui-select-type.horizontal .apui-select-box-item {
-  margin-left: 16px;
   min-width: 100px;
   width: 50%;
 }
@@ -439,9 +438,9 @@ button {
   display: block;
 }
 .wrap-register {
-  width: 546px;
+  width: 560px;
   border-radius: 4px;
-  padding: 40px;
+  padding: 40px 30px;
   background: #fff;
   position: relative;
 }
@@ -473,14 +472,14 @@ button {
   line-height: 29px;
   text-align: center;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 25px;
 }
 .form-subtitle {
   width: 100%;
   text-align: center;
   margin-top: 8px;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 22px;
   color: #666;
   margin-bottom: 32px;
 }
