@@ -440,7 +440,7 @@ button {
 .wrap-register {
   width: 560px;
   border-radius: 4px;
-  padding: 40px 30px;
+  padding: 40px;
   background: #fff;
   position: relative;
 }
@@ -473,7 +473,7 @@ button {
   text-align: center;
   display: block;
   margin-bottom: 25px;
-}
+}wrap-inpu
 .form-subtitle {
   width: 100%;
   text-align: center;
@@ -492,18 +492,19 @@ button {
   text-decoration: none;
 }
 .name-container {
+    margin-top: 35px;
   display: flex;
 }
 .wrap-input {
   width: 100%;
   position: relative;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 .wrap-input.firstname-wrap {
   margin-right: 16px;
 }
 .wrap-input.lastname-wrap {
-  width: 200px;
+  width: 300px;
 }
 .wrap-input.pass-wrap {
   margin-bottom: 16px;
@@ -548,7 +549,7 @@ span.error-info {
 }
 .wrap-register .submit-btn {
   width: 100%;
-  margin-top: 16px;
+  margin-top: 10px;
 }
 .agree-check-box {
   padding-top: 8px;
@@ -686,4 +687,13 @@ span.error-info {
   line-height: 21px;
   font-weight: 500;
   text-align: center;
+}
+
+#input-other {
+    border-width: 0 0 1px;
+    margin-left: 5px;
+}
+
+#input-other:focus {
+    outline: 0;
 }

@@ -90,7 +90,9 @@
         />
         <link rel='stylesheet' href='/css/form.css' />
     </head>
-    <body style='background:#05334a'>
+    <body
+        style='background: linear-gradient(86.66deg, #131d4e 9.35%, #10a27e 100%);'
+    >
         <div id='container'>
             <!--START-->
 
@@ -125,28 +127,50 @@
                             </span>
                         </div>
 
-                        <form method='post'>
-                            <div
-                                class='wrap-input firstname-wrap validate-input flex-1'
-                            >
-                                <span
-                                    class='input-label'
-                                    res-key='FormRegister_FirstNameLabel'
-                                >Họ và tên
-                                    <span style='color:red'>*</span></span>
-                                <input
-                                    objname='jFirstName'
-                                    class='input ap-lg-input'
-                                    type='text'
-                                    name='name'
-                                    placeholder-key='FormRegister_FirstNamePlaceholder'
-                                    placeholder='Nhập họ và tên'
-                                    required
-                                />
-                                <span
-                                    class='error-info'
-                                    res-key='FormRegister_FirstNameNotEmpty'
-                                >Vui lòng nhập họ và tên</span>
+                        <form method='post' id="form">
+                            <div class='name-container'>
+
+                                <div
+                                    class='wrap-input firstname-wrap validate-input flex-1'
+                                >
+                                    <span
+                                        class='input-label'
+                                        res-key='FormRegister_FirstNameLabel'
+                                    >Họ và đệm</span>
+                                    <input
+                                        objname='jFirstName'
+                                        class='input ap-lg-input'
+                                        type='text'
+                                        name='firstname'
+                                        placeholder-key='FormRegister_FirstNamePlaceholder'
+                                        placeholder='Nhập họ và đệm'
+                                    />
+                                    <span
+                                        class='error-info'
+                                        res-key='FormRegister_FirstNameNotEmpty'
+                                    >Vui lòng nhập họ và đệm</span>
+                                </div>
+                                <div
+                                    class='wrap-input lastname-wrap validate-input'
+                                >
+                                    <span
+                                        class='input-label'
+                                        res-key='FormRegister_LastNameLabel'
+                                    >Tên <span style='color:red'>*</span></span></span>
+                                    <input
+                                        objname='jLastName'
+                                        class='input ap-lg-input'
+                                        type='text'
+                                        name='lastname'
+                                        placeholder-key='FormRegister_LastNamePlaceholder'
+                                        placeholder='Nhập tên'
+                                        required
+                                    />
+                                    <span
+                                        class='error-info'
+                                        res-key='FormRegister_LastNameNotEmpty'
+                                    >Vui lòng nhập tên</span>
+                                </div>
                             </div>
                             <div class='wrap-input phone-wrap validate-input'>
                                 <span
@@ -199,7 +223,8 @@
                                 <span
                                     class='input-label'
                                     res-key='FormRegister_TenantLabel'
-                                >Tên doanh nghiệp <span style='color:red'>*</span></span>
+                                >Tên doanh nghiệp
+                                    <span style='color:red'>*</span></span>
                                 <input
                                     objname='jTenant'
                                     class='input ap-lg-input'
@@ -221,8 +246,8 @@
                                 <span
                                     class='input-label'
                                     res-key='FormRegister_TenantLabel'
-                                >MST (khách hàng chuẩn bị mở DN điền sđt trường
-                                    này) <span style='color:red'>*</span></span>
+                                >MST
+                                    <span style='color:red'>*</span></span>
                                 <input
                                     objname='jTenant'
                                     class='input ap-lg-input'
@@ -236,12 +261,14 @@
                                     class='error-info'
                                     res-key='FormRegister_TenantNotEmpty'
                                 >Vui lòng nhập MST</span>
+                                <p style="color:dimgray; margin-top: 5px">Lưu ý: khách hàng chuẩn bị mở DN điền sđt trường
+                                    này</p>
                             </div>
                             <div class='wrap-input validate-input'>
                                 <span
                                     class='input-label'
                                     res-key='FormRegister_Purpose'
-                                >Bạn là: <span style='color:red'>*</span></span>
+                                >Bạn là:</span>
                                 <div
                                     objname='jPurpose'
                                     class='register_purpose'
@@ -259,7 +286,7 @@
                                                 <input
                                                     type='radio'
                                                     name='position'
-                                                    value="Giám đốc"
+                                                    value='Giám đốc'
                                                     checked
                                                 />
                                                 <span class='checkmark'>
@@ -279,7 +306,7 @@
                                                 <input
                                                     type='radio'
                                                     name='position'
-                                                    value="Kế toán"
+                                                    value='Kế toán'
                                                 />
                                                 <span class='checkmark'>
                                                 </span>
@@ -298,7 +325,7 @@
                                                 <input
                                                     type='radio'
                                                     name='position'
-                                                    value="Quản lý doanh nghiệp"
+                                                    value='Quản lý doanh nghiệp'
                                                 />
                                                 <span class='checkmark'>
                                                 </span>
@@ -317,7 +344,7 @@
                                                 <input
                                                     type='radio'
                                                     name='position'
-                                                    value="Chuẩn bị mở doanh nghiệp"
+                                                    value='Chuẩn bị mở doanh nghiệp'
                                                 />
                                                 <span class='checkmark'>
                                                 </span>
@@ -334,16 +361,18 @@
                                         >
                                             <label class='apui-radio'>
                                                 <input
+                                                    id="radio-other"
                                                     type='radio'
                                                     name='position'
-                                                    value="khác"
+                                                    value='khác'
                                                 />
                                                 <span class='checkmark'>
                                                 </span>
                                                 <span
                                                     class='caption ellipsis'
-                                                >khác
+                                                >Khác:
                                                 </span>
+                                                <input type="text" id="input-other">
                                             </label>
                                         </div>
                                     </div>
@@ -364,8 +393,16 @@
                     </div>
                 </div>
             </div>
-
             <!--END-->
         </div>
+<script>
+    const otherRadio = document.getElementById("radio-other");
+    const inputOther = document.getElementById("input-other")
+
+    inputOther.onchange = function() {
+        otherRadio.value = inputOther.value;
+        console.log(otherRadio.value);
+    }
+</script>
     </body>
 </html>

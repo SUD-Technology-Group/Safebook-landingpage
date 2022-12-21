@@ -49,7 +49,8 @@ const clientController = {
 
     // POST /dang-ky-dung-thu
     postTrialForm: catchAsync(async (req, res) => {
-        const { name, phone, email, company, mst, position } = req.body;
+        const { phone, email, company, mst, position } = req.body;
+        const name = req.body.firstname + ' ' + req.body.lastname;
 
         const mainOptions = {
             // thiết lập đối tượng, nội dung gửi mail
