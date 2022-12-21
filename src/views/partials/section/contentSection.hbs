@@ -1,5 +1,5 @@
 <div class='row {{#if reserved}} row-reverse  {{/if}}' id='row-1030797348'>
-  <div class='col medium-5 small-12 large-5'>
+  <div class='col medium-5 small-12 large-5' {{#if reserved}} data-aos="fade-left" {{else}} data-aos="fade-right" {{/if}}>
     <div class='col-inner'>
       <h2 class='uppercase titlebb'><span style='font-size: 80%;'>
           {{title}}
@@ -7,7 +7,7 @@
       {{{description}}}
     </div>
   </div>
-  <div class='col medium-7 small-12 large-7'>
+  <div class='col medium-7 small-12 large-7'  {{#if reserved}} data-aos="fade-right" {{else}} data-aos="fade-left" {{/if}}>
     <div class='col-inner'>
       <p><img
           class='aligncenter size-medium'
