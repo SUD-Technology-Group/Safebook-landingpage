@@ -473,8 +473,8 @@ button {
   text-align: center;
   display: block;
   margin-bottom: 25px;
-}wrap-inpu
-.form-subtitle {
+}
+wrap-inpu .form-subtitle {
   width: 100%;
   text-align: center;
   margin-top: 8px;
@@ -492,7 +492,7 @@ button {
   text-decoration: none;
 }
 .name-container {
-    margin-top: 35px;
+  margin-top: 35px;
   display: flex;
 }
 .wrap-input {
@@ -504,17 +504,16 @@ button {
   margin-right: 16px;
 }
 .wrap-input.lastname-wrap {
-  width: 300px;
 }
 .wrap-input.pass-wrap {
   margin-bottom: 16px;
 }
 .wrap-input .input-label {
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 4px;
   line-height: 15px;
   display: block;
-  font-weight: 500;
+  font-weight: bold;
 }
 span.error-info {
   font-size: 12px;
@@ -690,10 +689,14 @@ span.error-info {
 }
 
 #input-other {
-    border-width: 0 0 1px;
-    margin-left: 5px;
+  border-width: 0 0 1px;
+  margin-left: 5px;
 }
 
 #input-other:focus {
-    outline: 0;
+  outline: 0;
+}
+
+.input {
+  border-radius: 10px;
 }
