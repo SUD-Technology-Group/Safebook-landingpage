@@ -6,48 +6,32 @@ const { bannerService } = require('../services');
 const bannerController = {
     // POST /admin/banner/:id
     update: catchAsync(async (req, res) => {
-        const { radio, bannerInp } = req.body;
-        let { images, video } = await bannerService.getOne(
-            {
-                _id: req.params.id,
-            },
-            'images video'
-        );
+        const { bannerInp } = req.body;
+        const video = req.body.video.split('=')[1];
+        let { image } = await bannerService.getOne({ _id: req.params.id }, 'image');
 
-        if (radio == 'video') {
-            images = [];
-            video = req.body.video.split('=')[1];
-        } else {
-            video = '';
-            if (req.files.length > 0) {
-                images.forEach((item) => {
-                    fs.unlink(`public/${item}`, (err) => {
-                        if (err) {
-                            req.flash('error', 'Cập nhật banner thất bại');
-                            return res.redirect('back');
-                        }
-                    });
+        if (req.file) {
+            if (image) {
+                fs.unlink(`public/${image}`, (err) => {
+                    if (err) {
+                        req.flash('error', 'Cập nhật banner thất bại');
+                        return res.redirect('back');
+                    }
                 });
-                images = [];
-                req.files.map((f) => {
-                    let url = '/uploads/banner/' + f.filename;
-                    images.push(url);
-                });
-            } else if (!bannerInp && images) {
-                images.forEach((item) => {
-                    fs.unlink(`public/${item}`, (err) => {
-                        if (err) {
-                            req.flash('error', 'Cập nhật banner thất bại');
-                            return res.redirect('back');
-                        }
-                    });
-                });
-                images = [];
             }
+            image = '/uploads/banner/' + req.file.filename;
+        } else if (!bannerInp && image) {
+            fs.unlink(`public/${image}`, (err) => {
+                if (err) {
+                    req.flash('error', 'Cập nhật banner thất bại');
+                    return res.redirect('back');
+                }
+            });
+            image = '';
         }
 
         await bannerService
-            .update({ _id: req.params.id }, { video, images })
+            .update({ _id: req.params.id }, { video, image })
             .catch((err) => {
                 console.log(err);
                 req.flash('error', 'Cập nhật banner thất bại');

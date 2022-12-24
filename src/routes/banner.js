@@ -7,10 +7,6 @@ const upload = require('../middlewares/upload');
 
 // Path: [/admin]
 router.get('/', adminController.getBanner);
-router.post(
-    '/banner/:id',
-    upload.array('banner', 12),
-    bannerController.update
-);
+router.post('/banner/:id', upload.single('banner'), bannerController.update);
 
 module.exports = router;

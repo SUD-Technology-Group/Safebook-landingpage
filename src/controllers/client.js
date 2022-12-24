@@ -21,11 +21,6 @@ const clientController = {
     const features = await featureService.get({}, '-_id -__v');
     const media = await mediaService.get({}, '-_id -__v');
 
-    const message = {
-      error: req.flash('error'),
-      success: req.flash('success'),
-    };
-
     res.render('client', {
       title: 'Trang chủ',
       sections,
@@ -35,7 +30,6 @@ const clientController = {
       features,
       staffs,
       media,
-      message,
     });
   }),
 
@@ -225,8 +219,7 @@ const clientController = {
         req.flash('error', 'Có lỗi đã xảy ra. Vui lòng thử lại!');
         return res.redirect('/');
       }
-      req.flash('success', 'Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!');
-      res.redirect('/thank-you');
+      res.redirect('/loi-cam-on');
     });
   }),
 
@@ -359,8 +352,7 @@ const clientController = {
         req.flash('error', 'Có lỗi đã xảy ra. Vui lòng thử lại!');
         return res.redirect('back');
       }
-      req.flash('success', 'Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất!');
-      res.redirect('back');
+      res.redirect('/loi-cam-on');
     });
   }),
 };
