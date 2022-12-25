@@ -71,40 +71,31 @@
             <div class='ladi-video'>
               <div id='SHAPE1728' class='ladi-element'>
                 <div class='ladi-shape'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='100%'
-                    height='100%'
-                    preserveAspectRatio='none'
-                    viewBox='0 0 408.7 408.7'
-                    fill='rgba(0, 0, 0, 0.5)'
-                  >
-                    <polygon fill='#fff' points='163.5 296.3 286.1 204.3 163.5 112.4 163.5 296.3'>
 
-                    </polygon>
-                    <path
-                      d='M204.3,0C91.5,0,0,91.5,0,204.3S91.5,408.7,204.3,408.7s204.3-91.5,204.3-204.3S316.7,0,204.3,0ZM163.5,296.3V112.4l122.6,91.9Z'
-                      transform='translate(0 0)'
-                    >
-                    </path>
-                  </svg>
                 </div>
               </div>
-              <iframe
+              <video
                 style='
               position: absolute;
               width: 100%;
               height: 100%;
-              top: 0;
+              top: 0px;
               left: 0;
+              z-index: 2000;
             '
+                autoplay
+                muted
+              >
+                <source src='/video/Giới thiệu Safebooks.mp4' type='video/mp4' />
+              </video>
+              {{!-- <iframe
                 src='https://www.youtube.com/embed/{{banners.0.video}}?autoplay=1&mute=1&controls=0&loop=1&playlist={{banners.0.video}}&enablejsapi=1'
                 title='YouTube video player'
                 frameborder='0'
                 allow=' autoplay;loop'
                 allowfullscreen
               >
-              </iframe>
+              </iframe> --}}
             </div>
           </div>
 
@@ -132,15 +123,15 @@
 </section>
 <section>
   <div class='show-for-medium w-100'>
-    <iframe
-      style='width: 100%;'
-      src='https://www.youtube.com/embed/{{banners.0.video}}?autoplay=1&mute=1&controls=0&loop=1&playlist={{banners.0.video}}&enablejsapi=1'
-      title='YouTube video player'
-      frameborder='0'
-      allow=' autoplay;loop'
-      allowfullscreen
+    <video
+      style='
+              width: 100%;
+            '
+      autoplay
+      muted
     >
-    </iframe>
+      <source src='/video/Giới thiệu Safebooks.mp4' type='video/mp4' />
+    </video>
   </div>
 </section>
 

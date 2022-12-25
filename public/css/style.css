@@ -286,8 +286,14 @@ a:hover {
     transform: translateY(0);
   }
 }
+.swiper-container-banner {
+  width: 100%;
+  position: static;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
 .swiper-container,
-.swiper-container-banner,
 .swiper-container-comment,
 .swiper-container-article {
   width: 100%;
@@ -1191,7 +1197,7 @@ a:hover {
   height: 120%;
   overflow: hidden;
   left: 228px;
-  top: -85px;
+  top: -90px;
 }
 @media all and (max-width: 768px) {
   #VIDEO1728 > .ladi-video > .ladi-video-background {
