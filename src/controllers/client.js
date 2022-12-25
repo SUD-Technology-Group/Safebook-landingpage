@@ -20,7 +20,6 @@ const clientController = {
     const staffs = await staffService.get({}, '-_id -__v');
     const features = await featureService.get({}, '-_id -__v');
     const media = await mediaService.get({}, '-_id -__v');
-
     res.render('client', {
       title: 'Trang chủ',
       sections,
