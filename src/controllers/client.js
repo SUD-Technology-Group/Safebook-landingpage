@@ -50,8 +50,7 @@ const clientController = {
 
   // POST /dang-ky-dung-thu
   postTrialForm: catchAsync(async (req, res) => {
-    const { phone, email, company, mst, position } = req.body;
-    const name = req.body.firstname + ' ' + req.body.lastname;
+    const { name, phone, email, company, mst, position, calltime } = req.body;
 
     const mainOptions = {
       // thiết lập đối tượng, nội dung gửi mail
@@ -189,11 +188,21 @@ const clientController = {
                                                                         <td
                                                                             style='padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:600; color:rgba(0,0,0,.64)'
                                                                         >
-                                                                            Vị trí:</td>
+                                                                            Chức vụ:</td>
                                                                         <td
                                                                             style='padding: 10px; border-bottom: 1px solid #ededed; color: #455056;'
                                                                         >
                                                                             ${position}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td
+                                                                            style='padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:600; color:rgba(0,0,0,.64)'
+                                                                        >
+                                                                            Thời gian có thể nhận cuộc gọi trong ngày:</td>
+                                                                        <td
+                                                                            style='padding: 10px; border-bottom: 1px solid #ededed; color: #455056;'
+                                                                        >
+                                                                            ${calltime}</td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
