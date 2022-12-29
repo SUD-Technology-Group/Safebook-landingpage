@@ -199,7 +199,7 @@
                   required
                 />
                 <span class='error-info' res-key='FormRegister_TenantNotEmpty'>Vui lòng nhập MST</span>
-                <p style='color:dimgray; margin-top: 5px'>Lưu ý: khách hàng chuẩn bị mở DN điền sđt trường này</p>
+                <p style='color:dimgray; margin-top: 5px'>Lưu ý: khách hàng chuẩn bị mở DN điền sđt vào trường này</p>
               </div>
               <div class='wrap-input validate-input'>
                 <span class='input-label' res-key='FormRegister_Purpose'>Chức vụ:</span>
@@ -251,6 +251,21 @@
                         <input type='text' id='input-other' />
                       </label>
                     </div>
+                    <div class='wrap-input email-wrap validate-input' style="margin-top: 15px;">
+                      <span class='input-label' res-key='FormRegister_EmailLabel'>Thời gian có thể nhận cuộc gọi trong ngày</span>
+                      <input
+                        objname='jEmail'
+                        class='input ap-lg-input'
+                        type='email'
+                        name='email'
+                        placeholder-key='FormRegister_EmailPlaceholder'
+                        placeholder='Nhập thời gian'
+                      />
+                      <span class='error-info' res-key='FormRegister_EmailNotEmpty'>Vui lòng nhập email</span>
+                      <span objname='jExistInfo' class='account-exist-info'>
+
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <span class='error-info' res-key='FormRegister_PurposeEmpty'>Bạn chưa chọn </span>
@@ -268,10 +283,5 @@
       </div>
       <!--END-->
     </div>
-    <script>
-      const otherRadio = document.getElementById("radio-other"); const inputOther =
-      document.getElementById("input-other") inputOther.onchange = function() { otherRadio.value = inputOther.value;
-      console.log(otherRadio.value); }
-    </script>
   </body>
 </html>

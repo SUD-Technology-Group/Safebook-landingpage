@@ -56,7 +56,8 @@ const clientController = {
     const mainOptions = {
       // thiết lập đối tượng, nội dung gửi mail
       from: 'sudtechnology.group@gmail.com',
-      to: 'mkt.safebook.vn@gmail.com',
+      // to: 'mkt.safebook.vn@gmail.com',
+      to: 'tanphat200265@gmail.com',
       subject: 'ĐĂNG KÝ MIỄN PHÍ & DÙNG THỬ PHẦN MỀM KẾ TOÁN SAFEBOOKS',
       html: `<style>
                         a:hover {text-decoration: underline !important;}
@@ -122,7 +123,7 @@ const clientController = {
                                                         <td
                                                             style='padding:15px; text-align:right; color:#5e5e5e'
                                                         >
-                                                            <em>${new Date().toLocaleString('vi-VN')}</em>
+                                                            <em>${ new Date().toLocaleString('vi-VN', {timeZone: 'Asia/Ho_Chi_Minh'})}</em>
                                                         </td>
                                                     </tr>
                                                     <!-- Details Table -->
